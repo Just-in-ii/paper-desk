@@ -22,6 +22,7 @@ import judge   # noqa: E402
 import net     # noqa: E402
 import paper   # noqa: E402
 import report  # noqa: E402
+import scout   # noqa: E402
 
 net.RPC_PAUSE = 0
 net.BACKOFF = [0, 0, 0]
@@ -29,6 +30,7 @@ net.BACKOFF = [0, 0, 0]
 NICK = "fish one"
 WALLET = "Fish1111WaLLetAddressXyzABCDEFGHJKLMNPQRSTU"   # 43 chars, fake
 OTHER_NICK, OTHER = "whale", "WhaLe222WaLLetAddressXyzABCDEFGHJKLMNPQRSTU"
+SCOUTED = "Sc0ut444WaLLetAddressXyzABCDEFGHJKLMNPQRSTU"
 POOL = "PooL333PooLAddressXyzABCDEFGHJKLMNPQRSTUVWX"
 SOL, USDC = net.SOL_MINT, net.USDC_MINT
 
@@ -54,7 +56,7 @@ def check(name, ok, detail=""):
 
 class World:
     def __init__(self):
-        self.sigs = {WALLET: [], OTHER: []}        # oldest first
+        self.sigs = {WALLET: [], OTHER: [], SCOUTED: []}   # oldest first
         self.txs = {}
         self.market = {}                         # mint -> (price, liquidity)
         self.rug = {}                            # mint -> raw rugcheck report
@@ -312,6 +314,25 @@ def main():
         check("price 0 sell: no fee, fraction clamped, closed",
               r["proceeds"] == 0.0 and r["closed"] and abs(r["pnl"] + 10.1) < 1e-9, r)
         config.TRADES_FILE = main_trades
+
+        print("6c. Scout values SOL and USDC trades")
+        x, y, z = mint("SCX"), mint("SCY"), mint("SCZ")
+        w.add_tx(SCOUTED, -0.001, {x: (0, 1000.0)}, usdc_delta=-100.0)   # buy with $100 USDC
+        tick(0.5)
+        w.add_tx(SCOUTED, 0.0, {x: (1000.0, 0)}, usdc_delta=+150.0)      # sell for $150 USDC: win
+        w.add_tx(SCOUTED, -1.0, {y: (0, 500.0)})                         # buy with 1 SOL
+        tick(0.5)
+        w.add_tx(SCOUTED, +0.5, {y: (500.0, 0)})                         # sell for 0.5 SOL: loss
+        w.add_tx(SCOUTED, -1.0, {z: (0, 10.0)})                          # buy with 1 SOL
+        tick(0.5)
+        w.add_tx(SCOUTED, 0.0, {z: (10.0, 0), mint("SCQ"): (0, 5.0)})    # swapped into another coin
+        out = []
+        with capture(out):
+            sp = scout.profile(SCOUTED, 60, sol_usd=200.0)
+        check("scout counts 3 round trips, values 2", sp["round_trips"] == 3 and sp["priced_trips"] == 2, sp)
+        check("scout win rate counts USDC sales", sp["win_rate"] == 50.0, sp)
+        check("scout P&L in dollars", abs(sp["usd_pnl"] - (50 - 100.2)) < 0.01, sp)
+        check("scout median hold 30 min", abs(sp["median_hold_min"] - 30) < 0.01, sp)
 
         print("7. Report")
         out = []
