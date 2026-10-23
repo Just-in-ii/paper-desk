@@ -72,7 +72,7 @@ def _request(url, body=None, headers=None, label=None):
                 detail = e.read().decode("utf-8", "replace")[:200]
             except Exception:
                 pass
-            raise NetError("%s: HTTP %d %s" % (label, e.code, detail).strip())
+            raise NetError(("%s: HTTP %d %s" % (label, e.code, detail)).strip())
         except (urllib.error.URLError, OSError, ValueError) as e:
             text = str(getattr(e, "reason", e))
             if "CERTIFICATE_VERIFY_FAILED" in text:

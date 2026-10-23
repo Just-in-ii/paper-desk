@@ -334,6 +334,29 @@ def main():
         check("scout P&L in dollars", abs(sp["usd_pnl"] - (50 - 100.2)) < 0.01, sp)
         check("scout median hold 30 min", abs(sp["median_hold_min"] - 30) < 0.01, sp)
 
+        print("6d. Real HTTP error handling (below the fakes)")
+        import urllib.error
+        import urllib.request
+        real_urlopen, real_request = urllib.request.urlopen, net._request
+
+        def fake_urlopen(code):
+            def opener(req, timeout=None, context=None):
+                raise urllib.error.HTTPError(req.full_url, code, "err", {}, io.BytesIO(b"not found"))
+            return opener
+        try:
+            for code, expect in ((404, "HTTP 404"), (429, "gave up"), (503, "gave up")):
+                urllib.request.urlopen = fake_urlopen(code)
+                try:
+                    real_request("https://example.invalid/x", label="Test")
+                    got = "no error"
+                except net.NetError as e:
+                    got = str(e)
+                except Exception as e:
+                    got = "%s: %s" % (type(e).__name__, e)
+                check("HTTP %d becomes a plain NetError" % code, expect in got, got)
+        finally:
+            urllib.request.urlopen = real_urlopen
+
         print("7. Report")
         out = []
         with capture(out):
