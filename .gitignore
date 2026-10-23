@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+rpc_url.txt
+wallets.txt
+state.json.tmp
+.DS_Store

@@ -1,0 +1,40 @@
+# Runs the paper desk on GitHub servers every 15 minutes and saves the results.
+# Run it by hand any time: Actions tab -> paper-desk -> Run workflow.
+name: paper-desk
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"   # every 15 min; GitHub often starts it a few minutes late, that is normal
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: paper-desk
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check wallets and prices
+        env:
+          WALLETS: ${{ secrets.WALLETS }}
+          RPC_URL: ${{ secrets.RPC_URL }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          python3 desk.py --once
+          python3 report.py
+
+      - name: Save results
+        run: |
+          git config user.name "paper-desk"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet && exit 0
+          git commit -q -m "desk update $(date -u +'%d %b %H:%M') UTC"
+          git pull -q --rebase && git push -q
