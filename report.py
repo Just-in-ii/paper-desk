@@ -96,7 +96,7 @@ def build(state, trades, decisions, quotes, quotes_ok, at=None):
     L.append("PAPER DESK REPORT  %s UTC" % stamp.strftime("%a %d %b %Y, %H:%M"))
     if not state:
         L += ["", "The desk hasn't run yet. Once it has, this page fills in.",
-              "If this stays, check the WALLETS secret (see README.md)."]
+              "If this stays, check the WALLETS secret (see your Paper Desk guide)."]
         return "\n".join(L)
 
     started = state.get("started", at)

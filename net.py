@@ -26,7 +26,7 @@ RUGCHECK_URL = "https://api.rugcheck.xyz/v1/tokens/{}/report"
 DEXSCREENER_URL = "https://api.dexscreener.com/tokens/v1/solana/{}"
 
 CERT_HELP = ("Your computer couldn't check the website's security certificate. "
-             "See 'Troubleshooting' in README.md (usually fixed with: pip3 install certifi).")
+             "See Troubleshooting in your Paper Desk guide (usually fixed with: pip3 install certifi).")
 
 _ADDRESS_RE = re.compile(r"[1-9A-HJ-NP-Za-km-z]{32,44}")
 

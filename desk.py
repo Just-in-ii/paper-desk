@@ -19,7 +19,7 @@ import paper
 DECISION_COLUMNS = ["time", "leader", "symbol", "verdict", "reason", "price_then",
                     "liquidity_usd", "risk_score", "mint"]
 
-NO_WALLETS = "No wallets yet. Add them to the WALLETS secret on GitHub (see README.md)."
+NO_WALLETS = "No wallets yet. Add them to the WALLETS secret on GitHub (see your Paper Desk guide)."
 
 
 def wallet_key(address):
