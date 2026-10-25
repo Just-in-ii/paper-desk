@@ -4,7 +4,7 @@ name: paper-desk
 
 on:
   schedule:
-    - cron: "*/15 * * * *"   # every 15 min; GitHub often starts it a few minutes late, that is normal
+    - cron: "7,22,37,52 * * * *"   # every 15 min, off the busy :00/:15 marks; GitHub may still start it late
   workflow_dispatch:
 
 permissions:
