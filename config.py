@@ -19,6 +19,7 @@ TICKET_USD = 10.0            # flat size of every buy; never sized up after a wi
 MAX_POSITIONS = 5            # most coins held at once
 MAX_BUYS_PER_DAY = 10        # daily buy cap; resets each calendar day (UTC)
 REBUY_COOLDOWN_HOURS = 24    # no re-entry into a coin we just left
+MAX_BUY_AGE_MINUTES = 60     # a leader buy we only spot later than this is too late to chase
 
 # ---------------------------------------------------------------------------
 # 3. Honest fills (so paper results don't flatter)
@@ -40,8 +41,8 @@ MAX_HOLD_HOURS = 168         # close anything still open after 7 days
 # ---------------------------------------------------------------------------
 TOKEN = {
     "max_risk_score": 50,        # Rugcheck risk score 0-100 (higher = riskier)
-    "max_top10_pct": 30,         # top-10 holders' share, pools excluded
-    "min_lp_locked_pct": 90,     # liquidity locked; only used when Rugcheck knows it
+    "max_top10_pct": 30,         # top-10 holders' share, pools excluded; unknown = skip
+    "min_lp_locked_pct": 90,     # liquidity locked, weighted by pool size; only used when Rugcheck knows it
     "max_insiders": 0,           # linked insider wallets allowed
     "min_liquidity_usd": 10000,  # minimum market liquidity to enter
 }
@@ -63,7 +64,8 @@ AI_MIN_CONFIDENCE = 0.65     # a COPY less sure than this is treated as SKIP
 # 8. Plumbing
 # ---------------------------------------------------------------------------
 POLL_SECONDS = 60            # loop interval when running on your own computer
-MAX_TX_PER_CHECK = 100       # transactions read per wallet per run
+MAX_TX_PER_CHECK = 100       # transactions read per wallet per run; any backlog waits for the next run
+SIG_LOOKBACK = 1000          # how far back we search a wallet's history for where we left off
 
 STATE_FILE = os.path.join(HERE, "state.json")
 TRADES_FILE = os.path.join(HERE, "trades.csv")

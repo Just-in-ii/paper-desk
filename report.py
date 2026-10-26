@@ -11,7 +11,8 @@ import config
 import net
 import paper
 
-DESK_LIMITS = ("max_positions", "daily_limit", "out_of_cash")
+# Skips about the desk's limits or timing, not the coin: the filter check leaves them out.
+DESK_LIMITS = ("max_positions", "daily_limit", "out_of_cash", "late", "leader_already_sold")
 FOOTER = ("Not real money. Fills include slippage and fees to stay honest, "
           "but real trades would land later than the leader's and could be worse.")
 
@@ -73,8 +74,12 @@ def episodes(trades):
 
 
 def filter_check(decisions, quotes, since):
-    """Median coin move since the decision: copied vs filtered out."""
-    copied, rejected = [], []
+    """Median coin move since the decision: copied vs filtered out.
+
+    Each coin counts once, so a leader buying it five times doesn't weigh it
+    five times: from its first COPY if we ever copied it, else its first SKIP.
+    """
+    first = {}
     for d in decisions:
         t = parse_time(d["time"])
         then = num(d["price_then"])
@@ -82,6 +87,12 @@ def filter_check(decisions, quotes, since):
             continue
         if d["verdict"] == "SKIP" and first_word(d["reason"]) in DESK_LIMITS:
             continue                      # desk limits say nothing about the filter
+        prev = first.get(d["mint"])
+        if prev is None or (d["verdict"] == "COPY" and prev["verdict"] != "COPY"):
+            first[d["mint"]] = d
+    copied, rejected = [], []
+    for d in first.values():
+        then = num(d["price_then"])
         q = quotes.get(d["mint"])
         now_price = q["price"] if q and (q.get("liquidity") or 0) >= config.RUG_LIQUIDITY_USD else 0.0
         move = (now_price / then - 1) * 100
@@ -153,7 +164,8 @@ def build(state, trades, decisions, quotes, quotes_ok, at=None):
     copied = [d for d in decisions if d["verdict"] == "COPY"]
     skipped = [d for d in decisions if d["verdict"] != "COPY"]
     L += ["", "DECISIONS",
-          "  leaders bought %d coins: copied %d, skipped %d" % (len(decisions), len(copied), len(skipped))]
+          "  %d decisions on %d coins: copied %d, skipped %d" % (
+              len(decisions), len({d["mint"] for d in decisions}), len(copied), len(skipped))]
     counts = {}
     for d in skipped:
         w = first_word(d["reason"])
@@ -162,19 +174,20 @@ def build(state, trades, decisions, quotes, quotes_ok, at=None):
         L.append("  %4d  %s" % (n, w))
 
     # LEADERS
-    leaders = {}
+    leaders = {}                          # nickname -> [coins seen, coins copied, realised P&L]
     for d in decisions:
-        r = leaders.setdefault(d["leader"], [0, 0, 0.0])
-        r[0] += 1
-        r[1] += d["verdict"] == "COPY"
+        r = leaders.setdefault(d["leader"], [set(), set(), 0.0])
+        r[0].add(d["mint"])
+        if d["verdict"] == "COPY":
+            r[1].add(d["mint"])
     for t in trades:
         if t["pnl_usd"]:
-            leaders.setdefault(t["leader"], [0, 0, 0.0])[2] += num(t["pnl_usd"]) or 0.0
+            leaders.setdefault(t["leader"], [set(), set(), 0.0])[2] += num(t["pnl_usd"]) or 0.0
     L += ["", "LEADERS"]
     if leaders:
-        L.append("  %-12s %5s %6s %9s" % ("nickname", "buys", "copied", "realised"))
+        L.append("  %-12s %5s %6s %9s" % ("nickname", "coins", "copied", "realised"))
         for nick, (seen, cop, pnl) in sorted(leaders.items(), key=lambda kv: -kv[1][2]):
-            L.append("  %-12s %5d %6d %9s" % (nick[:12], seen, cop, signed_money(pnl)))
+            L.append("  %-12s %5d %6d %9s" % (nick[:12], len(seen), len(cop), signed_money(pnl)))
     else:
         L.append("  no leader buys seen yet")
 

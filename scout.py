@@ -68,14 +68,19 @@ def profile(address, n=60, sol_usd=None):
 
 
 def verdict(p):
+    """Bot check first (it needs no history), then judge only on enough coins."""
     if p["per_day"] > 100:
         return "Bot: more than 100 trades a day. Skip it."
-    if p["median_hold_min"] is not None and p["median_hold_min"] < 5:
-        return "Too fast to copy: it usually sells within 5 minutes."
-    if p["win_rate"] is not None and p["win_rate"] < 45:
-        return "Don't copy: it loses on most coins."
     if p["round_trips"] < 5:
         return "Too little history to judge. Try again with N = 200."
+    if p["median_hold_min"] is not None and p["median_hold_min"] < 5:
+        return "Too fast to copy: it usually sells within 5 minutes."
+    if p["priced_trips"] < 5:
+        return "Too few coins we could value to judge its results. Try again with N = 200."
+    if p["win_rate"] < 45:
+        return "Don't copy: it loses on most coins."
+    if p["usd_pnl"] < 0:
+        return "Don't copy: it wins often but loses more on its losers than it makes."
     return "Looks followable."
 
 

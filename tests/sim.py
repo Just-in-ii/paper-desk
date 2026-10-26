@@ -5,6 +5,7 @@ python3 tests/sim.py
 import ast
 import contextlib
 import glob
+import http.client
 import io
 import json
 import os
@@ -26,6 +27,7 @@ import scout   # noqa: E402
 
 net.RPC_PAUSE = 0
 net.BACKOFF = [0, 0, 0]
+REAL_RPC = net.rpc
 
 NICK = "fish one"
 WALLET = "Fish1111WaLLetAddressXyzABCDEFGHJKLMNPQRSTU"   # 43 chars, fake
@@ -60,6 +62,8 @@ class World:
         self.txs = {}
         self.market = {}                         # mint -> (price, liquidity)
         self.rug = {}                            # mint -> raw rugcheck report
+        self.held = {}                           # (wallet, mint) -> balance now
+        self.lagging = False                     # balances read from a node that's behind
         self.dex_down = False
         self.rpc_down_for = set()
         self.n = 0
@@ -81,6 +85,8 @@ class World:
                                       "uiAmount": amt, "uiAmountString": repr(float(amt))}}
         idx = 3
         for m, (before, after) in token_changes.items():
+            if not err:
+                self.held[(wallet, m)] = after
             if before:
                 pre_t.append(bal(idx, m, wallet, before))
             if after:
@@ -106,15 +112,18 @@ class World:
             if wallet in self.rpc_down_for:
                 raise net.NetError("Solana RPC getSignaturesForAddress: HTTP 429")
             newest_first = list(reversed(self.sigs[wallet]))
-            until = opts.get("until")
-            out = []
-            for s in newest_first:
-                if s["signature"] == until:
-                    break
-                out.append(s)
-            return out[:opts.get("limit", 1000)]
+            if opts.get("before"):
+                names = [s["signature"] for s in newest_first]
+                newest_first = newest_first[names.index(opts["before"]) + 1:]
+            return newest_first[:opts.get("limit", 1000)]
         if method == "getTransaction":
             return self.txs.get(params[0])
+        if method == "getTokenAccountsByOwner":
+            amt = 0.0 if self.lagging else self.held.get((params[0], params[1]["mint"]), 0.0)
+            accounts = [{"pubkey": "TokenAcct", "account": {"data": {"parsed": {"info": {
+                "mint": params[1]["mint"], "owner": params[0],
+                "tokenAmount": {"uiAmount": amt, "uiAmountString": repr(float(amt))}}}}}}] if amt else []
+            return {"context": {"slot": 1}, "value": accounts}
         raise AssertionError(method)
 
     def get_json(self, url):
@@ -207,6 +216,17 @@ def main():
         check("no positions on baseline", d.paper.positions == {})
         st = json.load(open(config.STATE_FILE))
         check("last_sig keyed by hash", desk.wallet_key(WALLET) in st["last_sig"])
+
+        print("1b. Old state with a raw signature is migrated, nothing replayed")
+        st["last_sig"][desk.wallet_key(WALLET)] = w.sigs[WALLET][-1]["signature"]
+        with open(config.STATE_FILE, "w") as f:
+            json.dump(st, f)
+        d = desk.Desk({NICK: WALLET})
+        check("raw signature hashed on load",
+              d.paper.s["last_sig"][desk.wallet_key(WALLET)] == desk.sig_key(w.sigs[WALLET][-1]["signature"]))
+        tick(); cycle(d)
+        check("migrated state replays nothing", not os.path.exists(config.DECISIONS_FILE)
+              and not os.path.exists(config.TRADES_FILE))
 
         print("2. Four buys in one cycle")
         for m, sym in ((GOOD, "GOOD"), (BAD, "BAD"), (CRASH, "CRASH"), (RUG, "RUG")):
@@ -333,6 +353,15 @@ def main():
         check("scout win rate counts USDC sales", sp["win_rate"] == 50.0, sp)
         check("scout P&L in dollars", abs(sp["usd_pnl"] - (50 - 100.2)) < 0.01, sp)
         check("scout median hold 30 min", abs(sp["median_hold_min"] - 30) < 0.01, sp)
+        base = {"per_day": 10, "round_trips": 8, "priced_trips": 8, "median_hold_min": 60,
+                "win_rate": 60.0, "usd_pnl": 50.0}
+        check("scout: a good wallet looks followable", scout.verdict(base) == "Looks followable.")
+        check("scout: two coins is too little history, not a 'don't copy'",
+              scout.verdict(dict(base, round_trips=2, priced_trips=2, win_rate=0.0)).startswith("Too little"))
+        check("scout: too few valued coins to judge the win rate",
+              scout.verdict(dict(base, priced_trips=3, win_rate=0.0)).startswith("Too few coins"))
+        check("scout: wins often but loses money -> don't copy",
+              scout.verdict(dict(base, usd_pnl=-20.0)).startswith("Don't copy"))
 
         print("6d. Real HTTP error handling (below the fakes)")
         import urllib.error
@@ -354,6 +383,36 @@ def main():
                 except Exception as e:
                     got = "%s: %s" % (type(e).__name__, e)
                 check("HTTP %d becomes a plain NetError" % code, expect in got, got)
+
+            def cut_off(req, timeout=None, context=None):
+                raise http.client.IncompleteRead(b"")
+            urllib.request.urlopen = cut_off
+            try:
+                real_request("https://example.invalid/x", label="Test")
+                got = "no error"
+            except net.NetError as e:
+                got = str(e)
+            except Exception as e:
+                got = "%s: %s" % (type(e).__name__, e)
+            check("connection cut mid-reply is retried, then a NetError", "gave up" in got, got)
+
+            saved_url = config.RPC_URL
+            for bad, opener in (("mainnet.helius-rpc.com/?api-key=SECRET123", real_urlopen),
+                                ("https://mainnet.helius-rpc.com/?api-key=SEC RET123", None)):
+                def invalid(req, timeout=None, context=None):
+                    raise http.client.InvalidURL("URL can't contain control characters. %r" % req.selector)
+                urllib.request.urlopen = opener or invalid
+                config.RPC_URL = bad
+                try:
+                    REAL_RPC("getHealth", [])
+                    got = "no error"
+                except net.NetError as e:
+                    got = str(e)
+                except Exception as e:
+                    got = "%s: %s" % (type(e).__name__, e)
+                check("bad RPC_URL: plain advice, key never shown (%s)" % bad[:12],
+                      "RET123" not in got and "https://" in got, got)
+            config.RPC_URL = saved_url
         finally:
             urllib.request.urlopen = real_urlopen
 
@@ -381,12 +440,17 @@ def main():
                 {"time": t, "verdict": "SKIP", "reason": "authority_open", "price_then": "1", "mint": "B"},
                 {"time": t, "verdict": "SKIP", "reason": "max_positions", "price_then": "1", "mint": "C"},
                 {"time": t, "verdict": "SKIP", "reason": "rugged", "price_then": "1", "mint": "D"},
-                {"time": paper.stamp(now - 8 * 86400), "verdict": "COPY", "reason": "x", "price_then": "1", "mint": "E"}]
+                {"time": paper.stamp(now - 8 * 86400), "verdict": "COPY", "reason": "x", "price_then": "1", "mint": "E"},
+                {"time": t, "verdict": "SKIP", "reason": "authority_open", "price_then": "1", "mint": "B"},
+                {"time": t, "verdict": "SKIP", "reason": "thin_liquidity $4000", "price_then": "1", "mint": "F"},
+                {"time": t, "verdict": "COPY", "reason": "passed safety filter", "price_then": "2", "mint": "F"}]
         q = {"A": {"price": 2.0, "liquidity": 50000}, "B": {"price": 0.5, "liquidity": 500},
-             "C": {"price": 9.0, "liquidity": 50000}, "E": {"price": 9.0, "liquidity": 50000}}
+             "C": {"price": 9.0, "liquidity": 50000}, "E": {"price": 9.0, "liquidity": 50000},
+             "F": {"price": 3.0, "liquidity": 50000}}
         c, rj = report.filter_check(fake, q, now - 7 * 86400)
-        check("filter check: copied move", c == [100.0], c)
-        check("filter check: thin market counts as zero, desk limits left out",
+        check("filter check: copied move, a coin copied after a skip counts as copied",
+              sorted(c) == [50.0, 100.0], c)
+        check("filter check: thin market counts as zero, desk limits left out, repeats once",
               sorted(rj) == [-100.0, -100.0], rj)
 
         print("8. AI judge")
@@ -444,6 +508,14 @@ def main():
         check("fact_kill: top10", judge.fact_kill(dict(rc, top10_pct=45.5), dx) == "top10_hold 45.5%")
         check("fact_kill: lp", judge.fact_kill(dict(rc, lp_locked_pct=50), dx) == "lp_unlocked 50%")
         check("fact_kill: no price", judge.fact_kill(rc, None) == "no_price")
+        check("fact_kill: unknown holder spread is a skip",
+              judge.fact_kill(dict(rc, top10_pct=None), dx) == "no_holder_data")
+        two_pools = [{"lp": {"lpLockedPct": 100, "baseUSD": 500, "quoteUSD": 500}},
+                     {"lp": {"lpLockedPct": 0, "baseUSD": 20000, "quoteUSD": 20000}}]
+        check("lp lock weighted by pool size: a small locked pool can't vouch for a big open one",
+              net._lp_locked_pct(two_pools) == 2.44, net._lp_locked_pct(two_pools))
+        check("lp lock without pool sizes: the least-locked pool decides",
+              net._lp_locked_pct([{"lp": {"lpLockedPct": 100}}, {"lp": {"lpLockedPct": 40}}]) == 40)
 
         print("10. Wallet parsing")
         parsed = config.parse_wallets(
@@ -482,8 +554,112 @@ def main():
         if WALLET in all_console or OTHER in all_console:
             leaks.append("console")
         check("no wallet address in any output file or console", not leaks, leaks)
+        state_text = open(config.STATE_FILE).read()
+        raw = [s for s in w.txs if '"%s"' % s in state_text]
+        check("no raw transaction signature in state.json", not raw, raw)
 
-        print("12. Syntax (Python 3.8)")
+        print("12. Exits, gaps and timing")
+        sub = os.path.join(tmp, "s12")
+        os.mkdir(sub)
+        for name in ("STATE_FILE", "TRADES_FILE", "DECISIONS_FILE"):
+            setattr(config, name, os.path.join(sub, os.path.basename(getattr(config, name))))
+        w = World()
+        net.rpc = w.rpc
+        net.get_json = w.get_json
+        d = desk.Desk({NICK: WALLET})
+        key = desk.wallet_key(WALLET)
+        w.add_tx(WALLET, -0.01, {})
+        tick(); cycle(d)
+
+        def copy(name):
+            m = mint(name)
+            w.market[m] = (0.001, 50000.0)
+            w.rug[m] = rug_report(name)
+            w.add_tx(WALLET, -0.5, {m: (0, 10000.0)})
+            tick(); cycle(d)
+            return m
+
+        def exits(m):
+            return [t for t in rows(config.TRADES_FILE) if t["mint"] == m and t["action"] != "BUY"]
+
+        pend = copy("PEND")
+        del w.market[pend]                       # pool pulled, then the leader sells
+        w.add_tx(WALLET, +0.01, {pend: (10000.0, 0)})
+        tick(); cycle(d)
+        check("leader sells with no market: no sale at the old price",
+              not exits(pend) and d.paper.positions[pend].get("exit_pending") == 1.0, exits(pend))
+        w.market[pend] = (0.0004, 20000.0)
+        tick(); cycle(d)
+        sold = exits(pend)
+        check("then we sell at the first live price",
+              len(sold) == 1 and abs(float(sold[0]["price"]) - 0.0004 * 0.97) < 1e-12
+              and pend not in d.paper.positions, sold)
+
+        gone = copy("GONE")
+        del w.market[gone]
+        w.add_tx(WALLET, +0.01, {gone: (10000.0, 0)})
+        for _ in range(config.RUG_MISSES):
+            tick(); cycle(d)
+        sold = exits(gone)
+        check("market never comes back: written off at $0",
+              len(sold) == 1 and sold[0]["reason"].startswith("rugged") and float(sold[0]["cash_flow_usd"]) == 0, sold)
+
+        busy = copy("BUSY")
+        w.add_tx(WALLET, +0.5, {busy: (10000.0, 0)})
+        for _ in range(150):
+            w.add_tx(WALLET, -0.0001, {})
+        tick(); cycle(d)
+        sold = exits(busy)
+        check("busy wallet: a sell 150 transactions back is still read and mirrored",
+              len(sold) == 1 and sold[0]["reason"] == "fish one sold 100%", sold)
+        check("busy wallet: backlog noted", "reading the oldest 100 now, the rest next run" in console[-1], console[-1])
+        tick(); cycle(d)
+        check("backlog cleared on the next run",
+              d.paper.s["last_sig"][key] == desk.sig_key(w.sigs[WALLET][-1]["signature"]))
+
+        hide = copy("HIDE")
+        w.held[(WALLET, hide)] = 50.0            # sold all but dust somewhere we never read
+        tick(); cycle(d)
+        sold = exits(hide)
+        check("leader down to dust in a transaction we missed: we sell too",
+              len(sold) == 1 and sold[0]["reason"] == "fish one no longer holds it", sold)
+
+        w.lagging = True                         # this run's balances predate the leader's buy
+        lag = copy("LAG")
+        w.lagging = False
+        check("a coin bought this run isn't sold off a lagging balance", lag in d.paper.positions)
+        w.add_tx(WALLET, +0.5, {lag: (10000.0, 0)})
+        tick(); cycle(d)
+
+        rnd = mint("ROUND")
+        w.market[rnd] = (0.001, 50000.0)
+        w.rug[rnd] = rug_report("ROUND")
+        w.add_tx(WALLET, -0.5, {rnd: (0, 10000.0)})
+        w.add_tx(WALLET, +0.6, {rnd: (10000.0, 0)})
+        tick(); cycle(d)
+        dec = [r for r in rows(config.DECISIONS_FILE) if r["mint"] == rnd]
+        check("leader bought and sold before we looked: not copied",
+              rnd not in d.paper.positions and [r["reason"] for r in dec] == ["leader_already_sold"], dec)
+
+        late = mint("LATE")
+        w.market[late] = (0.001, 50000.0)
+        w.rug[late] = rug_report("LATE")
+        w.add_tx(WALLET, -0.5, {late: (0, 10000.0)})
+        tick(2); cycle(d)
+        dec = [r for r in rows(config.DECISIONS_FILE) if r["mint"] == late]
+        check("a buy spotted 2 hours late isn't chased",
+              late not in d.paper.positions and [r["reason"] for r in dec] == ["late 120min"], dec)
+
+        saved_lookback, config.SIG_LOOKBACK = config.SIG_LOOKBACK, 200
+        for _ in range(250):
+            w.add_tx(WALLET, -0.0001, {})
+        tick(); cycle(d)
+        config.SIG_LOOKBACK = saved_lookback
+        check("lost our place: carry on from the newest, and say so",
+              "skipping to the newest 100" in console[-1]
+              and d.paper.s["last_sig"][key] == desk.sig_key(w.sigs[WALLET][-1]["signature"]), console[-1])
+
+        print("13. Syntax (Python 3.8)")
         bad = []
         for path in glob.glob(os.path.join(ROOT, "*.py")) + glob.glob(os.path.join(ROOT, "tests", "*.py")):
             try:

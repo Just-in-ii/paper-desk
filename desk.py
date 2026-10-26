@@ -26,10 +26,19 @@ def wallet_key(address):
     return hashlib.sha256(address.encode("utf-8")).hexdigest()[:16]
 
 
+def sig_key(signature):
+    """Signatures are stored hashed too: a block explorer turns a raw one into the wallet."""
+    return hashlib.sha256(signature.encode("utf-8")).hexdigest()[:16]
+
+
 class Desk:
     def __init__(self, wallets, state_path=None):
         self.wallets = dict(wallets)
         self.paper = paper.Paper(state_path)
+        last_sig = self.paper.s["last_sig"]
+        for key, value in last_sig.items():   # older state files hold raw signatures
+            if len(value) != 16:
+                last_sig[key] = sig_key(value)
 
     def say(self, msg):
         """Print, with any wallet address swapped for its nickname, just in case."""
@@ -57,12 +66,18 @@ def quote(mint):
         return None
 
 
-def on_buy(desk, nick, ev):
+def on_buy(desk, nick, ev, left_with=None):
+    """left_with: the leader's balance of this coin after the last trade we've read."""
     p = desk.paper
     mint = ev["mint"]
     why = p.blocked(mint)
     if why in ("already_holding", "cooldown"):
         return
+    age = paper.now() - ev["time"] if ev.get("time") else 0
+    if not why and left_with is not None and left_with < 0.01 * ev.get("after", 0):
+        why = "leader_already_sold"              # in and out before we saw either: we'd buy their exit
+    elif not why and age > config.MAX_BUY_AGE_MINUTES * 60:
+        why = "late %dmin" % (age // 60)          # the move we'd be copying is long gone
     dx = quote(mint)
     if why:
         symbol = (dx or {}).get("symbol") or mint[:6]
@@ -79,56 +94,126 @@ def on_buy(desk, nick, ev):
     desk.say("  %s bought %s -> %s (%s)" % (nick, symbol, verdict, reason))
     if verdict == "COPY":
         p.buy(mint, dx["price"], symbol, nick, reason)
+        p.positions[mint]["leader_held"] = ev.get("after", 0.0)
         desk.say("  paper BUY $%.0f of %s at $%s" % (config.TICKET_USD, symbol, paper.fmt(dx["price"], 6)))
 
 
-def on_sell(desk, nick, ev):
+def on_sell(desk, nick, ev, why=None):
     p = desk.paper
-    pos = p.positions.get(ev["mint"])
+    mint = ev["mint"]
+    pos = p.positions.get(mint)
     if not config.MIRROR_LEADER_SELLS or not pos or pos["leader"] != nick:
         return
-    dx = quote(ev["mint"])
-    price = dx["price"] if dx else None   # None -> last known price
-    pct = round(ev["fraction"] * 100)
-    r = p.sell(ev["mint"], ev["fraction"], price, "%s sold %d%%" % (nick, pct))
-    if r:
-        desk.say("  %s sold %d%% of %s -> we sell too (P&L $%+.2f)" % (nick, pct, pos["symbol"], r["pnl"]))
+    why = why or "%s sold %d%%" % (nick, round(ev["fraction"] * 100))
+    dx = quote(mint)
+    if not dx or (dx.get("liquidity") or 0) < config.RUG_LIQUIDITY_USD:
+        # Selling at the last price seen would book a rug as if we got out in time.
+        p.follow_out(mint, ev["fraction"])
+        desk.say("  %s: %s -> no market right now, we sell at the first live price" % (pos["symbol"], why))
+        return
+    r = p.sell(mint, ev["fraction"], dx["price"], why)
+    desk.say("  %s: %s -> we sell too (P&L $%+.2f)" % (pos["symbol"], why, r["pnl"]))
+
+
+def unread(address, last):
+    """Signatures newer than the one we stopped at, newest first, and whether we found it."""
+    out, before = [], None
+    while len(out) < config.SIG_LOOKBACK:
+        page = net.signatures(address, config.MAX_TX_PER_CHECK, before=before)
+        keys = [sig_key(entry["signature"]) for entry in page]
+        if last in keys:
+            return out + page[:keys.index(last)], True
+        out += page
+        if len(page) < config.MAX_TX_PER_CHECK:
+            break                                # that's the wallet's whole history
+        before = page[-1]["signature"]
+    return out, False
 
 
 def check_wallet(desk, nick, address):
     p = desk.paper
     key = wallet_key(address)
     last = p.s["last_sig"].get(key)
-    sigs = net.signatures(address, config.MAX_TX_PER_CHECK, until=last)
     if not last:
+        sigs = net.signatures(address, 1)
         if sigs:
-            p.s["last_sig"][key] = sigs[0]["signature"]
+            p.s["last_sig"][key] = sig_key(sigs[0]["signature"])
             p.save()
         desk.say("watching %s from now on" % nick)
         return
-    if len(sigs) >= config.MAX_TX_PER_CHECK:
-        desk.say("  %s made %d+ transactions since last run (very busy, maybe a bot)"
-                 % (nick, config.MAX_TX_PER_CHECK))
-    for entry in reversed(sigs):                 # oldest first
-        sig = entry["signature"]
+    sigs, found = unread(address, last)
+    if found:
+        todo = sigs[::-1][:config.MAX_TX_PER_CHECK]      # oldest first; a backlog waits for next run
+        if len(sigs) > len(todo):
+            desk.say("  %s has %d new transactions: reading the oldest %d now, the rest next run"
+                     % (nick, len(sigs), len(todo)))
+    else:
+        todo = sigs[:config.MAX_TX_PER_CHECK][::-1]      # lost our place: carry on from the newest
+        if len(sigs) >= config.SIG_LOOKBACK:
+            desk.say("  %s made %d+ transactions since last run (very busy, maybe a bot); "
+                     "skipping to the newest %d" % (nick, len(sigs), len(todo)))
+
+    # Read the whole batch before acting, so a buy the leader already sold isn't copied.
+    reads = []
+    for entry in todo:
+        events = []
         if not entry.get("err"):
-            tx = net.transaction(sig)            # a NetError here stops this wallet; retried next run
             try:
-                for ev in net.swaps(tx, address):
-                    if ev["side"] == "BUY":
-                        on_buy(desk, nick, ev)
-                    else:
-                        on_sell(desk, nick, ev)
-            except net.NetError:
-                raise
+                tx = net.transaction(entry["signature"])
+            except net.NetError as e:
+                if not reads:
+                    raise
+                desk.say("  stopped reading %s early (%s); the rest next run" % (nick, e))
+                break
+            try:
+                events = net.swaps(tx, address)
             except Exception as e:               # an odd transaction is skipped, not retried forever
                 desk.say("  skipped one odd %s transaction: %s: %s" % (nick, type(e).__name__, e))
-        p.s["last_sig"][key] = sig
+        reads.append((entry["signature"], events))
+    left_with = {}
+    for _, events in reads:
+        for ev in events:
+            left_with[ev["mint"]] = ev.get("after", 0.0)
+
+    for sig, events in reads:
+        for ev in events:
+            try:
+                if ev["side"] == "BUY":
+                    on_buy(desk, nick, ev, left_with.get(ev["mint"]))
+                else:
+                    on_sell(desk, nick, ev)
+            except Exception as e:
+                desk.say("  skipped one odd %s transaction: %s: %s" % (nick, type(e).__name__, e))
+        p.s["last_sig"][key] = sig_key(sig)
         p.save()                                 # after every transaction: a crash never replays a trade
+
+
+def check_leaders_still_hold(desk, run_started):
+    """Catch exits we never saw (an odd transaction, a wallet too busy to read in full):
+    if a leader has dumped a coin we copied from them, we sell it too.
+
+    Coins bought this run wait for the next: a node a few seconds behind could
+    still show the leader's balance from before their buy.
+    """
+    if not config.MIRROR_LEADER_SELLS:
+        return
+    p = desk.paper
+    for mint, pos in list(p.positions.items()):
+        address = desk.wallets.get(pos["leader"])
+        if not address or pos["opened"] >= int(run_started) or pos.get("exit_pending", 0.0) >= 0.999:
+            continue
+        try:
+            held = net.token_balance(address, mint)
+        except net.NetError:
+            continue                             # can't tell this run
+        if held <= 0.01 * pos.get("leader_held", 0.0):
+            on_sell(desk, pos["leader"], {"mint": mint, "fraction": 1.0},
+                    "%s no longer holds it" % pos["leader"])
 
 
 def cycle(desk):
     p = desk.paper
+    started = paper.now()
     for nick, address in desk.wallets.items():
         try:
             check_wallet(desk, nick, address)
@@ -136,6 +221,10 @@ def cycle(desk):
             desk.say("  couldn't check %s this run: %s" % (nick, e))
         except Exception as e:
             desk.say("  something went wrong checking %s: %s: %s" % (nick, type(e).__name__, e))
+    try:
+        check_leaders_still_hold(desk, started)
+    except Exception as e:
+        desk.say("  couldn't check what the leaders still hold: %s: %s" % (type(e).__name__, e))
     quotes, ok = {}, True
     if p.positions:
         try:
