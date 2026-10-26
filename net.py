@@ -4,6 +4,7 @@ Every call sends a User-Agent, times out after 20 seconds and retries
 busy/broken answers (HTTP 429, 5xx, network errors) with a growing wait.
 Anything that still fails raises NetError, which the desk treats as SKIP.
 """
+import http.client
 import json
 import re
 import ssl
@@ -73,7 +74,7 @@ def _request(url, body=None, headers=None, label=None):
             except Exception:
                 pass
             raise NetError(("%s: HTTP %d %s" % (label, e.code, detail)).strip())
-        except (urllib.error.URLError, OSError, ValueError) as e:
+        except (urllib.error.URLError, OSError, ValueError, http.client.HTTPException) as e:
             text = str(getattr(e, "reason", e))
             if "CERTIFICATE_VERIFY_FAILED" in text:
                 raise NetError(CERT_HELP)
@@ -111,7 +112,7 @@ def rpc(method, params):
 # ---------------------------------------------------------------------------
 
 def signatures(wallet, limit, until=None):
-    """Newest first. Failed transactions are dropped."""
+    """Newest first. Failed transactions are included, with "err" set."""
     opts = {"limit": limit}
     if until:
         opts["until"] = until

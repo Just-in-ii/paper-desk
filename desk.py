@@ -26,10 +26,19 @@ def wallet_key(address):
     return hashlib.sha256(address.encode("utf-8")).hexdigest()[:16]
 
 
+def sig_key(signature):
+    """Signatures are stored hashed too: a block explorer turns a raw one into the wallet."""
+    return hashlib.sha256(signature.encode("utf-8")).hexdigest()[:16]
+
+
 class Desk:
     def __init__(self, wallets, state_path=None):
         self.wallets = dict(wallets)
         self.paper = paper.Paper(state_path)
+        last_sig = self.paper.s["last_sig"]
+        for key, value in last_sig.items():   # older state files hold raw signatures
+            if len(value) != 16:
+                last_sig[key] = sig_key(value)
 
     def say(self, msg):
         """Print, with any wallet address swapped for its nickname, just in case."""
@@ -99,14 +108,17 @@ def check_wallet(desk, nick, address):
     p = desk.paper
     key = wallet_key(address)
     last = p.s["last_sig"].get(key)
-    sigs = net.signatures(address, config.MAX_TX_PER_CHECK, until=last)
+    sigs = net.signatures(address, config.MAX_TX_PER_CHECK)
     if not last:
         if sigs:
-            p.s["last_sig"][key] = sigs[0]["signature"]
+            p.s["last_sig"][key] = sig_key(sigs[0]["signature"])
             p.save()
         desk.say("watching %s from now on" % nick)
         return
-    if len(sigs) >= config.MAX_TX_PER_CHECK:
+    seen = [sig_key(entry["signature"]) for entry in sigs]
+    if last in seen:
+        sigs = sigs[:seen.index(last)]           # only what's new since last run
+    elif len(sigs) >= config.MAX_TX_PER_CHECK:
         desk.say("  %s made %d+ transactions since last run (very busy, maybe a bot)"
                  % (nick, config.MAX_TX_PER_CHECK))
     for entry in reversed(sigs):                 # oldest first
@@ -123,7 +135,7 @@ def check_wallet(desk, nick, address):
                 raise
             except Exception as e:               # an odd transaction is skipped, not retried forever
                 desk.say("  skipped one odd %s transaction: %s: %s" % (nick, type(e).__name__, e))
-        p.s["last_sig"][key] = sig
+        p.s["last_sig"][key] = sig_key(sig)
         p.save()                                 # after every transaction: a crash never replays a trade
 
 

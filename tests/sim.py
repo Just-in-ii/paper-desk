@@ -5,6 +5,7 @@ python3 tests/sim.py
 import ast
 import contextlib
 import glob
+import http.client
 import io
 import json
 import os
@@ -208,6 +209,17 @@ def main():
         st = json.load(open(config.STATE_FILE))
         check("last_sig keyed by hash", desk.wallet_key(WALLET) in st["last_sig"])
 
+        print("1b. Old state with a raw signature is migrated, nothing replayed")
+        st["last_sig"][desk.wallet_key(WALLET)] = w.sigs[WALLET][-1]["signature"]
+        with open(config.STATE_FILE, "w") as f:
+            json.dump(st, f)
+        d = desk.Desk({NICK: WALLET})
+        check("raw signature hashed on load",
+              d.paper.s["last_sig"][desk.wallet_key(WALLET)] == desk.sig_key(w.sigs[WALLET][-1]["signature"]))
+        tick(); cycle(d)
+        check("migrated state replays nothing", not os.path.exists(config.DECISIONS_FILE)
+              and not os.path.exists(config.TRADES_FILE))
+
         print("2. Four buys in one cycle")
         for m, sym in ((GOOD, "GOOD"), (BAD, "BAD"), (CRASH, "CRASH"), (RUG, "RUG")):
             w.market[m] = (0.001, 50000.0)
@@ -354,6 +366,18 @@ def main():
                 except Exception as e:
                     got = "%s: %s" % (type(e).__name__, e)
                 check("HTTP %d becomes a plain NetError" % code, expect in got, got)
+
+            def cut_off(req, timeout=None, context=None):
+                raise http.client.IncompleteRead(b"")
+            urllib.request.urlopen = cut_off
+            try:
+                real_request("https://example.invalid/x", label="Test")
+                got = "no error"
+            except net.NetError as e:
+                got = str(e)
+            except Exception as e:
+                got = "%s: %s" % (type(e).__name__, e)
+            check("connection cut mid-reply is retried, then a NetError", "gave up" in got, got)
         finally:
             urllib.request.urlopen = real_urlopen
 
@@ -381,12 +405,17 @@ def main():
                 {"time": t, "verdict": "SKIP", "reason": "authority_open", "price_then": "1", "mint": "B"},
                 {"time": t, "verdict": "SKIP", "reason": "max_positions", "price_then": "1", "mint": "C"},
                 {"time": t, "verdict": "SKIP", "reason": "rugged", "price_then": "1", "mint": "D"},
-                {"time": paper.stamp(now - 8 * 86400), "verdict": "COPY", "reason": "x", "price_then": "1", "mint": "E"}]
+                {"time": paper.stamp(now - 8 * 86400), "verdict": "COPY", "reason": "x", "price_then": "1", "mint": "E"},
+                {"time": t, "verdict": "SKIP", "reason": "authority_open", "price_then": "1", "mint": "B"},
+                {"time": t, "verdict": "SKIP", "reason": "thin_liquidity $4000", "price_then": "1", "mint": "F"},
+                {"time": t, "verdict": "COPY", "reason": "passed safety filter", "price_then": "2", "mint": "F"}]
         q = {"A": {"price": 2.0, "liquidity": 50000}, "B": {"price": 0.5, "liquidity": 500},
-             "C": {"price": 9.0, "liquidity": 50000}, "E": {"price": 9.0, "liquidity": 50000}}
+             "C": {"price": 9.0, "liquidity": 50000}, "E": {"price": 9.0, "liquidity": 50000},
+             "F": {"price": 3.0, "liquidity": 50000}}
         c, rj = report.filter_check(fake, q, now - 7 * 86400)
-        check("filter check: copied move", c == [100.0], c)
-        check("filter check: thin market counts as zero, desk limits left out",
+        check("filter check: copied move, a coin copied after a skip counts as copied",
+              sorted(c) == [50.0, 100.0], c)
+        check("filter check: thin market counts as zero, desk limits left out, repeats once",
               sorted(rj) == [-100.0, -100.0], rj)
 
         print("8. AI judge")
@@ -482,6 +511,9 @@ def main():
         if WALLET in all_console or OTHER in all_console:
             leaks.append("console")
         check("no wallet address in any output file or console", not leaks, leaks)
+        state_text = open(config.STATE_FILE).read()
+        raw = [s for s in w.txs if '"%s"' % s in state_text]
+        check("no raw transaction signature in state.json", not raw, raw)
 
         print("12. Syntax (Python 3.8)")
         bad = []

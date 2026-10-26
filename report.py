@@ -73,8 +73,12 @@ def episodes(trades):
 
 
 def filter_check(decisions, quotes, since):
-    """Median coin move since the decision: copied vs filtered out."""
-    copied, rejected = [], []
+    """Median coin move since the decision: copied vs filtered out.
+
+    Each coin counts once, so a leader buying it five times doesn't weigh it
+    five times: from its first COPY if we ever copied it, else its first SKIP.
+    """
+    first = {}
     for d in decisions:
         t = parse_time(d["time"])
         then = num(d["price_then"])
@@ -82,6 +86,12 @@ def filter_check(decisions, quotes, since):
             continue
         if d["verdict"] == "SKIP" and first_word(d["reason"]) in DESK_LIMITS:
             continue                      # desk limits say nothing about the filter
+        prev = first.get(d["mint"])
+        if prev is None or (d["verdict"] == "COPY" and prev["verdict"] != "COPY"):
+            first[d["mint"]] = d
+    copied, rejected = [], []
+    for d in first.values():
+        then = num(d["price_then"])
         q = quotes.get(d["mint"])
         now_price = q["price"] if q and (q.get("liquidity") or 0) >= config.RUG_LIQUIDITY_USD else 0.0
         move = (now_price / then - 1) * 100
