@@ -23,6 +23,12 @@ PAGE = 1000                  # signatures per page (the most Solana hands out at
 ON_GITHUB = "finder.py prints wallet addresses, so it only runs on your own computer, not on GitHub."
 
 
+def reachable(info):
+    """Rough guess at whether a coin's first trade is within FINDER_MAX_PAGES of now."""
+    days = max((info.get("age_hours") or 0) / 24.0, 1.0)
+    return (info.get("txns_24h") or 0) * days <= config.FINDER_MAX_PAGES * PAGE
+
+
 def pick_coins():
     """[(mint, symbol)] of listed coins that ran and held up, biggest first."""
     market = net.prices(net.listed_coins())
@@ -30,7 +36,8 @@ def pick_coins():
            for mint, info in market.items()
            if (info.get("market_cap") or 0) >= config.FINDER_MIN_MARKET_CAP_USD
            and info["liquidity"] >= config.FINDER_MIN_LIQUIDITY_USD
-           and (info.get("age_hours") or 0) >= config.FINDER_MIN_AGE_HOURS]
+           and config.FINDER_MIN_AGE_HOURS <= (info.get("age_hours") or 0) <= config.FINDER_MAX_AGE_HOURS
+           and reachable(info)]
     ran.sort(reverse=True)
     return [(mint, symbol) for _, mint, symbol in ran]
 

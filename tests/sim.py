@@ -13,6 +13,7 @@ import re
 import shutil
 import sys
 import tempfile
+import time
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
@@ -724,19 +725,27 @@ def main():
             w.add_tx(BOTTY, -0.0001, {})
         w.market[net.SOL_MINT] = (200.0, 1e9)
 
-        small = mint("SMALL")
+        small, old, busy = mint("SMALL"), mint("OLDIE"), mint("BUSYC")
         w.market[find], w.market[small] = (0.001, 50000.0), (0.001, 20000.0)
-        listing = [{"chainId": "solana", "tokenAddress": find}, {"chainId": "ethereum", "tokenAddress": "0xabc"},
-                   {"chainId": "solana", "tokenAddress": small}, {"chainId": "solana", "tokenAddress": find}]
+        w.market[old], w.market[busy] = (0.001, 50000.0), (0.001, 50000.0)
+        listing = [{"chainId": "solana", "tokenAddress": m} for m in (find, small, old, busy, find)]
+        listing.insert(1, {"chainId": "ethereum", "tokenAddress": "0xabc"})
+        hours = {old: 24 * 30}                   # pair age in hours; the rest are a day old
+        per_day = {busy: 500000}                 # trades in the last 24 hours; the rest 2,000
 
         def listed(url):
             if url == net.LISTING_URLS[1]:
                 raise net.NetError("DexScreener: HTTP 503")
             if url in net.LISTING_URLS:
                 return listing
-            return w.get_json(url)
+            pairs = w.get_json(url)
+            for pr in pairs or []:
+                m = pr["baseToken"]["address"]
+                pr["pairCreatedAt"] = (time.time() - hours.get(m, 24) * 3600) * 1000
+                pr["txns"] = {"h24": {"buys": per_day.get(m, 2000) // 2, "sells": per_day.get(m, 2000) // 2}}
+            return pairs
         net.get_json = listed
-        check("finder picks listed Solana coins that ran and still have a market, one listing down",
+        check("finder picks listed Solana coins that ran, held up and whose launch it can still read",
               finder.pick_coins() == [(find, find[:4])], finder.pick_coins())
 
         saved_page, saved_pages = finder.PAGE, config.FINDER_MAX_PAGES

@@ -374,5 +374,7 @@ def prices(mints):
                 "volume_1h_usd": _num((p.get("volume") or {}).get("h1")),
                 "buys_1h": h1.get("buys"),
                 "sells_1h": h1.get("sells"),
+                "txns_24h": sum(_num(((p.get("txns") or {}).get("h24") or {}).get(k)) or 0
+                                for k in ("buys", "sells")),
             }
     return out

@@ -72,7 +72,8 @@ SCOUT_TX = 100                   # transactions finder.py reads per candidate
 
 FINDER_MIN_MARKET_CAP_USD = 250000  # a coin "ran" if it's worth this much now...
 FINDER_MIN_LIQUIDITY_USD = 40000    # ...still has a real market...
-FINDER_MIN_AGE_HOURS = 6            # ...and has held up for this long
+FINDER_MIN_AGE_HOURS = 6            # ...and has held up for this long...
+FINDER_MAX_AGE_HOURS = 96           # ...but is young enough that its launch can still be read
 FINDER_COINS = 5                    # coins it looks at per run
 FINDER_SKIP_SECONDS = 30            # buys this soon after launch are snipers and insiders
 FINDER_EARLY_TX = 300               # transactions read from just after that, per coin
