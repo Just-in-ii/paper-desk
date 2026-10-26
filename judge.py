@@ -47,7 +47,9 @@ def fact_kill(rc, dx):
         return "no_risk_score"
     if rc["risk_score"] > t["max_risk_score"]:
         return "risk_score %s" % _n(rc["risk_score"])
-    if rc.get("top10_pct") is not None and rc["top10_pct"] > t["max_top10_pct"]:
+    if rc.get("top10_pct") is None:
+        return "no_holder_data"
+    if rc["top10_pct"] > t["max_top10_pct"]:
         return "top10_hold %s%%" % _n(rc["top10_pct"])
     if rc.get("lp_locked_pct") is not None and rc["lp_locked_pct"] < t["min_lp_locked_pct"]:
         return "lp_unlocked %s%%" % _n(rc["lp_locked_pct"])

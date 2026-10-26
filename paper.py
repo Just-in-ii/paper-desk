@@ -139,8 +139,15 @@ class Paper:
             self.s["left_at"][mint] = int(now())
         return {"pnl": pnl, "proceeds": proceeds, "closed": closed}
 
+    def follow_out(self, mint, fraction):
+        """The leader sold but there's no market to sell into: sell at the first live price."""
+        pos = self.positions.get(mint)
+        if pos:
+            pos["exit_pending"] = 1 - (1 - pos.get("exit_pending", 0.0)) * (1 - fraction)
+
     def manage_exits(self, quotes, quotes_ok):
-        """Rug check, stop loss, take profit (once), then time limit. Returns console notes."""
+        """Rug check, the leader's waiting exit, stop loss, take profit (once), then
+        time limit. Returns console notes."""
         notes = []
         if not quotes_ok:
             if self.positions:
@@ -161,6 +168,12 @@ class Paper:
             pos["misses"] = 0
             price = q["price"]
             pos["last_price"] = price
+            if pos.get("exit_pending"):
+                r = self.sell(mint, pos.pop("exit_pending"), price,
+                              "%s sold earlier; first live price" % pos["leader"])
+                notes.append("%s: followed %s out at the first live price" % (sym, pos["leader"]))
+                if r["closed"]:
+                    continue
             change = (price / pos["entry"] - 1) * 100
             if change <= config.STOP_LOSS_PCT:
                 self.sell(mint, 1.0, price, "stop loss %+.0f%%" % change)
