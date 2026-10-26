@@ -5,7 +5,9 @@ python3 scout.py ADDRESS [N]     (N = how many recent transactions to read, defa
 import statistics
 import sys
 
+import config
 import net
+import paper
 
 
 def sol_price():
@@ -18,7 +20,8 @@ def sol_price():
 
 def profile(address, n=60, sol_usd=None):
     sol_usd = sol_usd or sol_price()
-    sigs = [s for s in net.signatures(address, n) if not s.get("err")]
+    everything = net.signatures(address, n)
+    sigs = [s for s in everything if not s.get("err")]
     events, failed = [], 0
     for i, s in enumerate(sigs, 1):
         print("\r  reading transaction %d of %d" % (i, len(sigs)), end="", flush=True)
@@ -28,8 +31,12 @@ def profile(address, n=60, sol_usd=None):
             failed += 1
     print()
 
+    # Rates run from the oldest transaction read up to now, so a wallet that
+    # was busy last month and has stopped since doesn't look busy.
+    now = paper.now()
     times = [e["time"] for e in events if e.get("time")]
-    days = max((max(times) - min(times)) / 86400.0, 1 / 24.0) if times else 1.0
+    stamps = [s["blockTime"] for s in everything if s.get("blockTime")] + times
+    days = max((now - min(stamps)) / 86400.0, 1 / 24.0) if stamps else 1.0
     coins = {}
     for e in sorted(events, key=lambda e: e.get("time") or 0):
         c = coins.setdefault(e["mint"], {"spent": 0.0, "got": 0.0, "first_buy": None,
@@ -53,9 +60,12 @@ def profile(address, n=60, sol_usd=None):
     pnl = sum(c["got"] - c["spent"] for c in priced)
     holds = [(c["first_sell"] - c["first_buy"]) / 60.0 for c in trips
              if c["first_sell"] and c["first_buy"] and c["first_sell"] >= c["first_buy"]]
+    buys = sum(1 for e in events if e["side"] == "BUY")
     return {
         "trades": len(events),
         "per_day": len(events) / days,
+        "buys_per_day": buys / days,
+        "quiet_days": (now - max(times)) / 86400.0 if times else None,
         "coins": len(coins),
         "round_trips": len(trips),
         "priced_trips": len(priced),
@@ -68,20 +78,35 @@ def profile(address, n=60, sol_usd=None):
 
 
 def verdict(p):
-    """Bot check first (it needs no history), then judge only on enough coins."""
-    if p["per_day"] > 100:
-        return "Bot: more than 100 trades a day. Skip it."
+    """Bot and activity checks first (they need no history), then judge only on enough coins."""
+    if p["per_day"] > config.SCOUT_MAX_TRADES_PER_DAY:
+        return "Bot: more than %d trades a day. Skip it." % config.SCOUT_MAX_TRADES_PER_DAY
+    if p["quiet_days"] is None:
+        return "Gone quiet: no coin trades in the transactions read. Skip it."
+    if p["quiet_days"] > config.SCOUT_MAX_QUIET_DAYS:
+        return "Gone quiet: its last coin trade was %.0f days ago. Skip it." % p["quiet_days"]
+    if p["buys_per_day"] < config.SCOUT_MIN_BUYS_PER_DAY:
+        return ("Too quiet to copy: about %.1f coin buys a day (the desk wants %d+). Skip it."
+                % (p["buys_per_day"], config.SCOUT_MIN_BUYS_PER_DAY))
     if p["round_trips"] < 5:
         return "Too little history to judge. Try again with N = 200."
-    if p["median_hold_min"] is not None and p["median_hold_min"] < 5:
-        return "Too fast to copy: it usually sells within 5 minutes."
+    if p["median_hold_min"] is not None and p["median_hold_min"] < config.SCOUT_MIN_HOLD_MINUTES:
+        return "Too fast to copy: it usually sells within %d minutes." % config.SCOUT_MIN_HOLD_MINUTES
     if p["priced_trips"] < 5:
         return "Too few coins we could value to judge its results. Try again with N = 200."
-    if p["win_rate"] < 45:
+    if p["win_rate"] < config.SCOUT_MIN_WIN_RATE:
         return "Don't copy: it loses on most coins."
     if p["usd_pnl"] < 0:
         return "Don't copy: it wins often but loses more on its losers than it makes."
     return "Looks followable."
+
+
+def ago(days):
+    if days is None:
+        return "none in the transactions read"
+    if days < 1:
+        return "%.0f hours ago" % (days * 24)
+    return "%.1f days ago" % days
 
 
 def main():
@@ -95,7 +120,8 @@ def main():
     except net.NetError as e:
         print("Couldn't read that wallet: %s" % e)
         sys.exit(1)
-    print("Coin trades per day : %.1f" % p["per_day"])
+    print("Coin trades per day : %.1f (%.1f of them buys)" % (p["per_day"], p["buys_per_day"]))
+    print("Last coin trade     : %s" % ago(p["quiet_days"]))
     print("Different coins     : %d" % p["coins"])
     print("Round trips         : %d (coins both bought and sold)" % p["round_trips"])
     print("Win rate            : %s" % ("n/a" if p["win_rate"] is None else "%.0f%% (of %d coins we could value)"

@@ -19,6 +19,7 @@ sys.path.insert(0, ROOT)
 
 import config  # noqa: E402
 import desk    # noqa: E402
+import finder  # noqa: E402
 import judge   # noqa: E402
 import net     # noqa: E402
 import paper   # noqa: E402
@@ -33,6 +34,10 @@ NICK = "fish one"
 WALLET = "Fish1111WaLLetAddressXyzABCDEFGHJKLMNPQRSTU"   # 43 chars, fake
 OTHER_NICK, OTHER = "whale", "WhaLe222WaLLetAddressXyzABCDEFGHJKLMNPQRSTU"
 SCOUTED = "Sc0ut444WaLLetAddressXyzABCDEFGHJKLMNPQRSTU"
+QUIET, SLOW = "Quiet555WaLLetAddressXyzABCDEFGHJKLMNPQRSTU", "SLoww666WaLLetAddressXyzABCDEFGHJKLMNPQRSTU"
+CREATOR, SNIPER = "Creat777WaLLetAddressXyzABCDEFGHJKLMNPQRSTU", "Snipe888WaLLetAddressXyzABCDEFGHJKLMNPQRSTU"
+EARLY, BOTTY = "EarLy999WaLLetAddressXyzABCDEFGHJKLMNPQRSTU", "Botty111WaLLetAddressXyzABCDEFGHJKLMNPQRSTV"
+HOLDER = "HoLder22WaLLetAddressXyzABCDEFGHJKLMNPQRSTV"
 POOL = "PooL333PooLAddressXyzABCDEFGHJKLMNPQRSTUVWX"
 SOL, USDC = net.SOL_MINT, net.USDC_MINT
 
@@ -353,9 +358,40 @@ def main():
         check("scout win rate counts USDC sales", sp["win_rate"] == 50.0, sp)
         check("scout P&L in dollars", abs(sp["usd_pnl"] - (50 - 100.2)) < 0.01, sp)
         check("scout median hold 30 min", abs(sp["median_hold_min"] - 30) < 0.01, sp)
-        base = {"per_day": 10, "round_trips": 8, "priced_trips": 8, "median_hold_min": 60,
-                "win_rate": 60.0, "usd_pnl": 50.0}
+        check("scout: buys a day count from the oldest transaction to now",
+              abs(sp["buys_per_day"] - 3 / (1.5 / 24)) < 0.01 and sp["quiet_days"] == 0, sp)
+        base = {"per_day": 10, "buys_per_day": 5, "quiet_days": 0.1, "round_trips": 8, "priced_trips": 8,
+                "median_hold_min": 60, "win_rate": 60.0, "usd_pnl": 50.0}
         check("scout: a good wallet looks followable", scout.verdict(base) == "Looks followable.")
+        check("scout: under 2 buys a day is too quiet to copy",
+              scout.verdict(dict(base, buys_per_day=1.5)).startswith("Too quiet"))
+        check("scout: no coin trades at all is gone quiet",
+              scout.verdict(dict(base, quiet_days=None)).startswith("Gone quiet"))
+
+        now_then = w.clock
+        w.sigs[QUIET], w.sigs[SLOW] = [], []
+        w.clock = now_then - 10 * 86400          # busy for an hour ten days ago, nothing since
+        for i in range(6):
+            q = mint("QT%d" % i)
+            w.add_tx(QUIET, -1.0, {q: (0, 100.0)})
+            tick(0.1)
+            w.add_tx(QUIET, +2.0, {q: (100.0, 0)})
+        w.clock = now_then - 4 * 86400           # one coin a day for four days, the last a day ago
+        for i in range(4):
+            q = mint("SL%d" % i)
+            w.add_tx(SLOW, -1.0, {q: (0, 100.0)})
+            tick(1)
+            w.add_tx(SLOW, +2.0, {q: (100.0, 0)})
+            tick(23 if i < 3 else 0)
+        w.clock = now_then
+        with capture(out):
+            qp, slp = scout.profile(QUIET, 60, sol_usd=200.0), scout.profile(SLOW, 60, sol_usd=200.0)
+        check("scout: busy ten days ago, silent since -> gone quiet, not a busy wallet",
+              scout.verdict(qp).startswith("Gone quiet: its last coin trade was 10 days ago")
+              and qp["per_day"] < 2, (qp, scout.verdict(qp)))
+        check("scout: one coin a day -> too quiet to copy",
+              scout.verdict(slp).startswith("Too quiet") and abs(slp["buys_per_day"] - 1.0) < 0.05,
+              (slp, scout.verdict(slp)))
         check("scout: two coins is too little history, not a 'don't copy'",
               scout.verdict(dict(base, round_trips=2, priced_trips=2, win_rate=0.0)).startswith("Too little"))
         check("scout: too few valued coins to judge the win rate",
@@ -658,6 +694,95 @@ def main():
         check("lost our place: carry on from the newest, and say so",
               "skipping to the newest 100" in console[-1]
               and d.paper.s["last_sig"][key] == desk.sig_key(w.sigs[WALLET][-1]["signature"]), console[-1])
+
+        print("12b. Finder: early sellers of a coin that ran")
+        find = mint("FIND")
+        for x in (CREATOR, SNIPER, EARLY, BOTTY, HOLDER):
+            w.sigs[x] = []
+        w.sigs[find] = []
+
+        def coin_tx(wallet, sol, before, after):
+            w.add_tx(wallet, sol, {find: (before, after)})
+            w.sigs[find].append(w.sigs[wallet][-1])
+
+        coin_tx(CREATOR, -1.0, 0, 1000.0)        # launch, with the creator's own buy
+        tick(5 / 3600.0)
+        coin_tx(SNIPER, -1.0, 0, 1000.0)         # 5 seconds in: a sniper
+        tick(55 / 3600.0)
+        for x in (EARLY, BOTTY, HOLDER, WALLET, CREATOR):
+            coin_tx(x, -0.5, 0, 1000.0)
+        tick(0.5)
+        for x in (EARLY, BOTTY, WALLET, SNIPER):
+            coin_tx(x, +1.5, 1000.0, 0)          # sold out after it ran
+        coin_tx(HOLDER, +0.15, 1000.0, 900.0)    # still holds most of it
+        for i in range(5):                       # the early seller trades other coins well too
+            q = mint("EA%d" % i)
+            w.add_tx(EARLY, -0.5, {q: (0, 100.0)})
+            tick(1)
+            w.add_tx(EARLY, +0.8, {q: (100.0, 0)})
+        for _ in range(config.SCOUT_TX):         # the other one fires off transactions like a bot
+            w.add_tx(BOTTY, -0.0001, {})
+        w.market[net.SOL_MINT] = (200.0, 1e9)
+
+        small = mint("SMALL")
+        w.market[find], w.market[small] = (0.001, 50000.0), (0.001, 20000.0)
+        listing = [{"chainId": "solana", "tokenAddress": find}, {"chainId": "ethereum", "tokenAddress": "0xabc"},
+                   {"chainId": "solana", "tokenAddress": small}, {"chainId": "solana", "tokenAddress": find}]
+
+        def listed(url):
+            if url == net.LISTING_URLS[1]:
+                raise net.NetError("DexScreener: HTTP 503")
+            if url in net.LISTING_URLS:
+                return listing
+            return w.get_json(url)
+        net.get_json = listed
+        check("finder picks listed Solana coins that ran and still have a market, one listing down",
+              finder.pick_coins() == [(find, find[:4])], finder.pick_coins())
+
+        saved_page, saved_pages = finder.PAGE, config.FINDER_MAX_PAGES
+        finder.PAGE = 3
+        oldest = finder.first_trades(find)
+        check("finder reads back to a coin's first trade, oldest first",
+              len(oldest) >= finder.PAGE and [s["signature"] for s in oldest]
+              == [s["signature"] for s in w.sigs[find]][:len(oldest)], len(oldest))
+        config.FINDER_MAX_PAGES = 2
+        out = []
+        with capture(out):
+            deep = finder.early_buyers(find, "FIND")
+        check("finder skips a coin whose history is too deep to reach", deep == {}
+              and "too much history" in out[-1], out[-1])
+        finder.PAGE, config.FINDER_MAX_PAGES = saved_page, saved_pages
+
+        saved_env = {k: os.environ.pop(k, None) for k in ("WALLETS", "GITHUB_ACTIONS")}
+        os.environ["WALLETS"] = "%s %s" % (NICK, WALLET)    # already followed
+        with capture(out):
+            found = finder.find([(find, "FIND")])
+            finder.show(found)
+        os.environ.pop("WALLETS")
+        shown = out[-1]
+        check("finder keeps only the early seller who still trades like a person",
+              [x for x, _, _ in found] == [EARLY] and found[0][2] == "Looks followable.",
+              [(x[:5], v) for x, _, v in found])
+        check("finder leaves out the creator, the sniper, a holder, a bot and a wallet already followed",
+              all(x not in shown for x in (CREATOR, SNIPER, HOLDER, BOTTY, WALLET))
+              and "1 bot-like" in shown, shown)
+        check("finder prints the followable wallet ready for the WALLETS secret",
+              "  finder 1 %s\n" % EARLY in shown, shown)
+
+        os.environ["GITHUB_ACTIONS"] = "true"
+        calls = []
+        net.get_json = lambda url: calls.append(url)
+        refused = False
+        with capture(out):
+            try:
+                finder.main([])
+            except SystemExit:
+                refused = True
+        os.environ.pop("GITHUB_ACTIONS")
+        os.environ.update({k: v for k, v in saved_env.items() if v is not None})
+        net.get_json = w.get_json
+        check("finder refuses to run on GitHub, where logs are public",
+              refused and not calls and finder.ON_GITHUB in out[-1], out[-1])
 
         print("13. Syntax (Python 3.8)")
         bad = []
