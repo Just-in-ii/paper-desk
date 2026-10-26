@@ -5,6 +5,7 @@ python3 tests/sim.py
 import ast
 import contextlib
 import glob
+import hashlib
 import http.client
 import io
 import json
@@ -39,6 +40,8 @@ QUIET, SLOW = "Quiet555WaLLetAddressXyzABCDEFGHJKLMNPQRSTU", "SLoww666WaLLetAddr
 CREATOR, SNIPER = "Creat777WaLLetAddressXyzABCDEFGHJKLMNPQRSTU", "Snipe888WaLLetAddressXyzABCDEFGHJKLMNPQRSTU"
 EARLY, BOTTY = "EarLy999WaLLetAddressXyzABCDEFGHJKLMNPQRSTU", "Botty111WaLLetAddressXyzABCDEFGHJKLMNPQRSTV"
 HOLDER = "HoLder22WaLLetAddressXyzABCDEFGHJKLMNPQRSTV"
+PUMP_MINT = "CA8q2mkYWZnUNqYmf6pxyxAPZsmSe2EG9P7hHMW5pump"     # a real coin, and its bonding curve
+PUMP_CURVE = "A1Nvh5SApuQvj2iG36XAt3LyXnpJAHV5Hui2LUSxryhW"
 POOL = "PooL333PooLAddressXyzABCDEFGHJKLMNPQRSTUVWX"
 SOL, USDC = net.SOL_MINT, net.USDC_MINT
 
@@ -117,7 +120,7 @@ class World:
             wallet, opts = params
             if wallet in self.rpc_down_for:
                 raise net.NetError("Solana RPC getSignaturesForAddress: HTTP 429")
-            newest_first = list(reversed(self.sigs[wallet]))
+            newest_first = list(reversed(self.sigs.get(wallet, [])))
             if opts.get("before"):
                 names = [s["signature"] for s in newest_first]
                 newest_first = newest_first[names.index(opts["before"]) + 1:]
@@ -725,13 +728,18 @@ def main():
             w.add_tx(BOTTY, -0.0001, {})
         w.market[net.SOL_MINT] = (200.0, 1e9)
 
+        check("finder derives a pump.fun coin's bonding curve",
+              finder.pump_curve(PUMP_MINT) == PUMP_CURVE, finder.pump_curve(PUMP_MINT))
         small, old, busy = mint("SMALL"), mint("OLDIE"), mint("BUSYC")
+        pumpc = finder.b58encode(hashlib.sha256(b"PUMPC").digest())    # a valid address
+        curve = finder.pump_curve(pumpc)
+        w.sigs[curve] = [{"signature": "launch", "err": None, "blockTime": int(w.clock)}]
         w.market[find], w.market[small] = (0.001, 50000.0), (0.001, 20000.0)
-        w.market[old], w.market[busy] = (0.001, 50000.0), (0.001, 50000.0)
-        listing = [{"chainId": "solana", "tokenAddress": m} for m in (find, small, old, busy, find)]
+        w.market[old], w.market[busy], w.market[pumpc] = (0.001, 50000.0), (0.001, 50000.0), (0.001, 50000.0)
+        listing = [{"chainId": "solana", "tokenAddress": m} for m in (find, small, old, busy, find, pumpc)]
         listing.insert(1, {"chainId": "ethereum", "tokenAddress": "0xabc"})
         hours = {old: 24 * 30}                   # pair age in hours; the rest are a day old
-        per_day = {busy: 500000}                 # trades in the last 24 hours; the rest 2,000
+        per_day = {busy: 500000, pumpc: 500000}  # trades in the last 24 hours; the rest 2,000
 
         def listed(url):
             if url == net.LISTING_URLS[1]:
@@ -746,7 +754,8 @@ def main():
             return pairs
         net.get_json = listed
         check("finder picks listed Solana coins that ran, held up and whose launch it can still read",
-              finder.pick_coins() == [(find, find[:4])], finder.pick_coins())
+              finder.pick_coins() == [(find, find[:4], find), (pumpc, pumpc[:4], curve)], finder.pick_coins())
+        check("finder stops at the number of coins asked for", finder.pick_coins(1) == [(find, find[:4], find)])
 
         saved_page, saved_pages = finder.PAGE, config.FINDER_MAX_PAGES
         finder.PAGE = 3
@@ -765,7 +774,7 @@ def main():
         saved_env = {k: os.environ.pop(k, None) for k in ("WALLETS", "GITHUB_ACTIONS")}
         os.environ["WALLETS"] = "%s %s" % (NICK, WALLET)    # already followed
         with capture(out):
-            found = finder.find([(find, "FIND")])
+            found = finder.find([(find, "FIND", find)])
             finder.show(found)
         os.environ.pop("WALLETS")
         shown = out[-1]
@@ -777,6 +786,16 @@ def main():
               and "1 bot-like" in shown, shown)
         check("finder prints the followable wallet ready for the WALLETS secret",
               "  finder 1 %s\n" % EARLY in shown, shown)
+
+        w.sigs[curve] = []                       # a pump.fun launch: its trades are on the curve
+        for x, sol, before, after in ((CREATOR, -1.0, 0, 1000.0), (HOLDER, -0.5, 0, 700.0)):
+            w.add_tx(x, sol, {pumpc: (before, after)})
+            w.sigs[curve].append(w.sigs[x][-1])
+            tick(60 / 3600.0)
+        with capture(out):
+            launched = finder.early_buyers(pumpc, "PUMPC", finder.launch_account(pumpc))
+        check("finder reads a pump.fun coin's early buyers off its bonding curve",
+              launched == {HOLDER: 700.0}, launched)
 
         os.environ["GITHUB_ACTIONS"] = "true"
         calls = []

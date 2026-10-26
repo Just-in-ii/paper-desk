@@ -5,12 +5,16 @@ python3 finder.py MINT [MINT]    look at these coins instead
 
 For each coin it reads the first trades after launch, keeps the buyers who
 have sold most of it since, drops the ones that have gone quiet or trade like
-bots, then profiles the most promising with scout.py.
+bots, then profiles the most promising with scout.py. For a pump.fun coin the
+first trades are on its launch account (the bonding curve), whose history is
+short; for any other coin they are at the far end of the coin's own history,
+which only a young coin lets us reach.
 
 Unlike everything else here it prints full wallet addresses: you need them to
 follow a wallet. So it refuses to run on GitHub, where logs are public.
 It is slow on the public Solana endpoint; put your own in rpc_url.txt first.
 """
+import hashlib
 import os
 import sys
 
@@ -21,25 +25,95 @@ import scout
 
 PAGE = 1000                  # signatures per page (the most Solana hands out at once)
 ON_GITHUB = "finder.py prints wallet addresses, so it only runs on your own computer, not on GitHub."
+PUMP_PROGRAM = "6EF8rrecthR5Dkzon8Nwu78hRvfCKubJ14M5uBEwF6P"
 
+# ---------------------------------------------------------------------------
+# Solana addresses: base58, and the program-derived address of a launch account
+# ---------------------------------------------------------------------------
+
+B58 = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz"
+P = 2 ** 255 - 19
+D = -121665 * pow(121666, P - 2, P) % P
+
+
+def b58decode(text):
+    """32 raw bytes of an address; ValueError if it isn't one."""
+    n = 0
+    for c in text:
+        n = n * 58 + B58.index(c)
+    if n >> 256:
+        raise ValueError("not a Solana address")
+    return n.to_bytes(32, "big")
+
+
+def b58encode(raw):
+    n, out = int.from_bytes(raw, "big"), ""
+    while n:
+        n, r = divmod(n, 58)
+        out = B58[r] + out
+    return "1" * (len(raw) - len(raw.lstrip(b"\0"))) + out
+
+
+def on_curve(raw):
+    """True if 32 bytes decode to an ed25519 point (a program-derived address must not)."""
+    y = (int.from_bytes(raw, "little") & ((1 << 255) - 1)) % P
+    x2 = (y * y - 1) * pow(D * y * y + 1, P - 2, P) % P
+    return x2 == 0 or pow(x2, (P - 1) // 2, P) == 1
+
+
+def derived_address(seeds, program):
+    pid = b58decode(program)
+    for bump in range(255, -1, -1):
+        h = hashlib.sha256(b"".join(seeds) + bytes([bump]) + pid + b"ProgramDerivedAddress").digest()
+        if not on_curve(h):
+            return b58encode(h)
+    raise ValueError("no program address")
+
+
+def pump_curve(mint):
+    """The pump.fun bonding curve a coin launched on (if it launched there at all)."""
+    return derived_address([b"bonding-curve", b58decode(mint)], PUMP_PROGRAM)
+
+
+def launch_account(mint):
+    """Where a coin's first trades are: its pump.fun bonding curve if it has one, else the coin."""
+    try:
+        curve = pump_curve(mint)
+    except ValueError:
+        return mint
+    return curve if net.signatures(curve, 1) else mint
+
+
+# ---------------------------------------------------------------------------
+# Coins, and their early buyers
+# ---------------------------------------------------------------------------
 
 def reachable(info):
-    """Rough guess at whether a coin's first trade is within FINDER_MAX_PAGES of now."""
+    """Rough guess at whether a coin's own first trade is within FINDER_MAX_PAGES of now."""
     days = max((info.get("age_hours") or 0) / 24.0, 1.0)
     return (info.get("txns_24h") or 0) * days <= config.FINDER_MAX_PAGES * PAGE
 
 
-def pick_coins():
-    """[(mint, symbol)] of listed coins that ran and held up, biggest first."""
+def pick_coins(most=None):
+    """[(mint, symbol, launch account)] of listed coins that ran and held up, biggest first."""
     market = net.prices(net.listed_coins())
-    ran = [(info.get("market_cap") or 0, mint, info.get("symbol") or mint[:6])
+    ran = [(info.get("market_cap") or 0, mint, info)
            for mint, info in market.items()
            if (info.get("market_cap") or 0) >= config.FINDER_MIN_MARKET_CAP_USD
            and info["liquidity"] >= config.FINDER_MIN_LIQUIDITY_USD
-           and config.FINDER_MIN_AGE_HOURS <= (info.get("age_hours") or 0) <= config.FINDER_MAX_AGE_HOURS
-           and reachable(info)]
-    ran.sort(reverse=True)
-    return [(mint, symbol) for _, mint, symbol in ran]
+           and config.FINDER_MIN_AGE_HOURS <= (info.get("age_hours") or 0) <= config.FINDER_MAX_AGE_HOURS]
+    ran.sort(key=lambda r: -r[0])
+    coins = []
+    for _, mint, info in ran:
+        if most is not None and len(coins) >= most:
+            break
+        try:
+            source = launch_account(mint)
+        except net.NetError:
+            continue
+        if source != mint or reachable(info):
+            coins.append((mint, info.get("symbol") or mint[:6], source))
+    return coins
 
 
 def first_trades(mint):
@@ -60,13 +134,14 @@ def payer(tx):
     return keys[0].get("pubkey") if isinstance(keys[0], dict) else keys[0]
 
 
-def early_buyers(mint, symbol):
+def early_buyers(mint, symbol, source=None):
     """{wallet: coin balance right after its first buy} for buyers just after launch.
 
+    source: the account whose history starts at launch (see launch_account).
     The first FINDER_SKIP_SECONDS are left out (snipers, the creator's own
     bundle), and so is the creator.
     """
-    sigs = first_trades(mint)
+    sigs = first_trades(source or mint)
     if sigs is None:
         print("  %s: too much history to reach its first trades, skipped" % symbol)
         return {}
@@ -128,9 +203,9 @@ def find(coins):
     following = set(config.load_wallets().values())
     early = {}                                   # wallet -> symbols it was early on and sold
     found = took = 0
-    for mint, symbol in coins:
+    for mint, symbol, source in coins:
         try:
-            buyers = early_buyers(mint, symbol)
+            buyers = early_buyers(mint, symbol, source)
         except net.NetError as e:
             print("  %s: couldn't read its trades (%s)" % (symbol, e))
             continue
@@ -197,7 +272,11 @@ def main(argv=None):
         print(ON_GITHUB)
         sys.exit(1)
     try:
-        coins = [(m, m[:6]) for m in argv] if argv else pick_coins()[:config.FINDER_COINS]
+        if argv:
+            names = net.prices(argv)
+            coins = [(m, (names.get(m) or {}).get("symbol") or m[:6], launch_account(m)) for m in argv]
+        else:
+            coins = pick_coins(config.FINDER_COINS)
     except net.NetError as e:
         print("Couldn't pick coins: %s" % e)
         sys.exit(1)
@@ -205,7 +284,7 @@ def main(argv=None):
         print("No listed coin has run and held up right now. Try again later, or name coins: "
               "python3 finder.py MINT")
         return
-    print("Looking at: " + ", ".join(symbol for _, symbol in coins))
+    print("Looking at: " + ", ".join(symbol for _, symbol, _ in coins))
     show(find(coins))
 
 
