@@ -1,5 +1,5 @@
 ```
-PAPER DESK REPORT  Mon 26 Oct 2026, 14:45 UTC
+PAPER DESK REPORT  Mon 26 Oct 2026, 14:54 UTC
 Day 1, running since 25 Oct 2026. AI judge: off.
 
 POT
@@ -14,7 +14,7 @@ OPEN (0)
   nothing open
 
 DECISIONS
-  leaders bought 0 coins: copied 0, skipped 0
+  0 decisions on 0 coins: copied 0, skipped 0
 
 LEADERS
   no leader buys seen yet
