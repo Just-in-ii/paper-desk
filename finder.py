@@ -3,12 +3,14 @@
 python3 finder.py                look at coins that ran (picked from DexScreener's listings)
 python3 finder.py MINT [MINT]    look at these coins instead
 
-For each coin it reads the first trades after launch, keeps the buyers who
-have sold most of it since, drops the ones that have gone quiet or trade like
-bots, then profiles the most promising with scout.py. For a pump.fun coin the
-first trades are on its launch account (the bonding curve), whose history is
-short; for any other coin they are at the far end of the coin's own history,
-which only a young coin lets us reach.
+For each coin it reads the first trades after launch and keeps the buyers
+who have sold most of it since. For a pump.fun coin those trades are on its
+launch account (the bonding curve), whose history is short; for any other
+coin they are at the far end of the coin's own history, which only a young
+coin lets us reach. Many launches are bundles (a few wallets buy everything
+in the first second), leaving no early buyers worth the name, so it also
+takes the wallets trading the coin right now. Then it drops the ones that
+have gone quiet or trade like bots, and profiles the rest with scout.py.
 
 Unlike everything else here it prints full wallet addresses: you need them to
 follow a wallet. So it refuses to run on GitHub, where logs are public.
@@ -95,13 +97,16 @@ def reachable(info):
 
 
 def pick_coins(most=None):
-    """[(mint, symbol, launch account)] of listed coins that ran and held up, biggest first."""
+    """[(mint, symbol, launch account or None)] of listed coins that ran and held up, biggest first.
+
+    None: its first trades are out of reach, so only the wallets trading it now are used.
+    """
     market = net.prices(net.listed_coins())
     ran = [(info.get("market_cap") or 0, mint, info)
            for mint, info in market.items()
            if (info.get("market_cap") or 0) >= config.FINDER_MIN_MARKET_CAP_USD
            and info["liquidity"] >= config.FINDER_MIN_LIQUIDITY_USD
-           and config.FINDER_MIN_AGE_HOURS <= (info.get("age_hours") or 0) <= config.FINDER_MAX_AGE_HOURS]
+           and (info.get("age_hours") or 0) >= config.FINDER_MIN_AGE_HOURS]
     ran.sort(key=lambda r: -r[0])
     coins = []
     for _, mint, info in ran:
@@ -110,9 +115,10 @@ def pick_coins(most=None):
         try:
             source = launch_account(mint)
         except net.NetError:
-            continue
-        if source != mint or reachable(info):
-            coins.append((mint, info.get("symbol") or mint[:6], source))
+            source = mint
+        if source == mint and not reachable(info):
+            source = None
+        coins.append((mint, info.get("symbol") or mint[:6], source))
     return coins
 
 
@@ -173,6 +179,29 @@ def early_buyers(mint, symbol, source=None):
     return buyers
 
 
+def traders_now(mint, symbol):
+    """Wallets that bought or sold the coin in its latest FINDER_RECENT_TX transactions."""
+    sigs = [s for s in net.signatures(mint, config.FINDER_RECENT_TX) if not s.get("err")]
+    seen, failed = [], 0
+    for i, s in enumerate(sigs, 1):
+        print("\r  %s: reading recent trade %d of %d" % (symbol, i, len(sigs)), end="", flush=True)
+        try:
+            tx = net.transaction(s["signature"])
+            who = payer(tx)
+            events = net.swaps(tx, who) if who else []
+        except net.NetError:
+            failed += 1
+            continue
+        except Exception:                        # an odd transaction is skipped
+            continue
+        if who not in seen and any(ev["mint"] == mint for ev in events):
+            seen.append(who)
+    print()
+    if failed:
+        print("  %s: %d recent trades couldn't be read" % (symbol, failed))
+    return seen
+
+
 def sold_most(wallet, mint, bought):
     """True if the wallet now holds under half of what it bought. A failed lookup counts as no."""
     try:
@@ -198,26 +227,36 @@ def quick_look(wallet):
     return None
 
 
+def candidates(mint, symbol, source):
+    """[(wallet, how we found it)] from one coin: early buyers who sold most of it since,
+    plus, when there are few of those, the wallets trading it now."""
+    sold = []
+    if source:
+        buyers = early_buyers(mint, symbol, source)
+        sold = [w for w, bought in buyers.items() if bought > 0 and sold_most(w, mint, bought)]
+        print("  %s: %d early buyers, %d sold most of it since" % (symbol, len(buyers), len(sold)))
+    found = [(w, symbol + " early") for w in sold]
+    if len(sold) < config.FINDER_MIN_EARLY_SELLERS:
+        now = [w for w in traders_now(mint, symbol) if w not in sold]
+        print("  %s: %d other wallets trading it now" % (symbol, len(now)))
+        found += [(w, symbol) for w in now]
+    return found
+
+
 def find(coins):
-    """Profile the early sellers of these coins. Returns [(wallet, profile, verdict)], best first."""
+    """Profile candidates from these coins. Returns [(wallet, profile, verdict)], best first."""
     following = set(config.load_wallets().values())
-    early = {}                                   # wallet -> symbols it was early on and sold
-    found = took = 0
+    seen = {}                                    # wallet -> where we found it
     for mint, symbol, source in coins:
         try:
-            buyers = early_buyers(mint, symbol, source)
+            for w, how in candidates(mint, symbol, source):
+                if w not in following:
+                    seen.setdefault(w, []).append(how)
         except net.NetError as e:
             print("  %s: couldn't read its trades (%s)" % (symbol, e))
-            continue
-        sold = [w for w, bought in buyers.items() if bought > 0 and sold_most(w, mint, bought)]
-        found += len(buyers)
-        took += len(sold)
-        print("  %s: %d early buyers, %d sold most of it since" % (symbol, len(buyers), len(sold)))
-        for w in sold:
-            if w not in following:
-                early.setdefault(w, []).append(symbol)
 
-    ranked = sorted(early, key=lambda w: -len(early[w]))   # early on several winners first
+    # On several coins first, then early sellers before wallets that are just trading.
+    ranked = sorted(seen, key=lambda w: (-len(seen[w]), -sum(h.endswith(" early") for h in seen[w])))
     picked, dropped = [], {}
     for w in ranked:
         if len(picked) >= config.FINDER_SCOUT_MAX:
@@ -228,8 +267,8 @@ def find(coins):
             dropped[reason] = dropped.get(reason, 0) + 1
         else:
             picked.append(w)
-    print("\n%d early buyers, %d sold most since, %d new to you. Dropped before profiling: %s"
-          % (found, took, len(early), ", ".join("%d %s" % (n, r) for r, n in sorted(dropped.items())) or "none"))
+    print("\n%d candidates new to you. Dropped before profiling: %s"
+          % (len(seen), ", ".join("%d %s" % (n, r) for r, n in sorted(dropped.items())) or "none"))
 
     sol_usd = scout.sol_price()
     results = []
@@ -240,19 +279,19 @@ def find(coins):
         except net.NetError as e:
             print("  couldn't read it (%s)" % e)
             continue
-        p["coins_early"] = early[w]
+        p["found_on"] = seen[w]
         results.append((w, p, scout.verdict(p)))
     results.sort(key=lambda r: (r[2] != "Looks followable.", -r[1]["usd_pnl"]))
     return results
 
 
 def show(results):
-    print("\n #  early on        trades/day  buys/day  win rate  P&L       hold    last trade     verdict")
+    print("\n #  found on          trades/day  buys/day  win rate  P&L       hold    last trade     verdict")
     for i, (_, p, v) in enumerate(results, 1):
         win = "n/a" if p["win_rate"] is None else "%.0f%%" % p["win_rate"]
         hold = "n/a" if p["median_hold_min"] is None else "%.0fm" % p["median_hold_min"]
-        print("%2d  %-14s  %10.1f  %8.1f  %8s  %+8.0f  %6s  %-13s  %s" % (
-            i, ",".join(p["coins_early"])[:14], p["per_day"], p["buys_per_day"], win, p["usd_pnl"],
+        print("%2d  %-16s  %10.1f  %8.1f  %8s  %+8.0f  %6s  %-13s  %s" % (
+            i, ",".join(p["found_on"])[:16], p["per_day"], p["buys_per_day"], win, p["usd_pnl"],
             hold, scout.ago(p["quiet_days"]), v))
     good = [w for w, _, v in results if v == "Looks followable."]
     if not good:

@@ -730,15 +730,15 @@ def main():
 
         check("finder derives a pump.fun coin's bonding curve",
               finder.pump_curve(PUMP_MINT) == PUMP_CURVE, finder.pump_curve(PUMP_MINT))
-        small, old, busy = mint("SMALL"), mint("OLDIE"), mint("BUSYC")
+        small, fresh, busy = mint("SMALL"), mint("FRESH"), mint("BUSYC")
         pumpc = finder.b58encode(hashlib.sha256(b"PUMPC").digest())    # a valid address
         curve = finder.pump_curve(pumpc)
         w.sigs[curve] = [{"signature": "launch", "err": None, "blockTime": int(w.clock)}]
         w.market[find], w.market[small] = (0.001, 50000.0), (0.001, 20000.0)
-        w.market[old], w.market[busy], w.market[pumpc] = (0.001, 50000.0), (0.001, 50000.0), (0.001, 50000.0)
-        listing = [{"chainId": "solana", "tokenAddress": m} for m in (find, small, old, busy, find, pumpc)]
+        w.market[fresh], w.market[busy], w.market[pumpc] = (0.001, 50000.0), (0.001, 50000.0), (0.001, 50000.0)
+        listing = [{"chainId": "solana", "tokenAddress": m} for m in (find, small, fresh, busy, find, pumpc)]
         listing.insert(1, {"chainId": "ethereum", "tokenAddress": "0xabc"})
-        hours = {old: 24 * 30}                   # pair age in hours; the rest are a day old
+        hours = {fresh: 2}                       # pair age in hours (too new to have held up); the rest a day
         per_day = {busy: 500000, pumpc: 500000}  # trades in the last 24 hours; the rest 2,000
 
         def listed(url):
@@ -753,8 +753,9 @@ def main():
                 pr["txns"] = {"h24": {"buys": per_day.get(m, 2000) // 2, "sells": per_day.get(m, 2000) // 2}}
             return pairs
         net.get_json = listed
-        check("finder picks listed Solana coins that ran, held up and whose launch it can still read",
-              finder.pick_coins() == [(find, find[:4], find), (pumpc, pumpc[:4], curve)], finder.pick_coins())
+        check("finder picks listed coins that ran and held up, and where their launch can be read",
+              finder.pick_coins() == [(find, find[:4], find), (busy, busy[:4], None), (pumpc, pumpc[:4], curve)],
+              finder.pick_coins())
         check("finder stops at the number of coins asked for", finder.pick_coins(1) == [(find, find[:4], find)])
 
         saved_page, saved_pages = finder.PAGE, config.FINDER_MAX_PAGES
@@ -773,10 +774,11 @@ def main():
 
         saved_env = {k: os.environ.pop(k, None) for k in ("WALLETS", "GITHUB_ACTIONS")}
         os.environ["WALLETS"] = "%s %s" % (NICK, WALLET)    # already followed
+        saved_min, config.FINDER_MIN_EARLY_SELLERS = config.FINDER_MIN_EARLY_SELLERS, 1
         with capture(out):
             found = finder.find([(find, "FIND", find)])
             finder.show(found)
-        os.environ.pop("WALLETS")
+        config.FINDER_MIN_EARLY_SELLERS = saved_min
         shown = out[-1]
         check("finder keeps only the early seller who still trades like a person",
               [x for x, _, _ in found] == [EARLY] and found[0][2] == "Looks followable.",
@@ -786,6 +788,16 @@ def main():
               and "1 bot-like" in shown, shown)
         check("finder prints the followable wallet ready for the WALLETS secret",
               "  finder 1 %s\n" % EARLY in shown, shown)
+        with capture(out):
+            now = finder.find([(find, "FIND", None)])  # launch out of reach: who trades it now
+            finder.show(now)
+        os.environ.pop("WALLETS")
+        check("finder profiles the wallets trading a coin now, minus bots and ones followed",
+              sorted(x for x, _, _ in now) == sorted([CREATOR, SNIPER, EARLY, HOLDER]),
+              [(x[:5], v) for x, _, v in now])
+        check("finder: of those, only the good trader is followable, found by trading it",
+              [(x, p["found_on"]) for x, p, v in now if v == "Looks followable."] == [(EARLY, ["FIND"])]
+              and "  finder 1 %s\n" % EARLY in out[-1] and "finder 2" not in out[-1], out[-1])
 
         w.sigs[curve] = []                       # a pump.fun launch: its trades are on the curve
         for x, sol, before, after in ((CREATOR, -1.0, 0, 1000.0), (HOLDER, -0.5, 0, 700.0)):
