@@ -126,7 +126,7 @@ def build(state, trades, decisions, quotes, quotes_ok, at=None):
     for mint, p in positions.items():
         q = quotes.get(mint)
         price = q["price"] if q else (p.get("last_price") or 0.0)
-        val = p["qty"] * price
+        val = paper.exit_value(p["qty"], price, p.get("tax_pct", 0.0))
         rows.append((((price / p["entry"]) - 1) * 100 if p["entry"] else 0.0,
                      p["symbol"], p["leader"], val, (at - p["opened"]) / 3600))
     held = sum(r[3] for r in rows)
@@ -134,7 +134,7 @@ def build(state, trades, decisions, quotes, quotes_ok, at=None):
     L += ["", "POT",
           "  %s -> %s  (%s, %s)" % (money(start), money(pot), pct((pot / start - 1) * 100),
                                     signed_money(pot - start)),
-          "  cash %s + open positions %s" % (money(cash), money(held))]
+          "  cash %s + open positions %s (if sold now, after costs)" % (money(cash), money(held))]
 
     # TRADES
     closed = episodes(trades)
@@ -150,6 +150,9 @@ def build(state, trades, decisions, quotes, quotes_ok, at=None):
         L.append("  best  %-10s %s" % (best["symbol"], signed_money(best["pnl"])))
         L.append("  worst %-10s %s" % (worst["symbol"], signed_money(worst["pnl"])))
     L.append("  rugged to zero: %d" % sum(1 for c in closed if c["rugged"]))
+    costs = sum(num(t.get("costs_usd")) or 0.0 for t in trades)
+    if trades:
+        L.append("  costs paid %s (slippage, trading fees, network fees, coin taxes)" % money(costs))
 
     # OPEN
     L += ["", "OPEN (%d)" % len(rows)]

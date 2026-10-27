@@ -301,6 +301,7 @@ def summarise_rugcheck(r):
         "lp_locked_pct": lp_locked,
         "insiders": insiders,
         "holders": r.get("totalHolders"),
+        "transfer_fee_pct": _num((r.get("transferFee") or {}).get("pct")) or 0.0,
     }
 
 

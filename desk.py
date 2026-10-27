@@ -93,7 +93,7 @@ def on_buy(desk, nick, ev, left_with=None):
     log_decision(nick, symbol, verdict, reason, mint, dx, rc)
     desk.say("  %s bought %s -> %s (%s)" % (nick, symbol, verdict, reason))
     if verdict == "COPY":
-        p.buy(mint, dx["price"], symbol, nick, reason)
+        p.buy(mint, dx["price"], symbol, nick, reason, rc.get("transfer_fee_pct") or 0.0)
         p.positions[mint]["leader_held"] = ev.get("after", 0.0)
         desk.say("  paper BUY $%.0f of %s at $%s" % (config.TICKET_USD, symbol, paper.fmt(dx["price"], 6)))
 

@@ -255,8 +255,16 @@ def main():
         check("three positions open", len(pos) == 3, list(pos))
         check("price from the deep pair, not the decoy",
               abs(pos[GOOD]["entry"] - 0.001 * 1.03) < 1e-12, pos[GOOD]["entry"])
-        check("cash = 100 - 3 x 10.10", abs(d.paper.cash - (100 - 3 * 10.1)) < 1e-9, d.paper.cash)
+        ticket = config.TICKET_USD + config.FEE_USD
+        check("cash = 100 - 3 x (ticket + network fee)", abs(d.paper.cash - (100 - 3 * ticket)) < 1e-9, d.paper.cash)
+        check("the trading fee comes out of what we get",
+              abs(pos[GOOD]["qty"] - config.TICKET_USD * (1 - config.SWAP_FEE_PCT / 100) / (0.001 * 1.03)) < 1e-6,
+              pos[GOOD]["qty"])
         check("decision has price_then", dec[0]["price_then"] not in ("", None), dec[0])
+        cash, held = d.paper.value()
+        check("open coins count at what selling them now would bring, so the pot shows costs at once",
+              abs(held - 3 * paper.exit_value(pos[GOOD]["qty"], 0.001)) < 1e-9 and cash + held < 100 - 3 * 1.3,
+              (cash, held))
 
         print("3. Moves")
         w.market[GOOD] = (0.0025, 60000.0)       # +150%
@@ -285,7 +293,8 @@ def main():
         tr = rows(config.TRADES_FILE)
         rug = [t for t in tr if t["mint"] == RUG and t["action"] == "SELL"]
         check("RUG written off at $0", len(rug) == 1 and rug[0]["reason"] == "rugged: market disappeared"
-              and float(rug[0]["cash_flow_usd"]) == 0.0 and abs(float(rug[0]["pnl_usd"]) + 10.1) < 1e-6, rug)
+              and float(rug[0]["cash_flow_usd"]) == 0.0
+              and abs(float(rug[0]["pnl_usd"]) + config.TICKET_USD + config.FEE_USD) < 1e-6, rug)
         check("RUG no longer held", RUG not in d.paper.positions)
 
         print("5. Leader sells 100% of GOOD")
@@ -337,11 +346,26 @@ def main():
         p.buy("M1", 1.0, "M1", "x", "t")
         p.positions["M1"]["last_price"] = 2.0
         r = p.sell("M1", 0.5, None, "t")
-        check("unknown price uses last_price", abs(r["proceeds"] - (p.positions["M1"]["qty"] * 2 * 0.97 - 0.10)) < 1e-6, r)
+        kept = 0.97 * (1 - config.SWAP_FEE_PCT / 100)
+        check("unknown price uses last_price",
+              abs(r["proceeds"] - (p.positions["M1"]["qty"] * 2 * kept - config.FEE_USD)) < 1e-6, r)
         p.buy("M2", 1.0, "M2", "x", "t")
         r = p.sell("M2", 5.0, 0.0, "t")
         check("price 0 sell: no fee, fraction clamped, closed",
-              r["proceeds"] == 0.0 and r["closed"] and abs(r["pnl"] + 10.1) < 1e-9, r)
+              r["proceeds"] == 0.0 and r["closed"] and abs(r["pnl"] + config.TICKET_USD + config.FEE_USD) < 1e-9, r)
+        p.buy("M3", 1.0, "M3", "x", "t")
+        r = p.sell("M3", 1.0, 1.0, "t")          # in and out at an unchanged price
+        flat = [t for t in rows(config.TRADES_FILE) if t["mint"] == "M3"]
+        check("a round trip at an unchanged price loses exactly the costs logged",
+              abs(r["pnl"] + sum(float(t["costs_usd"]) for t in flat)) < 1e-3, repr((r, flat)))
+        check("that round trip costs about 14% of a $10 ticket",
+              13.5 < -r["pnl"] / config.TICKET_USD * 100 < 15, r["pnl"])
+        p.buy("M4", 1.0, "M4", "x", "t", tax_pct=10.0)
+        taxed_qty = p.positions["M4"]["qty"]
+        r = p.sell("M4", 1.0, 1.0, "t")
+        check("a coin's transfer tax is taken on the way in and again on the way out",
+              abs(taxed_qty - config.TICKET_USD * (1 - config.SWAP_FEE_PCT / 100) / 1.03 * 0.9) < 1e-9
+              and abs(r["proceeds"] - (taxed_qty * kept * 0.9 - config.FEE_USD)) < 1e-9, repr((taxed_qty, r)))
         config.TRADES_FILE = main_trades
 
         print("6c. Scout values SOL and USDC trades")
@@ -466,6 +490,9 @@ def main():
         check("pot shown", "POT" in md and "$100.00 ->" in md)
         check("1 win / 2 losses", "closed 3 (1 won, 2 lost)" in md, re.findall(r"closed.*", md))
         check("rug count 1", "rugged to zero: 1" in md)
+        paid = sum(float(t["costs_usd"]) for t in rows(config.TRADES_FILE))
+        check("report shows the costs paid", paid > 0 and ("costs paid %s" % report.money(paid)) in md,
+              re.findall(r"costs paid.*", md))
         check("skip reasons grouped", "authority_open" in md and "thin_liquidity" in md and "no_rugcheck_report" in md)
         check("leader row", re.search(r"fish one\s+\d+\s+3", md) is not None, md)
         check("filter check lines", "FILTER CHECK (last 7 days)" in md and "copied" in md and "filtered out" in md)
@@ -621,6 +648,16 @@ def main():
 
         def exits(m):
             return [t for t in rows(config.TRADES_FILE) if t["mint"] == m and t["action"] != "BUY"]
+
+        tax = mint("TAX")
+        w.market[tax] = (0.001, 50000.0)
+        w.rug[tax] = dict(rug_report("TAX"), transferFee={"pct": 5, "maxAmount": 0, "authority": "x"})
+        w.add_tx(WALLET, -0.5, {tax: (0, 10000.0)})
+        tick(); cycle(d)
+        check("the desk charges the transfer tax Rugcheck reports",
+              d.paper.positions.get(tax, {}).get("tax_pct") == 5.0, d.paper.positions.get(tax))
+        w.add_tx(WALLET, +0.6, {tax: (10000.0, 0)})
+        tick(); cycle(d)
 
         pend = copy("PEND")
         del w.market[pend]                       # pool pulled, then the leader sells
