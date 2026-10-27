@@ -1,10 +1,10 @@
 ```
-PAPER DESK REPORT  Tue 27 Oct 2026, 08:15 UTC
+PAPER DESK REPORT  Tue 27 Oct 2026, 08:30 UTC
 Day 2, running since 25 Oct 2026. AI judge: off.
 
 POT
   $100.00 -> $100.00  (+0.0%, +$0.00)
-  cash $100.00 + open positions $0.00
+  cash $100.00 + open positions $0.00 (if sold now, after costs)
 
 TRADES
   bought 0, closed 0 (0 won, 0 lost)
