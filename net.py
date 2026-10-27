@@ -25,6 +25,9 @@ USDC_MINT = "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
 
 RUGCHECK_URL = "https://api.rugcheck.xyz/v1/tokens/{}/report"
 DEXSCREENER_URL = "https://api.dexscreener.com/tokens/v1/solana/{}"
+LISTING_URLS = ["https://api.dexscreener.com/token-boosts/top/v1",
+                "https://api.dexscreener.com/token-boosts/latest/v1",
+                "https://api.dexscreener.com/token-profiles/latest/v1"]
 
 CERT_HELP = ("Your computer couldn't check the website's security certificate. "
              "See Troubleshooting in your Paper Desk guide (usually fixed with: pip3 install certifi).")
@@ -298,6 +301,7 @@ def summarise_rugcheck(r):
         "lp_locked_pct": lp_locked,
         "insiders": insiders,
         "holders": r.get("totalHolders"),
+        "transfer_fee_pct": _num((r.get("transferFee") or {}).get("pct")) or 0.0,
     }
 
 
@@ -317,6 +321,27 @@ def _num(x):
         return float(x)
     except (TypeError, ValueError):
         return None
+
+
+def listed_coins():
+    """Solana coins DexScreener is showing off now (boosted, or a new profile).
+
+    Boosts are paid for, so this is a place to look, not a recommendation.
+    """
+    mints, failed = [], None
+    for url in LISTING_URLS:
+        try:
+            entries = get_json(url)
+        except NetError as e:
+            failed = e
+            continue
+        for e in entries if isinstance(entries, list) else []:
+            if isinstance(e, dict) and e.get("chainId") == "solana" and e.get("tokenAddress"):
+                if e["tokenAddress"] not in mints:
+                    mints.append(e["tokenAddress"])
+    if failed and not mints:
+        raise failed
+    return mints
 
 
 def prices(mints):
@@ -350,5 +375,7 @@ def prices(mints):
                 "volume_1h_usd": _num((p.get("volume") or {}).get("h1")),
                 "buys_1h": h1.get("buys"),
                 "sells_1h": h1.get("sells"),
+                "txns_24h": sum(_num(((p.get("txns") or {}).get("h24") or {}).get(k)) or 0
+                                for k in ("buys", "sells")),
             }
     return out

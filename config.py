@@ -25,7 +25,10 @@ MAX_BUY_AGE_MINUTES = 60     # a leader buy we only spot later than this is too 
 # 3. Honest fills (so paper results don't flatter)
 # ---------------------------------------------------------------------------
 SLIPPAGE_PCT = 3.0           # buys fill 3% above the price, sells 3% below
-FEE_USD = 0.10               # charged on every buy and every non-zero sell
+SWAP_FEE_PCT = 1.25          # taken from every buy and sell: ~1% trading-bot fee + ~0.25% pool fee
+FEE_USD = 0.30               # per buy and non-zero sell: network + priority fee to land fast (~0.003 SOL)
+# A coin's own transfer tax (some take a cut of every transfer) is charged too, as Rugcheck reports it.
+# Together that's roughly 14% of a $10 ticket per round trip, before the price moves at all.
 
 # ---------------------------------------------------------------------------
 # 4. Exits
@@ -61,7 +64,28 @@ AI_MODEL = "claude-haiku-5-5"  # cheap model
 AI_MIN_CONFIDENCE = 0.65     # a COPY less sure than this is treated as SKIP
 
 # ---------------------------------------------------------------------------
-# 8. Plumbing
+# 8. Choosing leaders (scout.py and finder.py, run on your own computer)
+# ---------------------------------------------------------------------------
+SCOUT_MAX_TRADES_PER_DAY = 100   # busier than this is a bot
+SCOUT_MIN_BUYS_PER_DAY = 2       # quieter than this gives the desk almost nothing to copy
+SCOUT_MAX_QUIET_DAYS = 2         # no coin trade for this long = gone quiet
+SCOUT_MIN_HOLD_MINUTES = 5       # sells faster than this (median) can't be copied every 15 minutes
+SCOUT_MIN_WIN_RATE = 45          # % of coins it made money on
+SCOUT_TX = 100                   # transactions finder.py reads per candidate
+
+FINDER_MIN_MARKET_CAP_USD = 250000  # a coin "ran" if it's worth this much now...
+FINDER_MIN_LIQUIDITY_USD = 40000    # ...still has a real market...
+FINDER_MIN_AGE_HOURS = 6            # ...and has held up for this long
+FINDER_COINS = 10                   # coins it looks at per run
+FINDER_SKIP_SECONDS = 30            # buys this soon after launch are snipers and insiders
+FINDER_EARLY_TX = 300               # transactions read from just after that, per coin
+FINDER_MIN_EARLY_SELLERS = 10       # fewer early sellers than this (often a bundled launch)...
+FINDER_RECENT_TX = 300              # ...so also read this many of the coin's latest transactions
+FINDER_MAX_PAGES = 150              # pages of 1,000 to reach a coin's first trade; deeper ones are skipped
+FINDER_SCOUT_MAX = 20               # candidates profiled per run (the slow part)
+
+# ---------------------------------------------------------------------------
+# 9. Plumbing
 # ---------------------------------------------------------------------------
 POLL_SECONDS = 60            # loop interval when running on your own computer
 MAX_TX_PER_CHECK = 100       # transactions read per wallet per run; any backlog waits for the next run

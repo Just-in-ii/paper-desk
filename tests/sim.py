@@ -5,6 +5,7 @@ python3 tests/sim.py
 import ast
 import contextlib
 import glob
+import hashlib
 import http.client
 import io
 import json
@@ -13,12 +14,14 @@ import re
 import shutil
 import sys
 import tempfile
+import time
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, ROOT)
 
 import config  # noqa: E402
 import desk    # noqa: E402
+import finder  # noqa: E402
 import judge   # noqa: E402
 import net     # noqa: E402
 import paper   # noqa: E402
@@ -33,6 +36,12 @@ NICK = "fish one"
 WALLET = "Fish1111WaLLetAddressXyzABCDEFGHJKLMNPQRSTU"   # 43 chars, fake
 OTHER_NICK, OTHER = "whale", "WhaLe222WaLLetAddressXyzABCDEFGHJKLMNPQRSTU"
 SCOUTED = "Sc0ut444WaLLetAddressXyzABCDEFGHJKLMNPQRSTU"
+QUIET, SLOW = "Quiet555WaLLetAddressXyzABCDEFGHJKLMNPQRSTU", "SLoww666WaLLetAddressXyzABCDEFGHJKLMNPQRSTU"
+CREATOR, SNIPER = "Creat777WaLLetAddressXyzABCDEFGHJKLMNPQRSTU", "Snipe888WaLLetAddressXyzABCDEFGHJKLMNPQRSTU"
+EARLY, BOTTY = "EarLy999WaLLetAddressXyzABCDEFGHJKLMNPQRSTU", "Botty111WaLLetAddressXyzABCDEFGHJKLMNPQRSTV"
+HOLDER = "HoLder22WaLLetAddressXyzABCDEFGHJKLMNPQRSTV"
+PUMP_MINT = "CA8q2mkYWZnUNqYmf6pxyxAPZsmSe2EG9P7hHMW5pump"     # a real coin, and its bonding curve
+PUMP_CURVE = "A1Nvh5SApuQvj2iG36XAt3LyXnpJAHV5Hui2LUSxryhW"
 POOL = "PooL333PooLAddressXyzABCDEFGHJKLMNPQRSTUVWX"
 SOL, USDC = net.SOL_MINT, net.USDC_MINT
 
@@ -111,7 +120,7 @@ class World:
             wallet, opts = params
             if wallet in self.rpc_down_for:
                 raise net.NetError("Solana RPC getSignaturesForAddress: HTTP 429")
-            newest_first = list(reversed(self.sigs[wallet]))
+            newest_first = list(reversed(self.sigs.get(wallet, [])))
             if opts.get("before"):
                 names = [s["signature"] for s in newest_first]
                 newest_first = newest_first[names.index(opts["before"]) + 1:]
@@ -246,8 +255,16 @@ def main():
         check("three positions open", len(pos) == 3, list(pos))
         check("price from the deep pair, not the decoy",
               abs(pos[GOOD]["entry"] - 0.001 * 1.03) < 1e-12, pos[GOOD]["entry"])
-        check("cash = 100 - 3 x 10.10", abs(d.paper.cash - (100 - 3 * 10.1)) < 1e-9, d.paper.cash)
+        ticket = config.TICKET_USD + config.FEE_USD
+        check("cash = 100 - 3 x (ticket + network fee)", abs(d.paper.cash - (100 - 3 * ticket)) < 1e-9, d.paper.cash)
+        check("the trading fee comes out of what we get",
+              abs(pos[GOOD]["qty"] - config.TICKET_USD * (1 - config.SWAP_FEE_PCT / 100) / (0.001 * 1.03)) < 1e-6,
+              pos[GOOD]["qty"])
         check("decision has price_then", dec[0]["price_then"] not in ("", None), dec[0])
+        cash, held = d.paper.value()
+        check("open coins count at what selling them now would bring, so the pot shows costs at once",
+              abs(held - 3 * paper.exit_value(pos[GOOD]["qty"], 0.001)) < 1e-9 and cash + held < 100 - 3 * 1.3,
+              (cash, held))
 
         print("3. Moves")
         w.market[GOOD] = (0.0025, 60000.0)       # +150%
@@ -276,7 +293,8 @@ def main():
         tr = rows(config.TRADES_FILE)
         rug = [t for t in tr if t["mint"] == RUG and t["action"] == "SELL"]
         check("RUG written off at $0", len(rug) == 1 and rug[0]["reason"] == "rugged: market disappeared"
-              and float(rug[0]["cash_flow_usd"]) == 0.0 and abs(float(rug[0]["pnl_usd"]) + 10.1) < 1e-6, rug)
+              and float(rug[0]["cash_flow_usd"]) == 0.0
+              and abs(float(rug[0]["pnl_usd"]) + config.TICKET_USD + config.FEE_USD) < 1e-6, rug)
         check("RUG no longer held", RUG not in d.paper.positions)
 
         print("5. Leader sells 100% of GOOD")
@@ -328,11 +346,26 @@ def main():
         p.buy("M1", 1.0, "M1", "x", "t")
         p.positions["M1"]["last_price"] = 2.0
         r = p.sell("M1", 0.5, None, "t")
-        check("unknown price uses last_price", abs(r["proceeds"] - (p.positions["M1"]["qty"] * 2 * 0.97 - 0.10)) < 1e-6, r)
+        kept = 0.97 * (1 - config.SWAP_FEE_PCT / 100)
+        check("unknown price uses last_price",
+              abs(r["proceeds"] - (p.positions["M1"]["qty"] * 2 * kept - config.FEE_USD)) < 1e-6, r)
         p.buy("M2", 1.0, "M2", "x", "t")
         r = p.sell("M2", 5.0, 0.0, "t")
         check("price 0 sell: no fee, fraction clamped, closed",
-              r["proceeds"] == 0.0 and r["closed"] and abs(r["pnl"] + 10.1) < 1e-9, r)
+              r["proceeds"] == 0.0 and r["closed"] and abs(r["pnl"] + config.TICKET_USD + config.FEE_USD) < 1e-9, r)
+        p.buy("M3", 1.0, "M3", "x", "t")
+        r = p.sell("M3", 1.0, 1.0, "t")          # in and out at an unchanged price
+        flat = [t for t in rows(config.TRADES_FILE) if t["mint"] == "M3"]
+        check("a round trip at an unchanged price loses exactly the costs logged",
+              abs(r["pnl"] + sum(float(t["costs_usd"]) for t in flat)) < 1e-3, repr((r, flat)))
+        check("that round trip costs about 14% of a $10 ticket",
+              13.5 < -r["pnl"] / config.TICKET_USD * 100 < 15, r["pnl"])
+        p.buy("M4", 1.0, "M4", "x", "t", tax_pct=10.0)
+        taxed_qty = p.positions["M4"]["qty"]
+        r = p.sell("M4", 1.0, 1.0, "t")
+        check("a coin's transfer tax is taken on the way in and again on the way out",
+              abs(taxed_qty - config.TICKET_USD * (1 - config.SWAP_FEE_PCT / 100) / 1.03 * 0.9) < 1e-9
+              and abs(r["proceeds"] - (taxed_qty * kept * 0.9 - config.FEE_USD)) < 1e-9, repr((taxed_qty, r)))
         config.TRADES_FILE = main_trades
 
         print("6c. Scout values SOL and USDC trades")
@@ -353,9 +386,40 @@ def main():
         check("scout win rate counts USDC sales", sp["win_rate"] == 50.0, sp)
         check("scout P&L in dollars", abs(sp["usd_pnl"] - (50 - 100.2)) < 0.01, sp)
         check("scout median hold 30 min", abs(sp["median_hold_min"] - 30) < 0.01, sp)
-        base = {"per_day": 10, "round_trips": 8, "priced_trips": 8, "median_hold_min": 60,
-                "win_rate": 60.0, "usd_pnl": 50.0}
+        check("scout: buys a day count from the oldest transaction to now",
+              abs(sp["buys_per_day"] - 3 / (1.5 / 24)) < 0.01 and sp["quiet_days"] == 0, sp)
+        base = {"per_day": 10, "buys_per_day": 5, "quiet_days": 0.1, "round_trips": 8, "priced_trips": 8,
+                "median_hold_min": 60, "win_rate": 60.0, "usd_pnl": 50.0}
         check("scout: a good wallet looks followable", scout.verdict(base) == "Looks followable.")
+        check("scout: under 2 buys a day is too quiet to copy",
+              scout.verdict(dict(base, buys_per_day=1.5)).startswith("Too quiet"))
+        check("scout: no coin trades at all is gone quiet",
+              scout.verdict(dict(base, quiet_days=None)).startswith("Gone quiet"))
+
+        now_then = w.clock
+        w.sigs[QUIET], w.sigs[SLOW] = [], []
+        w.clock = now_then - 10 * 86400          # busy for an hour ten days ago, nothing since
+        for i in range(6):
+            q = mint("QT%d" % i)
+            w.add_tx(QUIET, -1.0, {q: (0, 100.0)})
+            tick(0.1)
+            w.add_tx(QUIET, +2.0, {q: (100.0, 0)})
+        w.clock = now_then - 4 * 86400           # one coin a day for four days, the last a day ago
+        for i in range(4):
+            q = mint("SL%d" % i)
+            w.add_tx(SLOW, -1.0, {q: (0, 100.0)})
+            tick(1)
+            w.add_tx(SLOW, +2.0, {q: (100.0, 0)})
+            tick(23 if i < 3 else 0)
+        w.clock = now_then
+        with capture(out):
+            qp, slp = scout.profile(QUIET, 60, sol_usd=200.0), scout.profile(SLOW, 60, sol_usd=200.0)
+        check("scout: busy ten days ago, silent since -> gone quiet, not a busy wallet",
+              scout.verdict(qp).startswith("Gone quiet: its last coin trade was 10 days ago")
+              and qp["per_day"] < 2, (qp, scout.verdict(qp)))
+        check("scout: one coin a day -> too quiet to copy",
+              scout.verdict(slp).startswith("Too quiet") and abs(slp["buys_per_day"] - 1.0) < 0.05,
+              (slp, scout.verdict(slp)))
         check("scout: two coins is too little history, not a 'don't copy'",
               scout.verdict(dict(base, round_trips=2, priced_trips=2, win_rate=0.0)).startswith("Too little"))
         check("scout: too few valued coins to judge the win rate",
@@ -426,6 +490,9 @@ def main():
         check("pot shown", "POT" in md and "$100.00 ->" in md)
         check("1 win / 2 losses", "closed 3 (1 won, 2 lost)" in md, re.findall(r"closed.*", md))
         check("rug count 1", "rugged to zero: 1" in md)
+        paid = sum(float(t["costs_usd"]) for t in rows(config.TRADES_FILE))
+        check("report shows the costs paid", paid > 0 and ("costs paid %s" % report.money(paid)) in md,
+              re.findall(r"costs paid.*", md))
         check("skip reasons grouped", "authority_open" in md and "thin_liquidity" in md and "no_rugcheck_report" in md)
         check("leader row", re.search(r"fish one\s+\d+\s+3", md) is not None, md)
         check("filter check lines", "FILTER CHECK (last 7 days)" in md and "copied" in md and "filtered out" in md)
@@ -582,6 +649,16 @@ def main():
         def exits(m):
             return [t for t in rows(config.TRADES_FILE) if t["mint"] == m and t["action"] != "BUY"]
 
+        tax = mint("TAX")
+        w.market[tax] = (0.001, 50000.0)
+        w.rug[tax] = dict(rug_report("TAX"), transferFee={"pct": 5, "maxAmount": 0, "authority": "x"})
+        w.add_tx(WALLET, -0.5, {tax: (0, 10000.0)})
+        tick(); cycle(d)
+        check("the desk charges the transfer tax Rugcheck reports",
+              d.paper.positions.get(tax, {}).get("tax_pct") == 5.0, d.paper.positions.get(tax))
+        w.add_tx(WALLET, +0.6, {tax: (10000.0, 0)})
+        tick(); cycle(d)
+
         pend = copy("PEND")
         del w.market[pend]                       # pool pulled, then the leader sells
         w.add_tx(WALLET, +0.01, {pend: (10000.0, 0)})
@@ -658,6 +735,131 @@ def main():
         check("lost our place: carry on from the newest, and say so",
               "skipping to the newest 100" in console[-1]
               and d.paper.s["last_sig"][key] == desk.sig_key(w.sigs[WALLET][-1]["signature"]), console[-1])
+
+        print("12b. Finder: early sellers of a coin that ran")
+        find = mint("FIND")
+        for x in (CREATOR, SNIPER, EARLY, BOTTY, HOLDER):
+            w.sigs[x] = []
+        w.sigs[find] = []
+
+        def coin_tx(wallet, sol, before, after):
+            w.add_tx(wallet, sol, {find: (before, after)})
+            w.sigs[find].append(w.sigs[wallet][-1])
+
+        coin_tx(CREATOR, -1.0, 0, 1000.0)        # launch, with the creator's own buy
+        tick(5 / 3600.0)
+        coin_tx(SNIPER, -1.0, 0, 1000.0)         # 5 seconds in: a sniper
+        tick(55 / 3600.0)
+        for x in (EARLY, BOTTY, HOLDER, WALLET, CREATOR):
+            coin_tx(x, -0.5, 0, 1000.0)
+        tick(0.5)
+        for x in (EARLY, BOTTY, WALLET, SNIPER):
+            coin_tx(x, +1.5, 1000.0, 0)          # sold out after it ran
+        coin_tx(HOLDER, +0.15, 1000.0, 900.0)    # still holds most of it
+        for i in range(5):                       # the early seller trades other coins well too
+            q = mint("EA%d" % i)
+            w.add_tx(EARLY, -0.5, {q: (0, 100.0)})
+            tick(1)
+            w.add_tx(EARLY, +0.8, {q: (100.0, 0)})
+        for _ in range(config.SCOUT_TX):         # the other one fires off transactions like a bot
+            w.add_tx(BOTTY, -0.0001, {})
+        w.market[net.SOL_MINT] = (200.0, 1e9)
+
+        check("finder derives a pump.fun coin's bonding curve",
+              finder.pump_curve(PUMP_MINT) == PUMP_CURVE, finder.pump_curve(PUMP_MINT))
+        small, fresh, busy = mint("SMALL"), mint("FRESH"), mint("BUSYC")
+        pumpc = finder.b58encode(hashlib.sha256(b"PUMPC").digest())    # a valid address
+        curve = finder.pump_curve(pumpc)
+        w.sigs[curve] = [{"signature": "launch", "err": None, "blockTime": int(w.clock)}]
+        w.market[find], w.market[small] = (0.001, 50000.0), (0.001, 20000.0)
+        w.market[fresh], w.market[busy], w.market[pumpc] = (0.001, 50000.0), (0.001, 50000.0), (0.001, 50000.0)
+        listing = [{"chainId": "solana", "tokenAddress": m} for m in (find, small, fresh, busy, find, pumpc)]
+        listing.insert(1, {"chainId": "ethereum", "tokenAddress": "0xabc"})
+        hours = {fresh: 2}                       # pair age in hours (too new to have held up); the rest a day
+        per_day = {busy: 500000, pumpc: 500000}  # trades in the last 24 hours; the rest 2,000
+
+        def listed(url):
+            if url == net.LISTING_URLS[1]:
+                raise net.NetError("DexScreener: HTTP 503")
+            if url in net.LISTING_URLS:
+                return listing
+            pairs = w.get_json(url)
+            for pr in pairs or []:
+                m = pr["baseToken"]["address"]
+                pr["pairCreatedAt"] = (time.time() - hours.get(m, 24) * 3600) * 1000
+                pr["txns"] = {"h24": {"buys": per_day.get(m, 2000) // 2, "sells": per_day.get(m, 2000) // 2}}
+            return pairs
+        net.get_json = listed
+        check("finder picks listed coins that ran and held up, and where their launch can be read",
+              finder.pick_coins() == [(find, find[:4], find), (busy, busy[:4], None), (pumpc, pumpc[:4], curve)],
+              finder.pick_coins())
+        check("finder stops at the number of coins asked for", finder.pick_coins(1) == [(find, find[:4], find)])
+
+        saved_page, saved_pages = finder.PAGE, config.FINDER_MAX_PAGES
+        finder.PAGE = 3
+        oldest = finder.first_trades(find)
+        check("finder reads back to a coin's first trade, oldest first",
+              len(oldest) >= finder.PAGE and [s["signature"] for s in oldest]
+              == [s["signature"] for s in w.sigs[find]][:len(oldest)], len(oldest))
+        config.FINDER_MAX_PAGES = 2
+        out = []
+        with capture(out):
+            deep = finder.early_buyers(find, "FIND")
+        check("finder skips a coin whose history is too deep to reach", deep == {}
+              and "too much history" in out[-1], out[-1])
+        finder.PAGE, config.FINDER_MAX_PAGES = saved_page, saved_pages
+
+        saved_env = {k: os.environ.pop(k, None) for k in ("WALLETS", "GITHUB_ACTIONS")}
+        os.environ["WALLETS"] = "%s %s" % (NICK, WALLET)    # already followed
+        saved_min, config.FINDER_MIN_EARLY_SELLERS = config.FINDER_MIN_EARLY_SELLERS, 1
+        with capture(out):
+            found = finder.find([(find, "FIND", find)])
+            finder.show(found)
+        config.FINDER_MIN_EARLY_SELLERS = saved_min
+        shown = out[-1]
+        check("finder keeps only the early seller who still trades like a person",
+              [x for x, _, _ in found] == [EARLY] and found[0][2] == "Looks followable.",
+              [(x[:5], v) for x, _, v in found])
+        check("finder leaves out the creator, the sniper, a holder, a bot and a wallet already followed",
+              all(x not in shown for x in (CREATOR, SNIPER, HOLDER, BOTTY, WALLET))
+              and "1 bot-like" in shown, shown)
+        check("finder prints the followable wallet ready for the WALLETS secret",
+              "  finder 1 %s\n" % EARLY in shown, shown)
+        with capture(out):
+            now = finder.find([(find, "FIND", None)])  # launch out of reach: who trades it now
+            finder.show(now)
+        os.environ.pop("WALLETS")
+        check("finder profiles the wallets trading a coin now, minus bots and ones followed",
+              sorted(x for x, _, _ in now) == sorted([CREATOR, SNIPER, EARLY, HOLDER]),
+              [(x[:5], v) for x, _, v in now])
+        check("finder: of those, only the good trader is followable, found by trading it",
+              [(x, p["found_on"]) for x, p, v in now if v == "Looks followable."] == [(EARLY, ["FIND"])]
+              and "  finder 1 %s\n" % EARLY in out[-1] and "finder 2" not in out[-1], out[-1])
+
+        w.sigs[curve] = []                       # a pump.fun launch: its trades are on the curve
+        for x, sol, before, after in ((CREATOR, -1.0, 0, 1000.0), (HOLDER, -0.5, 0, 700.0)):
+            w.add_tx(x, sol, {pumpc: (before, after)})
+            w.sigs[curve].append(w.sigs[x][-1])
+            tick(60 / 3600.0)
+        with capture(out):
+            launched = finder.early_buyers(pumpc, "PUMPC", finder.launch_account(pumpc))
+        check("finder reads a pump.fun coin's early buyers off its bonding curve",
+              launched == {HOLDER: 700.0}, launched)
+
+        os.environ["GITHUB_ACTIONS"] = "true"
+        calls = []
+        net.get_json = lambda url: calls.append(url)
+        refused = False
+        with capture(out):
+            try:
+                finder.main([])
+            except SystemExit:
+                refused = True
+        os.environ.pop("GITHUB_ACTIONS")
+        os.environ.update({k: v for k, v in saved_env.items() if v is not None})
+        net.get_json = w.get_json
+        check("finder refuses to run on GitHub, where logs are public",
+              refused and not calls and finder.ON_GITHUB in out[-1], out[-1])
 
         print("13. Syntax (Python 3.8)")
         bad = []

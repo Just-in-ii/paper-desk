@@ -11,7 +11,7 @@ import time
 import config
 
 TRADE_COLUMNS = ["time", "action", "symbol", "leader", "price", "qty",
-                 "cash_flow_usd", "pnl_usd", "reason", "mint"]
+                 "cash_flow_usd", "pnl_usd", "reason", "mint", "costs_usd"]
 
 
 def now():
@@ -35,6 +35,14 @@ def append_csv(path, columns, row):
         if new:
             w.writeheader()
         w.writerow(row)
+
+
+def exit_value(qty, price, tax_pct=0.0):
+    """What selling qty at this quoted price would bring, after slippage, fees and the coin's tax."""
+    if not price or price <= 0:
+        return 0.0
+    kept = (1 - config.SLIPPAGE_PCT / 100.0) * (1 - config.SWAP_FEE_PCT / 100.0) * (1 - tax_pct / 100.0)
+    return max(0.0, qty * price * kept - config.FEE_USD)
 
 
 def fmt(x, places=10):
@@ -91,24 +99,27 @@ class Paper:
 
     # ----- trading ----------------------------------------------------------
 
-    def _log(self, action, mint, pos, price, qty, cash_flow, pnl, reason):
+    def _log(self, action, mint, pos, price, qty, cash_flow, pnl, reason, costs):
         append_csv(config.TRADES_FILE, TRADE_COLUMNS, {
             "time": stamp(), "action": action, "symbol": pos["symbol"],
             "leader": pos["leader"], "price": fmt(price), "qty": fmt(qty),
             "cash_flow_usd": "%.4f" % cash_flow,
             "pnl_usd": "" if pnl is None else "%.4f" % pnl,
-            "reason": reason, "mint": mint})
+            "reason": reason, "mint": mint, "costs_usd": "%.4f" % costs})
 
-    def buy(self, mint, price, symbol, leader, reason):
+    def buy(self, mint, price, symbol, leader, reason, tax_pct=0.0):
+        """tax_pct: the coin's own transfer tax, taken from what arrives and again when we sell."""
         fill = price * (1 + config.SLIPPAGE_PCT / 100.0)
-        qty = config.TICKET_USD / fill
+        qty = config.TICKET_USD * (1 - config.SWAP_FEE_PCT / 100.0) / fill * (1 - tax_pct / 100.0)
         cost = config.TICKET_USD + config.FEE_USD
         self.s["cash"] -= cost
         self.s["buys_today"] += 1
         pos = {"symbol": symbol, "leader": leader, "opened": int(now()), "entry": fill,
-               "qty": qty, "cost": cost, "tp_done": False, "misses": 0, "last_price": price}
+               "qty": qty, "cost": cost, "tp_done": False, "misses": 0, "last_price": price,
+               "tax_pct": tax_pct}
         self.positions[mint] = pos
-        self._log("BUY", mint, pos, fill, qty, -cost, None, reason)
+        # Costs: what we paid beyond the coins' worth at the quoted price.
+        self._log("BUY", mint, pos, fill, qty, -cost, None, reason, cost - qty * price)
         return pos
 
     def sell(self, mint, fraction, price, reason):
@@ -124,7 +135,7 @@ class Paper:
             fraction = 1.0
         qty = pos["qty"] * fraction
         fill = price * (1 - config.SLIPPAGE_PCT / 100.0) if price > 0 else 0.0
-        proceeds = max(0.0, qty * fill - config.FEE_USD) if fill > 0 else 0.0
+        proceeds = exit_value(qty, price, pos.get("tax_pct", 0.0))
         cost_share = pos["cost"] * fraction
         pnl = proceeds - cost_share
         self.s["cash"] += proceeds
@@ -133,7 +144,8 @@ class Paper:
         if price > 0:
             pos["last_price"] = price
         closed = fraction >= 1.0
-        self._log("SELL" if closed else "PART SELL", mint, pos, fill, qty, proceeds, pnl, reason)
+        self._log("SELL" if closed else "PART SELL", mint, pos, fill, qty, proceeds, pnl, reason,
+                  qty * price - proceeds if price > 0 else 0.0)
         if closed:
             del self.positions[mint]
             self.s["left_at"][mint] = int(now())
@@ -191,6 +203,7 @@ class Paper:
         return notes
 
     def value(self):
-        """(cash, value of open positions at their last price)."""
-        held = sum(p["qty"] * (p.get("last_price") or 0) for p in self.positions.values())
+        """(cash, what the open positions would bring if sold at their last price)."""
+        held = sum(exit_value(p["qty"], p.get("last_price") or 0.0, p.get("tax_pct", 0.0))
+                   for p in self.positions.values())
         return self.cash, held
