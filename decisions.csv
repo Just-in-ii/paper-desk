@@ -61,3 +61,4 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-10-28 14:00:59,finder one,LARP,SKIP,leader_already_sold,0.0001454,32344,,cwZWgCeYgF1ygo2MedxY6bgpr2EbiWZx8ZGjsRUpump
 2026-10-28 14:00:59,finder one,Macca,SKIP,lp_unlocked 70.2%,0.0009637,104232,1,AKotzk1dhcNangAJBtvNKtT9bhbSVZc2mMhRFgkFpump
 2026-10-28 14:15:32,finder one,$TAPE,SKIP,leader_already_sold,3.101e-06,0,,7xP2r4Vtjy5opBZjbPcCc4N7BkRhhQddqsFQDpDopump
+2026-10-28 15:01:22,finder one,MOONX,SKIP,insiders 75,0.0001245,28733,1,28vWTtEwxoWp5MpHutAMSK5DeVf8xXk8jEEtbrtppump
