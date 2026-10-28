@@ -16,3 +16,5 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-10-28 02:30:46,finder one,RETARDIO,SKIP,leader_already_sold,0.004211,200150,,CSRRgTwf9o5KLgguS2M16aEAhV5PUUzfshrAAQ8opump
 2026-10-28 02:30:46,finder one,Darla,SKIP,insiders 11,5.345e-05,18954,1,7F968EUuLBzUcCzhD6FZpXaTWAybKZDkWFmwoVArcAc
 2026-10-28 02:30:46,finder one,DIRECTOR,SKIP,leader_already_sold,7.85e-06,5721,,GAZcHPujTKecvFmzv4RH6zrfTGHkjwYLzx6RM3hddUeG
+2026-10-28 02:45:32,finder one,paws,SKIP,lp_unlocked 87.2%,0.0002883,45800,1,Fp4JkqEcKYKBKhb9iMu9NSDeo71HWgq2q9QtXaaKpump
+2026-10-28 02:45:32,finder one,Himmel,SKIP,insiders 27,3.489e-05,16378,1,4gCkAqLXo2cyYzi47tsoDWtcPhNzwi5HjpVHSDiWpump
