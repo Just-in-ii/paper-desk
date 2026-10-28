@@ -29,3 +29,4 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-10-28 04:45:34,finder one,paws,SKIP,insiders 20,0.0001376,31568,1,Fp4JkqEcKYKBKhb9iMu9NSDeo71HWgq2q9QtXaaKpump
 2026-10-28 05:00:57,finder one,Darla,SKIP,insiders 11,3.281e-05,14501,1,7F968EUuLBzUcCzhD6FZpXaTWAybKZDkWFmwoVArcAc
 2026-10-28 05:15:34,finder one,PARANOID,SKIP,insiders 12,0.000114,29554,7,22rWiyDiY9GgxSrFiWC2vX1GxNxjkvrRPmZJDzv9pq6X
+2026-10-28 06:00:55,finder one,Darla,SKIP,insiders 11,2.572e-05,12618,1,7F968EUuLBzUcCzhD6FZpXaTWAybKZDkWFmwoVArcAc
