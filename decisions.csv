@@ -1,0 +1,5 @@
+time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
+2026-10-28 01:30:46,finder one,RETARDIO,SKIP,top10_hold 42.5%,0.003885,191296,1,CSRRgTwf9o5KLgguS2M16aEAhV5PUUzfshrAAQ8opump
+2026-10-28 01:30:47,finder one,Frongus,SKIP,lp_unlocked 60.2%,0.0001698,40498,1,2BJDwUdMbnJhRRfhacFDjrDNhxUWdzE9H6LEND89pump
+2026-10-28 01:30:48,finder one,DICTATOR,SKIP,insiders 34,8.594e-05,25037,1,7dVpVqUEbJ9csNWWrDavsA8iAEwvb6BqWu1yVsQgpump
+2026-10-28 01:30:48,finder one,teledrop,SKIP,insiders 8,2.689e-05,12532,1,FgsSTazXwy4pxjrNMuzsQbEPbYPjAW17pAN8dfRHpump
