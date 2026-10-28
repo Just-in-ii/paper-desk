@@ -1,3 +1,4 @@
 time,action,symbol,leader,price,qty,cash_flow_usd,pnl_usd,reason,mint,costs_usd
 2026-10-28 15:15:35,BUY,HYPERCAT,finder one,5.58672e-05,176758.4558,-10.3000,,passed safety filter,8yWLU5rDC8cHRaLsUTQu8NLaohZoPVoi6awTffU6pump,0.7126
 2026-10-28 15:30:47,SELL,HYPERCAT,finder one,0.00016296,176758.4558,28.1445,17.8445,finder one sold 100%,8yWLU5rDC8cHRaLsUTQu8NLaohZoPVoi6awTffU6pump,1.5509
+2026-10-28 17:30:49,BUY,MEGA,finder one,5.14382e-05,191977.9464,-10.3000,,passed safety filter,mega4qqdQcsrCmj43fzHmxfZNmThNYeN3cz2kfR7fqs,0.7126
