@@ -3,3 +3,5 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-10-28 01:30:47,finder one,Frongus,SKIP,lp_unlocked 60.2%,0.0001698,40498,1,2BJDwUdMbnJhRRfhacFDjrDNhxUWdzE9H6LEND89pump
 2026-10-28 01:30:48,finder one,DICTATOR,SKIP,insiders 34,8.594e-05,25037,1,7dVpVqUEbJ9csNWWrDavsA8iAEwvb6BqWu1yVsQgpump
 2026-10-28 01:30:48,finder one,teledrop,SKIP,insiders 8,2.689e-05,12532,1,FgsSTazXwy4pxjrNMuzsQbEPbYPjAW17pAN8dfRHpump
+2026-10-28 01:37:46,finder one,Wifoween,SKIP,leader_already_sold,9.939e-05,27065,,DtBatQsrazRRVp37UTMQH7TnXL1mT2qrJTj7PB9Rpump
+2026-10-28 01:37:46,finder one,INVISIBLE,SKIP,lp_unlocked 49.4%,0.0005979,74271,1,2HcvsX12NyuLnhDXoU6yWL2XLcr3snCTQ7RhqVmZuCgr
