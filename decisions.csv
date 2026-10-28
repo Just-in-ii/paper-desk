@@ -39,3 +39,4 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-10-28 08:15:33,finder one,GROK,SKIP,insiders 10,2.733e-05,13480,1,6onu5YwrVVDLyBRaqgppGep36bjYaBAR2gQkJe5Jpump
 2026-10-28 08:45:33,finder one,Stu,SKIP,leader_already_sold,1.988e-05,0,,BzzPk3ymyjSsBURWAADNzdfHjxvuhiEmPETcvsd4pump
 2026-10-28 09:01:02,finder one,OpenBot,SKIP,leader_already_sold,6.168e-06,4902,,APYhnVUJLgTyWWVtBhJ6sAHzymD7FyrrnKBd3TaSpump
+2026-10-28 09:15:33,finder one,DICTATOR,SKIP,insiders 44,5.384e-05,19696,1,7dVpVqUEbJ9csNWWrDavsA8iAEwvb6BqWu1yVsQgpump
