@@ -1,0 +1,2 @@
+time,action,symbol,leader,price,qty,cash_flow_usd,pnl_usd,reason,mint,costs_usd
+2026-10-28 15:15:35,BUY,HYPERCAT,finder one,5.58672e-05,176758.4558,-10.3000,,passed safety filter,8yWLU5rDC8cHRaLsUTQu8NLaohZoPVoi6awTffU6pump,0.7126

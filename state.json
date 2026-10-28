@@ -1,14 +1,28 @@
 {
- "buys_today": 0,
- "cash": 100.0,
+ "buys_today": 1,
+ "cash": 89.7,
  "day": "2026-10-28",
  "last_sig": {
   "0ef4d20956b1190b": "0a6e079fac2654a0",
-  "24212f2b3e15ffdb": "4960a24c88c3401c",
+  "24212f2b3e15ffdb": "e1660dad142f5e07",
   "3bebba29a5753a93": "d3cb621eae228347"
  },
  "left_at": {},
- "positions": {},
+ "positions": {
+  "8yWLU5rDC8cHRaLsUTQu8NLaohZoPVoi6awTffU6pump": {
+   "cost": 10.3,
+   "entry": 5.5867200000000006e-05,
+   "last_price": 5.424e-05,
+   "leader": "finder one",
+   "leader_held": 609954.800248,
+   "misses": 0,
+   "opened": 1793200535,
+   "qty": 176758.45576653205,
+   "symbol": "HYPERCAT",
+   "tax_pct": 0.0,
+   "tp_done": false
+  }
+ },
  "start_cash": 100.0,
  "started": 1792968363
 }
