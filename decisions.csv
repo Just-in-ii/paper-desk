@@ -7,3 +7,7 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-10-28 01:37:46,finder one,INVISIBLE,SKIP,lp_unlocked 49.4%,0.0005979,74271,1,2HcvsX12NyuLnhDXoU6yWL2XLcr3snCTQ7RhqVmZuCgr
 2026-10-28 01:45:31,finder one,HACHI,SKIP,lp_unlocked 81.6%,6.354e-05,22264,1,DMnMwUvo1a9HbSnixbdNaTsoHczJ8cdamUWVRM1Qpump
 2026-10-28 01:45:31,finder one,INVERSE,SKIP,lp_unlocked 67.7%,0.0005209,66555,1,2gLhk8p2KvUFeUXur2hiF4hxjdRM1vBcbgo9Q7DMZfiw
+2026-10-28 02:00:59,finder one,POLYMEME,SKIP,leader_already_sold,1.026e-05,6818,,4V6xZ5UdRtBX8xqhKfVPPNk7CuGftCFsfDftUZiJpump
+2026-10-28 02:01:00,finder one,Darla,SKIP,insiders 11,6.573e-05,21182,1,7F968EUuLBzUcCzhD6FZpXaTWAybKZDkWFmwoVArcAc
+2026-10-28 02:01:01,finder one,MOGZ,SKIP,lp_unlocked 79.1%,4.124e-05,0,1,Pmfm2RprxQRKZH1XWVsBUc2KgCTyzeDTSFbT1vJmogz
+2026-10-28 02:01:01,finder one,DICTATOR,SKIP,insiders 34,7.724e-05,23651,1,7dVpVqUEbJ9csNWWrDavsA8iAEwvb6BqWu1yVsQgpump
