@@ -64,3 +64,4 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-10-28 15:01:22,finder one,MOONX,SKIP,insiders 75,0.0001245,28733,1,28vWTtEwxoWp5MpHutAMSK5DeVf8xXk8jEEtbrtppump
 2026-10-28 15:15:35,finder one,HYPERCAT,COPY,passed safety filter,5.424e-05,18508,1,8yWLU5rDC8cHRaLsUTQu8NLaohZoPVoi6awTffU6pump
 2026-10-28 15:30:47,finder one,ber,SKIP,insiders 4,7.397e-05,23302,1,CqpUBhhSxHsXbq6AGPKnbxDpWgECUXAVy3BCrwhGpump
+2026-10-28 15:45:32,finder one,ber,SKIP,insiders 4,6.581e-05,21869,1,CqpUBhhSxHsXbq6AGPKnbxDpWgECUXAVy3BCrwhGpump
