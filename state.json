@@ -1,17 +1,31 @@
 {
- "buys_today": 2,
- "cash": 112.4099956662113,
+ "buys_today": 3,
+ "cash": 102.1099956662113,
  "day": "2026-10-28",
  "last_sig": {
   "0ef4d20956b1190b": "0a6e079fac2654a0",
-  "24212f2b3e15ffdb": "d3c691ccac9b36bc",
+  "24212f2b3e15ffdb": "3f53b70182e9bce2",
   "3bebba29a5753a93": "d3cb621eae228347"
  },
  "left_at": {
   "8yWLU5rDC8cHRaLsUTQu8NLaohZoPVoi6awTffU6pump": 1793201447,
   "mega4qqdQcsrCmj43fzHmxfZNmThNYeN3cz2kfR7fqs": 1793209534
  },
- "positions": {},
+ "positions": {
+  "Fek7BGWxw9MabKejxFdhEftygFkJXcQjezk99fkTmKaX": {
+   "cost": 10.3,
+   "entry": 5.0789300000000005e-05,
+   "last_price": 4.931e-05,
+   "leader": "finder one",
+   "leader_held": 460475.504523,
+   "misses": 0,
+   "opened": 1793212247,
+   "qty": 194430.71670607783,
+   "symbol": "TS",
+   "tax_pct": 0.0,
+   "tp_done": false
+  }
+ },
  "start_cash": 100.0,
  "started": 1792968363
 }

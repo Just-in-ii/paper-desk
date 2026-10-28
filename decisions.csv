@@ -74,3 +74,5 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-10-28 18:00:58,finder one,MENTA,SKIP,top10_hold 32.5%,3.228e-05,0,7,5pPwq9xz9gcBun1i7e9HwDAe69yDUWgqXcqSSArSd3yP
 2026-10-28 18:15:34,finder one,ber,SKIP,leader_already_sold,6.085e-05,21063,,CqpUBhhSxHsXbq6AGPKnbxDpWgECUXAVy3BCrwhGpump
 2026-10-28 18:15:34,finder one,MIKA,SKIP,leader_already_sold,0.0005499,64287,,3fDmywEhaptHpUo6X5g5NEv2i3ohRgp2BT6meiPEpump
+2026-10-28 18:30:47,finder one,TS,COPY,passed safety filter,4.931e-05,19249,1,Fek7BGWxw9MabKejxFdhEftygFkJXcQjezk99fkTmKaX
+2026-10-28 18:30:48,finder one,MIKA,SKIP,danger: Single holder ownership,0.0004519,58528,43,3fDmywEhaptHpUo6X5g5NEv2i3ohRgp2BT6meiPEpump
