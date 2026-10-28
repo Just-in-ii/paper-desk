@@ -68,3 +68,6 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-10-28 16:01:01,finder one,ber,SKIP,insiders 5,6.104e-05,21061,1,CqpUBhhSxHsXbq6AGPKnbxDpWgECUXAVy3BCrwhGpump
 2026-10-28 17:15:36,finder one,Frongus,SKIP,lp_unlocked 79.2%,0.0001168,34058,1,2BJDwUdMbnJhRRfhacFDjrDNhxUWdzE9H6LEND89pump
 2026-10-28 17:30:49,finder one,MEGA,COPY,passed safety filter,4.994e-05,17092,1,mega4qqdQcsrCmj43fzHmxfZNmThNYeN3cz2kfR7fqs
+2026-10-28 17:45:34,finder one,Frongus,SKIP,leader_already_sold,0.0001113,33260,,2BJDwUdMbnJhRRfhacFDjrDNhxUWdzE9H6LEND89pump
+2026-10-28 17:45:34,finder one,MIKA,SKIP,leader_already_sold,9.365e-06,7218,,F5v2odurfbucdViokrzwYNczrrTZuvHhnY8ofRU2pump
+2026-10-28 17:45:34,finder one,MIKA,SKIP,leader_already_sold,9.365e-06,7218,,F5v2odurfbucdViokrzwYNczrrTZuvHhnY8ofRU2pump

@@ -1,30 +1,17 @@
 {
  "buys_today": 2,
- "cash": 107.54450097731764,
+ "cash": 112.4099956662113,
  "day": "2026-10-28",
  "last_sig": {
   "0ef4d20956b1190b": "0a6e079fac2654a0",
-  "24212f2b3e15ffdb": "a77eb3fafd6db71d",
+  "24212f2b3e15ffdb": "af11307e5ee676a3",
   "3bebba29a5753a93": "d3cb621eae228347"
  },
  "left_at": {
-  "8yWLU5rDC8cHRaLsUTQu8NLaohZoPVoi6awTffU6pump": 1793201447
+  "8yWLU5rDC8cHRaLsUTQu8NLaohZoPVoi6awTffU6pump": 1793201447,
+  "mega4qqdQcsrCmj43fzHmxfZNmThNYeN3cz2kfR7fqs": 1793209534
  },
- "positions": {
-  "mega4qqdQcsrCmj43fzHmxfZNmThNYeN3cz2kfR7fqs": {
-   "cost": 10.3,
-   "entry": 5.14382e-05,
-   "last_price": 4.994e-05,
-   "leader": "finder one",
-   "leader_held": 622988.942827,
-   "misses": 0,
-   "opened": 1793208649,
-   "qty": 191977.94635115538,
-   "symbol": "MEGA",
-   "tax_pct": 0.0,
-   "tp_done": false
-  }
- },
+ "positions": {},
  "start_cash": 100.0,
  "started": 1792968363
 }
