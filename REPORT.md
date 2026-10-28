@@ -1,5 +1,5 @@
 ```
-PAPER DESK REPORT  Wed 28 Oct 2026, 13:01 UTC
+PAPER DESK REPORT  Wed 28 Oct 2026, 13:15 UTC
 Day 3, running since 25 Oct 2026. AI judge: off.
 
 POT
@@ -14,10 +14,10 @@ OPEN (0)
   nothing open
 
 DECISIONS
-  55 decisions on 36 coins: copied 0, skipped 55
+  56 decisions on 36 coins: copied 0, skipped 56
     22  insiders
     16  leader_already_sold
-    15  lp_unlocked
+    16  lp_unlocked
      1  danger
      1  top10_hold
 
@@ -28,7 +28,7 @@ LEADERS
 FILTER CHECK (last 7 days)
   How each coin moved since the leader bought it, whatever we did after.
   copied          0 coins
-  filtered out   25 coins, median -12.1%, 2 went to ~zero
+  filtered out   25 coins, median -14.8%, 2 went to ~zero
   Not enough coins on both sides yet to tell.
 
 Not real money. Fills include slippage and fees to stay honest, but real trades would land later than the leader's and could be worse.
