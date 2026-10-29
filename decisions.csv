@@ -194,3 +194,4 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-10-29 21:23:00,finder one,dts02,SKIP,insiders 16,1.009e-05,6948,1,CZNnEVybSvS492DsJrueEAmXTEMuxwM2vaLn918Rpump
 2026-10-29 21:23:00,finder one,PMUP,SKIP,lp_unlocked 89.1%,0.0004478,65339,1,35fWL6pdJqpconRZPrawUAQegw1QF3p2tgN7mzhTpump
 2026-10-29 21:23:01,finder one,NIO,SKIP,lp_unlocked 78.5%,0.0005493,69897,1,7SL2VnfYsChvog5oQY9Nmtqu1wceaMiQzWoqoLQpump
+2026-10-29 21:30:49,finder one,STONK,SKIP,lp_unlocked 0%,0.135,2736477,1,6GmAFSYs4gk3FDao5FzzySQpPZaWsa4rUJHacpMpUNgx
