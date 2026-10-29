@@ -200,3 +200,9 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-10-29 21:45:38,finder one,ヤギ,SKIP,insiders 48,2.657e-05,14876,1,EU1MHvQvBoJ7DnLorurze1hwR2JWuyoKyAmkwymwpump
 2026-10-29 21:45:38,finder one,MOGZ,SKIP,lp_unlocked 77.1%,0.0001503,32270,1,Pmfm2RprxQRKZH1XWVsBUc2KgCTyzeDTSFbT1vJmogz
 2026-10-29 21:45:39,finder one,PODCAT,SKIP,insiders 40,7.779e-05,24206,1,2fnGKgfwYjqv99ppnKCq5nCLLhRSJAPAhSMVkqjipump
+2026-10-29 22:01:02,finder one,ClapCat,SKIP,leader_already_sold,9.593e-05,29358,,5BjfgmtfqvNpAWx1CnZynoWLWNMnrwHLhTFzQ81vkEc8
+2026-10-29 22:01:02,finder one,WETH,SKIP,leader_already_sold,2274.71,6728862,,7vfCXTUXx5WJV5JADk17DUJ4ksgau7utNKj4b963voxs
+2026-10-29 22:01:02,finder one,HYPE,SKIP,leader_already_sold,92.52,4047406,,98sMhvDwXj1RQi5c5Mndm3vPe9cBqPrbLaufMXFNMh5g
+2026-10-29 22:01:03,finder one,PMUP,SKIP,lp_unlocked 88.1%,0.0004254,63602,1,35fWL6pdJqpconRZPrawUAQegw1QF3p2tgN7mzhTpump
+2026-10-29 22:01:03,finder one,dts02,SKIP,insiders 16,8.682e-06,6319,18,CZNnEVybSvS492DsJrueEAmXTEMuxwM2vaLn918Rpump
+2026-10-29 22:01:04,finder one,simulator,SKIP,lp_unlocked 88.8%,0.0005648,96882,1,8hnMfF4XL717GVwzDmvqjJvULozKW6w7BhHFABjvHje4
