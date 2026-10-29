@@ -1,35 +1,22 @@
 {
  "buys_today": 4,
- "cash": 99.24956305523916,
+ "cash": 108.30740822673245,
  "day": "2026-10-29",
  "last_sig": {
   "0ef4d20956b1190b": "0a6e079fac2654a0",
-  "24212f2b3e15ffdb": "ac26a5dcd2eda5ea",
+  "24212f2b3e15ffdb": "58c23187723e9ee2",
   "3bebba29a5753a93": "d3cb621eae228347"
  },
  "left_at": {
   "4oTiM4rdkm3QwnvymYrcn9gCgNyHNFssnAeJxzMQpump": 1793262644,
   "5THtNEGTF1y67eRWvcgz3MomDZePCVx1xdskHHeCpump": 1793284247,
+  "6zzzG49KX5nksnqfogs31dwoMYSHaJXkropKbv1QZVga": 1793308546,
   "8yWLU5rDC8cHRaLsUTQu8NLaohZoPVoi6awTffU6pump": 1793201447,
   "Fek7BGWxw9MabKejxFdhEftygFkJXcQjezk99fkTmKaX": 1793213136,
   "FuK9BkA4jXTBzj8HQRQT4538gy1BJzPYy9qwiHs2pump": 1793295934,
   "mega4qqdQcsrCmj43fzHmxfZNmThNYeN3cz2kfR7fqs": 1793209534
  },
- "positions": {
-  "6zzzG49KX5nksnqfogs31dwoMYSHaJXkropKbv1QZVga": {
-   "cost": 10.3,
-   "entry": 0.000336398,
-   "last_price": 0.0003266,
-   "leader": "finder one",
-   "leader_held": 18925.100505,
-   "misses": 0,
-   "opened": 1793307677,
-   "qty": 29355.109126689218,
-   "symbol": "Malfoid",
-   "tax_pct": 0.0,
-   "tp_done": false
-  }
- },
+ "positions": {},
  "start_cash": 100.0,
  "started": 1792968363
 }
