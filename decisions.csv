@@ -121,3 +121,8 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-10-29 18:15:33,finder one,HYPE,SKIP,leader_already_sold,93.89,4239342,,98sMhvDwXj1RQi5c5Mndm3vPe9cBqPrbLaufMXFNMh5g
 2026-10-29 18:15:33,finder one,HI,SKIP,lp_unlocked 46.0%,0.0004985,66173,1,3w2TvVmTrtq4kSkoFVrTFQgz6MX7ThzDVrx9r5c3pump
 2026-10-29 18:15:34,finder one,OTC,SKIP,danger: Creator history of rugged tokens,9.329e-06,6831,50,Fa24xN13pzjmcx1dtKP9nBMMFCwLtXCJrtP5hSPKpump
+2026-10-29 18:30:48,finder one,STONK,SKIP,leader_already_sold,0.1468,2901067,,6GmAFSYs4gk3FDao5FzzySQpPZaWsa4rUJHacpMpUNgx
+2026-10-29 18:30:48,finder one,INVERSE,SKIP,leader_already_sold,0.000534,71243,,2gLhk8p2KvUFeUXur2hiF4hxjdRM1vBcbgo9Q7DMZfiw
+2026-10-29 18:30:48,finder one,POLYHACKED,SKIP,leader_already_sold,3.211e-05,13566,,6FvMhHrcDiogqHxB3D1CHzXcShTTyu7xZ2t5Sy4Xpump
+2026-10-29 18:30:48,finder one,STONK,SKIP,leader_already_sold,0.1468,2901067,,6GmAFSYs4gk3FDao5FzzySQpPZaWsa4rUJHacpMpUNgx
+2026-10-29 18:30:48,finder one,HYPE,SKIP,leader_already_sold,94.52,4184277,,98sMhvDwXj1RQi5c5Mndm3vPe9cBqPrbLaufMXFNMh5g
