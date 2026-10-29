@@ -233,3 +233,7 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-10-29 23:15:35,finder one,RETARD,SKIP,top10_hold 39.6%,0.0002221,50229,1,2q68mqEbjwmnMjs1o3KZDNZVyMv6RZKkHcm64iinpump
 2026-10-29 23:30:49,finder one,baton,SKIP,lp_unlocked 45.6%,0.004304,383101,1,Hg5Ja55T5wESq4vyFoiVCMeHXtGyVA69X2UHq8hgpump
 2026-10-29 23:30:50,finder one,HI,SKIP,lp_unlocked 68.0%,0.0003647,57088,1,3w2TvVmTrtq4kSkoFVrTFQgz6MX7ThzDVrx9r5c3pump
+2026-10-29 23:45:34,finder one,simulator,SKIP,leader_already_sold,0.0005469,94841,,8hnMfF4XL717GVwzDmvqjJvULozKW6w7BhHFABjvHje4
+2026-10-29 23:45:35,finder one,ANSEM,SKIP,danger: Single holder ownership,0.04928,1327483,43,9cRCn9rGT8V2imeM2BaKs13yhMEais3ruM3rPvTGpump
+2026-10-29 23:45:36,finder one,HYPE,SKIP,leader_already_sold,89.72,3979747,,98sMhvDwXj1RQi5c5Mndm3vPe9cBqPrbLaufMXFNMh5g
+2026-10-29 23:45:36,finder one,CARDS,SKIP,leader_already_sold,0.2576,4064693,,CARDSccUMFKoPRZxt5vt3ksUbxEFEcnZ3H2pd3dKxYjp
