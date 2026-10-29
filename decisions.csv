@@ -219,3 +219,5 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-10-29 22:30:55,finder one,MOGZ,SKIP,lp_unlocked 79.3%,0.0001417,31273,1,Pmfm2RprxQRKZH1XWVsBUc2KgCTyzeDTSFbT1vJmogz
 2026-10-29 22:30:56,finder one,NIO,SKIP,lp_unlocked 79.9%,0.0006192,74344,1,7SL2VnfYsChvog5oQY9Nmtqu1wceaMiQzWoqoLQpump
 2026-10-29 22:30:56,finder one,HOUSECOIN,SKIP,insiders 56,0.0001313,34039,1,DUKEjskPBoszW4xEowcSWptekuUZpwLFv6nTt5Cmpump
+2026-10-29 22:45:32,finder one,RETARD,SKIP,leader_already_sold,0.0002024,47988,,2q68mqEbjwmnMjs1o3KZDNZVyMv6RZKkHcm64iinpump
+2026-10-29 22:45:33,finder one,paws,SKIP,lp_unlocked 73.8%,0.0002425,44423,1,Fp4JkqEcKYKBKhb9iMu9NSDeo71HWgq2q9QtXaaKpump
