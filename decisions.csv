@@ -138,3 +138,6 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-10-29 19:30:45,finder one,HYPE,SKIP,leader_already_sold,94.43,4279619,,98sMhvDwXj1RQi5c5Mndm3vPe9cBqPrbLaufMXFNMh5g
 2026-10-29 19:30:45,finder one,xHYPE,SKIP,authority_open,2.35,289313,74,7ga6rtE9qSb3wdEiDCpTu2kHqoGVfT52jD8ign1rYTvx
 2026-10-29 19:30:46,finder one,NTRNDM,SKIP,lp_unlocked 72.5%,0.0007189,89623,1,NTRNDMqQSiwEC2jJs3wJiZS6bpGYQJtMNQJgiX3WyV6
+2026-10-29 19:45:34,finder one,CARDS,SKIP,leader_already_sold,0.2687,4143125,,CARDSccUMFKoPRZxt5vt3ksUbxEFEcnZ3H2pd3dKxYjp
+2026-10-29 19:45:34,finder one,DUBBLE,SKIP,leader_already_sold,3.939e-06,4517,,FEXGegqeVm5vZurqyC7qsmkLqWspVV1ACb9bbLvcpump
+2026-10-29 19:45:34,finder one,HYPE,SKIP,leader_already_sold,94.095,4242990,,98sMhvDwXj1RQi5c5Mndm3vPe9cBqPrbLaufMXFNMh5g
