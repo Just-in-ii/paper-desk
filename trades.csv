@@ -11,3 +11,4 @@ time,action,symbol,leader,price,qty,cash_flow_usd,pnl_usd,reason,mint,costs_usd
 2026-10-29 14:30:47,SELL,Saturween,finder one,0.000120086,80296.30352,9.2219,-1.0781,finder one sold 100%,5THtNEGTF1y67eRWvcgz3MomDZePCVx1xdskHHeCpump,0.7188
 2026-10-29 17:30:48,BUY,ENVAR,finder one,9.16597e-05,107735.4606,-10.3000,,passed safety filter,FuK9BkA4jXTBzj8HQRQT4538gy1BJzPYy9qwiHs2pump,0.7126
 2026-10-29 17:45:34,SELL,ENVAR,finder one,8.43221e-05,107735.4606,8.6709,-1.6291,finder one sold 100%,FuK9BkA4jXTBzj8HQRQT4538gy1BJzPYy9qwiHs2pump,0.6945
+2026-10-29 21:01:17,BUY,Malfoid,finder one,0.000336398,29355.10913,-10.3000,,passed safety filter,6zzzG49KX5nksnqfogs31dwoMYSHaJXkropKbv1QZVga,0.7126
