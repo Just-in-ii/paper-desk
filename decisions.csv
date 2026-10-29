@@ -133,3 +133,4 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-10-29 19:01:00,finder one,baton,SKIP,lp_unlocked 48.3%,0.005255,441757,1,Hg5Ja55T5wESq4vyFoiVCMeHXtGyVA69X2UHq8hgpump
 2026-10-29 19:01:01,finder one,LOAD,SKIP,top10_hold 76.8%,0.002966,167616,1,8sWe4GzK1YqG3vyzKHf8ZyB1WB5asofw2o6TqgFePtPo
 2026-10-29 19:01:01,finder one,STONK,SKIP,lp_unlocked 0%,0.1468,2896627,1,6GmAFSYs4gk3FDao5FzzySQpPZaWsa4rUJHacpMpUNgx
+2026-10-29 19:15:31,finder one,HYPE,SKIP,leader_already_sold,93.87,4300481,,98sMhvDwXj1RQi5c5Mndm3vPe9cBqPrbLaufMXFNMh5g
