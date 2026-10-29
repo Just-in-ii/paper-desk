@@ -147,3 +147,8 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-10-29 20:15:33,finder one,McRib,SKIP,lp_unlocked 89.5%,7.364e-05,29304,1,8idEA8QovsZJka6d9Z35fejE5MbL37BJxvw5k5r6pump
 2026-10-29 20:15:33,finder one,HYPE,SKIP,leader_already_sold,93.59,4097500,,98sMhvDwXj1RQi5c5Mndm3vPe9cBqPrbLaufMXFNMh5g
 2026-10-29 20:15:33,finder one,RETARDIO,SKIP,top10_hold 42.7%,0.002042,137999,1,CSRRgTwf9o5KLgguS2M16aEAhV5PUUzfshrAAQ8opump
+2026-10-29 20:30:48,finder one,REMUS,SKIP,insiders 48,0.0002187,47786,1,CA8q2mkYWZnUNqYmf6pxyxAPZsmSe2EG9P7hHMW5pump
+2026-10-29 20:30:48,finder one,HYPE,SKIP,leader_already_sold,92.65,4145024,,98sMhvDwXj1RQi5c5Mndm3vPe9cBqPrbLaufMXFNMh5g
+2026-10-29 20:30:49,finder one,BAGSPAY,SKIP,leader_already_sold,0.000602,117051,,H8WTvo3ZXSYHJAcYqzCforbG8coR1FDAX2kHFfqHBAGS
+2026-10-29 20:30:49,finder one,PODCAT,SKIP,insiders 39,0.0001094,29151,1,2fnGKgfwYjqv99ppnKCq5nCLLhRSJAPAhSMVkqjipump
+2026-10-29 20:30:50,finder one,simulator,SKIP,lp_unlocked 88.9%,0.0006437,104627,1,8hnMfF4XL717GVwzDmvqjJvULozKW6w7BhHFABjvHje4
