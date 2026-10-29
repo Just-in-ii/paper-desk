@@ -115,3 +115,9 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-10-29 18:01:01,finder one,paws,SKIP,leader_already_sold,0.0003738,56014,,Fp4JkqEcKYKBKhb9iMu9NSDeo71HWgq2q9QtXaaKpump
 2026-10-29 18:01:01,finder one,omni,SKIP,insiders 25,3.414e-05,15463,1,AN4mNPb3rP61d3b2u1LCKKhBdEgdW9BiNDp7ZHKupump
 2026-10-29 18:01:02,finder one,MeiMei,SKIP,insiders 92,0.0008408,118786,1,MsGDybWRSNdNXkdDZhEksgzugT5CbVWUG2wkhwgpump
+2026-10-29 18:15:32,finder one,SENSE,SKIP,leader_already_sold,0.0002044,78804,,GydpvgKppv8a4gGQqAQsyQJxtQN4S6Ym9gKxjnN3mfun
+2026-10-29 18:15:32,finder one,HYPE,SKIP,leader_already_sold,93.89,4239342,,98sMhvDwXj1RQi5c5Mndm3vPe9cBqPrbLaufMXFNMh5g
+2026-10-29 18:15:33,finder one,Dawid,SKIP,insiders 18,1.911e-05,9896,1,BcrmziUoT3CdCn6Y7SXjxgVEu4zhQmYWDHyWsPSgpump
+2026-10-29 18:15:33,finder one,HYPE,SKIP,leader_already_sold,93.89,4239342,,98sMhvDwXj1RQi5c5Mndm3vPe9cBqPrbLaufMXFNMh5g
+2026-10-29 18:15:33,finder one,HI,SKIP,lp_unlocked 46.0%,0.0004985,66173,1,3w2TvVmTrtq4kSkoFVrTFQgz6MX7ThzDVrx9r5c3pump
+2026-10-29 18:15:34,finder one,OTC,SKIP,danger: Creator history of rugged tokens,9.329e-06,6831,50,Fa24xN13pzjmcx1dtKP9nBMMFCwLtXCJrtP5hSPKpump
