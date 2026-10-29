@@ -91,3 +91,5 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-10-29 09:00:57,finder one,WoW,SKIP,insiders 8,4.626e-05,16667,1,BZSCM3LKfWZbEPsSL7Pd8vTwPUd5PZ95VHu4P4Mpump
 2026-10-29 14:15:34,finder one,Saturween,COPY,passed safety filter,0.0001194,32761,1,5THtNEGTF1y67eRWvcgz3MomDZePCVx1xdskHHeCpump
 2026-10-29 14:15:35,finder one,HOOKED,SKIP,lp_unlocked 24.5%,0.0009827,85877,7,C1mBfBoDkwWfd6uTFZp62ARHLjeVp3bDpCDMfMZtPngE
+2026-10-29 16:45:30,finder one,NIO,SKIP,danger: Creator history of rugged tokens,0.0002456,46349,53,7SL2VnfYsChvog5oQY9Nmtqu1wceaMiQzWoqoLQpump
+2026-10-29 16:45:31,finder one,HOUSECOIN,SKIP,lp_unlocked 81.8%,0.0003039,53261,1,DUKEjskPBoszW4xEowcSWptekuUZpwLFv6nTt5Cmpump
