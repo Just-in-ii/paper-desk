@@ -81,3 +81,5 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-10-28 18:45:37,finder one,MIKA,SKIP,danger: Single holder ownership,0.0005607,64945,43,3fDmywEhaptHpUo6X5g5NEv2i3ohRgp2BT6meiPEpump
 2026-10-28 18:45:38,finder one,paws,SKIP,insiders 20,0.0001463,33224,1,Fp4JkqEcKYKBKhb9iMu9NSDeo71HWgq2q9QtXaaKpump
 2026-10-29 06:30:46,finder one,Nothing,SKIP,lp_unlocked 85.7%,0.0001131,35348,1,51SfaAyrYaR8FpibXT4TXtxEpnZSNoDwYVRojtKupump
+2026-10-29 06:45:34,finder one,VoiceMemos,SKIP,leader_already_sold,1.288e-05,8050,,9b1sz9HKXjKgPNT6fkRmiz8qEawLejvcjTPfNErapump
+2026-10-29 06:45:34,finder one,BIO/ACC,SKIP,leader_already_sold,9.96e-06,6641,,CR3WXpY8YQbiLpyxfipYyrf7JpxzSG4nybEesR3Qpump
