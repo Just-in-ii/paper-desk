@@ -126,3 +126,5 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-10-29 18:30:48,finder one,POLYHACKED,SKIP,leader_already_sold,3.211e-05,13566,,6FvMhHrcDiogqHxB3D1CHzXcShTTyu7xZ2t5Sy4Xpump
 2026-10-29 18:30:48,finder one,STONK,SKIP,leader_already_sold,0.1468,2901067,,6GmAFSYs4gk3FDao5FzzySQpPZaWsa4rUJHacpMpUNgx
 2026-10-29 18:30:48,finder one,HYPE,SKIP,leader_already_sold,94.52,4184277,,98sMhvDwXj1RQi5c5Mndm3vPe9cBqPrbLaufMXFNMh5g
+2026-10-29 18:45:31,finder one,HYPE,SKIP,leader_already_sold,94.89,4194800,,98sMhvDwXj1RQi5c5Mndm3vPe9cBqPrbLaufMXFNMh5g
+2026-10-29 18:45:31,finder one,FlyingDog,SKIP,insiders 4,1.051e-05,6875,16,E2q5u8VvrCQZ2DEacMRVZG5f25rqCkzDfWTsEEUXpump
