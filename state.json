@@ -1,10 +1,10 @@
 {
- "buys_today": 1,
- "cash": 112.25670764347112,
+ "buys_today": 2,
+ "cash": 101.95670764347112,
  "day": "2026-10-29",
  "last_sig": {
   "0ef4d20956b1190b": "0a6e079fac2654a0",
-  "24212f2b3e15ffdb": "f3e0c1ebacb7bb29",
+  "24212f2b3e15ffdb": "036ce2c88d1e9007",
   "3bebba29a5753a93": "d3cb621eae228347"
  },
  "left_at": {
@@ -13,7 +13,21 @@
   "Fek7BGWxw9MabKejxFdhEftygFkJXcQjezk99fkTmKaX": 1793213136,
   "mega4qqdQcsrCmj43fzHmxfZNmThNYeN3cz2kfR7fqs": 1793209534
  },
- "positions": {},
+ "positions": {
+  "5THtNEGTF1y67eRWvcgz3MomDZePCVx1xdskHHeCpump": {
+   "cost": 10.3,
+   "entry": 0.000122982,
+   "last_price": 0.0001194,
+   "leader": "finder one",
+   "leader_held": 242085.463665,
+   "misses": 0,
+   "opened": 1793283334,
+   "qty": 80296.30352409296,
+   "symbol": "Saturween",
+   "tax_pct": 0.0,
+   "tp_done": false
+  }
+ },
  "start_cash": 100.0,
  "started": 1792968363
 }
