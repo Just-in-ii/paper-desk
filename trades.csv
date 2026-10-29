@@ -6,3 +6,4 @@ time,action,symbol,leader,price,qty,cash_flow_usd,pnl_usd,reason,mint,costs_usd
 2026-10-28 18:30:47,BUY,TS,finder one,5.07893e-05,194430.7167,-10.3000,,passed safety filter,Fek7BGWxw9MabKejxFdhEftygFkJXcQjezk99fkTmKaX,0.7126
 2026-10-28 18:45:36,SELL,TS,finder one,6.27105e-05,194430.7167,11.7404,1.4404,finder one sold 100%,Fek7BGWxw9MabKejxFdhEftygFkJXcQjezk99fkTmKaX,0.8295
 2026-10-29 08:15:34,BUY,dood,finder one,3.46904e-05,284660.886,-10.3000,,passed safety filter,4oTiM4rdkm3QwnvymYrcn9gCgNyHNFssnAeJxzMQpump,0.7126
+2026-10-29 08:30:44,SELL,dood,finder one,3.20391e-05,284660.886,8.7063,-1.5937,finder one sold 100%,4oTiM4rdkm3QwnvymYrcn9gCgNyHNFssnAeJxzMQpump,0.6961
