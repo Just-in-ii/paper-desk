@@ -211,3 +211,11 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-10-29 22:15:37,finder one,pill,SKIP,lp_unlocked 67.6%,0.0008226,121532,1,DvdmEnztCmXwBnAbedD48XVGZJSxq31zNvnyftXdpump
 2026-10-29 22:15:37,finder one,HI,SKIP,lp_unlocked 64.3%,0.000261,48433,1,3w2TvVmTrtq4kSkoFVrTFQgz6MX7ThzDVrx9r5c3pump
 2026-10-29 22:15:38,finder one,paws,SKIP,lp_unlocked 74.3%,0.0002641,46219,1,Fp4JkqEcKYKBKhb9iMu9NSDeo71HWgq2q9QtXaaKpump
+2026-10-29 22:30:51,finder one,WALT,SKIP,leader_already_sold,1.822e-05,10071,,GmyoabL4oY72yQA3EzTq5G5gQUF5SsE94jrs8bWfJzTt
+2026-10-29 22:30:52,finder one,Buttcoin,SKIP,lp_unlocked 73.0%,0.0047,526482,1,Cm6fNnMk7NfzStP9CZpsQA2v3jjzbcYGAxdJySmHpump
+2026-10-29 22:30:53,finder one,CALI,SKIP,insiders 178,0.000149,45204,1,8k4sBtEeK4pf26noKqApv8NBTnuSJcbdwpKYknk5PbAA
+2026-10-29 22:30:53,finder one,███,SKIP,lp_unlocked 72.3%,0.0004402,68824,1,EwX2T1p2PmgTsSq2Bi6XtQYxPC5krR4P2fxPfN4Qpump
+2026-10-29 22:30:54,finder one,STONK,SKIP,lp_unlocked 0%,0.1318,2682592,1,6GmAFSYs4gk3FDao5FzzySQpPZaWsa4rUJHacpMpUNgx
+2026-10-29 22:30:55,finder one,MOGZ,SKIP,lp_unlocked 79.3%,0.0001417,31273,1,Pmfm2RprxQRKZH1XWVsBUc2KgCTyzeDTSFbT1vJmogz
+2026-10-29 22:30:56,finder one,NIO,SKIP,lp_unlocked 79.9%,0.0006192,74344,1,7SL2VnfYsChvog5oQY9Nmtqu1wceaMiQzWoqoLQpump
+2026-10-29 22:30:56,finder one,HOUSECOIN,SKIP,insiders 56,0.0001313,34039,1,DUKEjskPBoszW4xEowcSWptekuUZpwLFv6nTt5Cmpump
