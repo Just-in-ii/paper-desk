@@ -1,10 +1,10 @@
 {
- "buys_today": 0,
- "cash": 108.30740822673245,
+ "buys_today": 1,
+ "cash": 98.00740822673245,
  "day": "2026-10-30",
  "last_sig": {
   "0ef4d20956b1190b": "0a6e079fac2654a0",
-  "24212f2b3e15ffdb": "caea1f8dda4fcac7",
+  "24212f2b3e15ffdb": "7e1e02c2267d7be1",
   "3bebba29a5753a93": "d3cb621eae228347"
  },
  "left_at": {
@@ -16,7 +16,21 @@
   "FuK9BkA4jXTBzj8HQRQT4538gy1BJzPYy9qwiHs2pump": 1793295934,
   "mega4qqdQcsrCmj43fzHmxfZNmThNYeN3cz2kfR7fqs": 1793209534
  },
- "positions": {},
+ "positions": {
+  "6d9fD5SxvN4DAG4SHQD8pebm8TM6XeSbYezPDjdapump": {
+   "cost": 10.3,
+   "entry": 4.45475e-05,
+   "last_price": 4.325e-05,
+   "leader": "finder one",
+   "leader_held": 665982.223396,
+   "misses": 0,
+   "opened": 1793325656,
+   "qty": 221673.49458443234,
+   "symbol": "PINO",
+   "tax_pct": 0.0,
+   "tp_done": false
+  }
+ },
  "start_cash": 100.0,
  "started": 1792968363
 }
