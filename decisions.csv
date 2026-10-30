@@ -311,3 +311,5 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-10-30 07:15:32,finder one,Niggerfish,SKIP,thin_liquidity $0,1.168e-05,0,10,AbkkDdXT2qmpnevBNyeHN3mpxcvrqz9qJtoc8bGvpump
 2026-10-30 07:16:59,finder one,TraderTraitor,SKIP,danger: Symbol Mismatch,2.971e-05,13210,26,3XLTWYyHxpAdbP1fjfTz9TBZp9Dhq4A6KWNarHMkGHQb
 2026-10-30 07:30:43,finder one,p/acc,SKIP,leader_already_sold,2.403e-05,0,,3rfnkLkDS4ierei4PTPR54hg8UtJGxb37R5zRYURpump
+2026-10-30 08:00:57,finder one,MOGZ,SKIP,lp_unlocked 80.1%,0.0001521,32416,1,Pmfm2RprxQRKZH1XWVsBUc2KgCTyzeDTSFbT1vJmogz
+2026-10-30 08:00:57,finder one,Nothing,SKIP,insiders 468,7.906e-05,29726,1,51SfaAyrYaR8FpibXT4TXtxEpnZSNoDwYVRojtKupump
