@@ -315,3 +315,6 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-10-30 08:00:57,finder one,Nothing,SKIP,insiders 468,7.906e-05,29726,1,51SfaAyrYaR8FpibXT4TXtxEpnZSNoDwYVRojtKupump
 2026-10-30 08:30:45,finder one,BLACKTOBER,SKIP,insiders 223,5.756e-05,23361,1,3Xq3nspu91fEzGbzi9kSJ4FYAnBeeiLHPoxQx6cPSQj1
 2026-10-30 09:01:00,finder one,STONK,SKIP,lp_unlocked 0%,0.1352,2593927,1,6GmAFSYs4gk3FDao5FzzySQpPZaWsa4rUJHacpMpUNgx
+2026-10-30 09:45:32,finder one,HOUSECOIN,SKIP,leader_already_sold,3.113e-05,15865,,DUKEjskPBoszW4xEowcSWptekuUZpwLFv6nTt5Cmpump
+2026-10-30 09:45:33,finder one,MOONX,SKIP,leader_already_sold,7.678e-05,22051,,28vWTtEwxoWp5MpHutAMSK5DeVf8xXk8jEEtbrtppump
+2026-10-30 09:45:33,finder one,MOGZ,SKIP,lp_unlocked 80.9%,9.454e-05,25480,1,Pmfm2RprxQRKZH1XWVsBUc2KgCTyzeDTSFbT1vJmogz
