@@ -1,10 +1,10 @@
 {
- "buys_today": 2,
- "cash": 105.02340475230824,
+ "buys_today": 3,
+ "cash": 103.60691506784222,
  "day": "2026-10-30",
  "last_sig": {
   "0ef4d20956b1190b": "0a6e079fac2654a0",
-  "24212f2b3e15ffdb": "3713f574ba394a24",
+  "24212f2b3e15ffdb": "357841afe80462b3",
   "3bebba29a5753a93": "d3cb621eae228347"
  },
  "left_at": {
@@ -14,6 +14,7 @@
   "6zzzG49KX5nksnqfogs31dwoMYSHaJXkropKbv1QZVga": 1793308546,
   "8yWLU5rDC8cHRaLsUTQu8NLaohZoPVoi6awTffU6pump": 1793201447,
   "BdVvmUDbqtqg3GsuCmXMDcV94cmsMHCmDk8AfraNpump": 1793378732,
+  "E8c9gvuE7gW4R8AVcaTCbbTG1zJGdUR9KGtS94eXBAGS": 1793385937,
   "Fek7BGWxw9MabKejxFdhEftygFkJXcQjezk99fkTmKaX": 1793213136,
   "FuK9BkA4jXTBzj8HQRQT4538gy1BJzPYy9qwiHs2pump": 1793295934,
   "mega4qqdQcsrCmj43fzHmxfZNmThNYeN3cz2kfR7fqs": 1793209534
