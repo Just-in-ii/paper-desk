@@ -333,3 +333,4 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-10-30 12:30:46,finder one,Peet,SKIP,leader_already_sold,1.505e-05,0,,52YxEVuBVzDSy3Q8HDHPGk6j4BbpGEVzse7eBJREpump
 2026-10-30 12:45:33,finder one,MOGZ,SKIP,lp_unlocked 88.3%,9.947e-05,26046,1,Pmfm2RprxQRKZH1XWVsBUc2KgCTyzeDTSFbT1vJmogz
 2026-10-30 12:45:33,finder one,Kim,SKIP,leader_already_sold,3.877e-05,15271,,qhbbjGBKJxW3AZGqngWM5tHcrENR3pVoRB9MCf1pump
+2026-10-30 13:00:58,finder one,TraderTraitor,SKIP,leader_already_sold,4.149e-05,16076,,3XLTWYyHxpAdbP1fjfTz9TBZp9Dhq4A6KWNarHMkGHQb
