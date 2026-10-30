@@ -351,3 +351,9 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-10-30 14:45:36,finder one,Nothing,SKIP,insiders 468,7.408e-05,28477,1,51SfaAyrYaR8FpibXT4TXtxEpnZSNoDwYVRojtKupump
 2026-10-30 15:00:59,finder one,Kim,SKIP,leader_already_sold,0.0001415,31544,,qhbbjGBKJxW3AZGqngWM5tHcrENR3pVoRB9MCf1pump
 2026-10-30 15:01:00,finder one,CARDS,SKIP,leader_already_sold,0.2464,3663861,,CARDSccUMFKoPRZxt5vt3ksUbxEFEcnZ3H2pd3dKxYjp
+2026-10-30 15:15:35,finder one,Nothing,SKIP,leader_already_sold,6.881e-05,27493,,51SfaAyrYaR8FpibXT4TXtxEpnZSNoDwYVRojtKupump
+2026-10-30 15:15:36,finder one,DEADGUY,SKIP,insiders 16,1.915e-05,9765,1,FGGwUpqPHTxwLDdtoY37KBJ6tQxfY5N1JLTXEs2ppump
+2026-10-30 15:15:36,finder one,QS,SKIP,leader_already_sold,1.25e-05,0,,paZafJrK2jTf4pJkPnXwC7MN8fScMsf7scXtu4hpump
+2026-10-30 15:15:36,finder one,ANSEM,SKIP,danger: Top 10 holders high ownership,6.89e-05,20510,55,2RyCCRenDtquADusNUfwFpvTaDkam82imh46SL2mpump
+2026-10-30 15:15:37,finder one,Kim,SKIP,insiders 144,0.000123,29326,1,qhbbjGBKJxW3AZGqngWM5tHcrENR3pVoRB9MCf1pump
+2026-10-30 15:15:40,finder one,FLUKE,SKIP,insiders 8,0.0001432,33732,1,C31uUcfLGPpQDHHieNtDkSWvp4PhNxeSs81cFQFdZVUQ
