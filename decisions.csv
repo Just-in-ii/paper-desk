@@ -320,3 +320,6 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-10-30 09:45:33,finder one,MOGZ,SKIP,lp_unlocked 80.9%,9.454e-05,25480,1,Pmfm2RprxQRKZH1XWVsBUc2KgCTyzeDTSFbT1vJmogz
 2026-10-30 10:15:34,finder one,NIO,SKIP,leader_already_sold,0.001288,111464,,7SL2VnfYsChvog5oQY9Nmtqu1wceaMiQzWoqoLQpump
 2026-10-30 10:30:46,finder one,박진혁,SKIP,leader_already_sold,8.866e-06,0,,DNNQ2p3QpCWwmN4KCUyTahQezR4oj6q9QvyDgFCepump
+2026-10-30 10:45:36,finder one,CVE,SKIP,leader_already_sold,2.681e-05,0,,2rt1ZArNgSoSNT9YpxKueFs6drBRZwRdkmq79oqLpump
+2026-10-30 10:45:36,finder one,Blackout,SKIP,thin_liquidity $9755,1.869e-05,9756,1,HMTwjQPHbf82woGKMwDyPHAxgpwVj4boFQPMwk5Bpump
+2026-10-30 10:45:37,finder one,BORDR,SKIP,lp_unlocked 62.8%,0.000398,55044,1,6Mix12LiHrQFojaQEnfPUC65Qkwd6X4Y5Qg93oFbordr
