@@ -381,3 +381,5 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-10-30 17:01:00,finder one,PARANOID,SKIP,leader_already_sold,0.0002794,45959,,22rWiyDiY9GgxSrFiWC2vX1GxNxjkvrRPmZJDzv9pq6X
 2026-10-30 17:01:02,finder one,Jesus,SKIP,insiders 6,3.675e-05,14418,1,4qizrkdhWZBRMSm1BCs1m13Ju3YJxAu4mjbuSKjypump
 2026-10-30 17:01:04,finder one,WALT,SKIP,insiders 11,5.32e-05,18464,1,GmyoabL4oY72yQA3EzTq5G5gQUF5SsE94jrs8bWfJzTt
+2026-10-30 17:15:34,finder one,TraderTraitor,SKIP,danger: Symbol Mismatch,2.121e-05,10961,26,3XLTWYyHxpAdbP1fjfTz9TBZp9Dhq4A6KWNarHMkGHQb
+2026-10-30 17:15:34,finder one,Jesus,SKIP,leader_already_sold,3.504e-05,14020,,4qizrkdhWZBRMSm1BCs1m13Ju3YJxAu4mjbuSKjypump
