@@ -357,3 +357,6 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-10-30 15:15:36,finder one,ANSEM,SKIP,danger: Top 10 holders high ownership,6.89e-05,20510,55,2RyCCRenDtquADusNUfwFpvTaDkam82imh46SL2mpump
 2026-10-30 15:15:37,finder one,Kim,SKIP,insiders 144,0.000123,29326,1,qhbbjGBKJxW3AZGqngWM5tHcrENR3pVoRB9MCf1pump
 2026-10-30 15:15:40,finder one,FLUKE,SKIP,insiders 8,0.0001432,33732,1,C31uUcfLGPpQDHHieNtDkSWvp4PhNxeSs81cFQFdZVUQ
+2026-10-30 15:30:51,finder one,CARDS,SKIP,leader_already_sold,0.2487,3680746,,CARDSccUMFKoPRZxt5vt3ksUbxEFEcnZ3H2pd3dKxYjp
+2026-10-30 15:30:51,finder one,Jesus,SKIP,leader_already_sold,3.839e-05,14713,,4qizrkdhWZBRMSm1BCs1m13Ju3YJxAu4mjbuSKjypump
+2026-10-30 15:30:51,finder one,SPACECAT,SKIP,leader_already_sold,9.071e-05,23979,,BLN4c4FERWn8pf3PysRDapSKzB5JoHx9HbaxjYkEpump
