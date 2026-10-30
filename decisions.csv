@@ -301,3 +301,5 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-10-30 05:00:55,finder one,ZENO,SKIP,leader_already_sold,8.78e-05,24711,,FMGe8RStdPc1YR59BBuV5Ui12DEe3Q2zVoihrJBbpump
 2026-10-30 05:15:32,finder one,ber,SKIP,leader_already_sold,0.0001768,37374,,CqpUBhhSxHsXbq6AGPKnbxDpWgECUXAVy3BCrwhGpump
 2026-10-30 05:15:33,finder one,neet,SKIP,lp_unlocked 83.2%,0.02452,1562655,1,Ce2gx9KGXJ6C9Mp5b5x1sn9Mg87JwEbrQby4Zqo3pump
+2026-10-30 05:30:47,finder one,neet,SKIP,leader_already_sold,0.02475,1571696,,Ce2gx9KGXJ6C9Mp5b5x1sn9Mg87JwEbrQby4Zqo3pump
+2026-10-30 05:30:47,finder one,NIO,SKIP,leader_already_sold,0.001205,107982,,7SL2VnfYsChvog5oQY9Nmtqu1wceaMiQzWoqoLQpump
