@@ -16,3 +16,4 @@ time,action,symbol,leader,price,qty,cash_flow_usd,pnl_usd,reason,mint,costs_usd
 2026-10-30 02:00:56,BUY,PINO,finder one,4.45475e-05,221673.4946,-10.3000,,passed safety filter,6d9fD5SxvN4DAG4SHQD8pebm8TM6XeSbYezPDjdapump,0.7126
 2026-10-30 02:15:32,SELL,PINO,finder one,4.05751e-05,221673.4946,8.5820,-1.7180,finder one sold 100%,6d9fD5SxvN4DAG4SHQD8pebm8TM6XeSbYezPDjdapump,0.6906
 2026-10-30 16:30:50,BUY,NNN,finder one,2.53071e-05,390206.7009,-10.3000,,passed safety filter,BdVvmUDbqtqg3GsuCmXMDcV94cmsMHCmDk8AfraNpump,0.7126
+2026-10-30 16:45:32,SELL,NNN,finder one,2.34449e-05,390206.7009,8.7340,-1.5660,finder one sold 100%,BdVvmUDbqtqg3GsuCmXMDcV94cmsMHCmDk8AfraNpump,0.6973

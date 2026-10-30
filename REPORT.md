@@ -1,22 +1,21 @@
 ```
-PAPER DESK REPORT  Fri 30 Oct 2026, 16:30 UTC
+PAPER DESK REPORT  Fri 30 Oct 2026, 16:45 UTC
 Day 5, running since 25 Oct 2026. AI judge: off.
 
 POT
-  $100.00 -> $105.17  (+5.2%, +$5.17)
-  cash $96.29 + open positions $8.88 (if sold now, after costs)
+  $100.00 -> $105.02  (+5.0%, +$5.02)
+  cash $105.02 + open positions $0.00 (if sold now, after costs)
 
 TRADES
-  bought 9, closed 8 (2 won, 6 lost)
-  win rate 25%
+  bought 9, closed 9 (2 won, 7 lost)
+  win rate 22%
   best  HYPERCAT   +$17.84
   worst MEGA       -$5.43
   rugged to zero: 0
-  costs paid $12.83 (slippage, trading fees, network fees, coin taxes)
+  costs paid $13.53 (slippage, trading fees, network fees, coin taxes)
 
-OPEN (1)
-  coin       leader     vs entry    value  hours
-  NNN        finder one    -2.9%    $8.88      0
+OPEN (0)
+  nothing open
 
 DECISIONS
   379 decisions on 152 coins: copied 9, skipped 370
@@ -29,12 +28,12 @@ DECISIONS
 
 LEADERS
   nickname     coins copied  realised
-  finder one     152      9    +$6.59
+  finder one     152      9    +$5.02
 
 FILTER CHECK (last 7 days)
   How each coin moved since the leader bought it, whatever we did after.
-  copied          9 coins, median +0.0%, 2 went to ~zero
-  filtered out   97 coins, median -22.0%, 7 went to ~zero
+  copied          9 coins, median -1.6%, 2 went to ~zero
+  filtered out   97 coins, median -20.5%, 7 went to ~zero
   The filter is picking better than it rejects so far.
 
 Not real money. Fills include slippage and fees to stay honest, but real trades would land later than the leader's and could be worse.
