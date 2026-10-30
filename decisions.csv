@@ -369,3 +369,7 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-10-30 16:01:05,finder one,SAFU,SKIP,insiders 4,1.391e-05,8474,1,AHgqStQviBDBiPra3cLxb8gQs2auRAmXT4s9v7LKpump
 2026-10-30 16:01:05,finder one,CARDS,SKIP,leader_already_sold,0.2487,3681171,,CARDSccUMFKoPRZxt5vt3ksUbxEFEcnZ3H2pd3dKxYjp
 2026-10-30 16:01:06,finder one,TraderTraitor,SKIP,danger: Symbol Mismatch,3.591e-05,14746,26,3XLTWYyHxpAdbP1fjfTz9TBZp9Dhq4A6KWNarHMkGHQb
+2026-10-30 16:15:34,finder one,SWAN,SKIP,leader_already_sold,3.683e-05,15152,,EFaQg27P3c3PHob2mFw4mHCUcWBHHDdatAEsXq2xpump
+2026-10-30 16:15:34,finder one,PROBE,SKIP,leader_already_sold,4.535e-05,15932,,DR3Jtxwzkw9uBpi6Bz7qJX7zuFSJkNKXthD8nB1mpump
+2026-10-30 16:15:34,finder one,Jesus,SKIP,leader_already_sold,3.226e-05,13395,,4qizrkdhWZBRMSm1BCs1m13Ju3YJxAu4mjbuSKjypump
+2026-10-30 16:15:34,finder one,CARDS,SKIP,leader_already_sold,0.2493,3690381,,CARDSccUMFKoPRZxt5vt3ksUbxEFEcnZ3H2pd3dKxYjp
