@@ -306,3 +306,4 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-10-30 05:45:30,finder one,ber,SKIP,leader_already_sold,0.0001591,35384,,CqpUBhhSxHsXbq6AGPKnbxDpWgECUXAVy3BCrwhGpump
 2026-10-30 06:15:33,finder one,NIO,SKIP,lp_unlocked 47.6%,0.001068,101668,1,7SL2VnfYsChvog5oQY9Nmtqu1wceaMiQzWoqoLQpump
 2026-10-30 06:45:33,finder one,TraderTraitor,SKIP,leader_already_sold,0.0001501,31620,,3XLTWYyHxpAdbP1fjfTz9TBZp9Dhq4A6KWNarHMkGHQb
+2026-10-30 07:00:56,finder one,HOUSECOIN,SKIP,insiders 56,3.701e-05,17538,1,DUKEjskPBoszW4xEowcSWptekuUZpwLFv6nTt5Cmpump
