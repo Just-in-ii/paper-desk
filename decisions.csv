@@ -251,3 +251,15 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-10-30 00:30:50,finder one,paws,SKIP,leader_already_sold,0.0002235,41873,,Fp4JkqEcKYKBKhb9iMu9NSDeo71HWgq2q9QtXaaKpump
 2026-10-30 00:30:51,finder one,TOAD,SKIP,lp_unlocked 71.9%,0.0007662,147356,1,A13oRB9FFaiUjfi6LdCg6p9ka1u8SfGkUFs4SKvPpump
 2026-10-30 00:30:51,finder one,PMUP,SKIP,lp_unlocked 87.3%,0.0003299,54757,1,35fWL6pdJqpconRZPrawUAQegw1QF3p2tgN7mzhTpump
+2026-10-30 00:45:37,finder one,DM,SKIP,leader_already_sold,1.13e-05,7137,,2Q7H4kYsyQWpqEPTeBqFyxUABxRmEQYYwDavAzWppump
+2026-10-30 00:45:38,finder one,STONK,SKIP,lp_unlocked 0%,0.1236,2516884,1,6GmAFSYs4gk3FDao5FzzySQpPZaWsa4rUJHacpMpUNgx
+2026-10-30 00:45:38,finder one,LAZARUS,SKIP,leader_already_sold,1.439e-05,0,,8r7gzXUXgqy4PaKfQ4bKUadUcVfZuFafMRJyJiEYpump
+2026-10-30 00:45:38,finder one,DPRK,SKIP,leader_already_sold,6.251e-05,19696,,3atWTj3yLg1n8emVJLWqCtZYbCKxYtJFQM7ZuBz4pump
+2026-10-30 00:45:38,finder one,BLACKTOBER,SKIP,insiders 223,9.446e-05,29764,1,3Xq3nspu91fEzGbzi9kSJ4FYAnBeeiLHPoxQx6cPSQj1
+2026-10-30 00:45:39,finder one,RETARD,SKIP,top10_hold 41.0%,0.0002325,50796,1,2q68mqEbjwmnMjs1o3KZDNZVyMv6RZKkHcm64iinpump
+2026-10-30 00:45:40,finder one,ber,SKIP,insiders 7,0.0001735,36172,1,CqpUBhhSxHsXbq6AGPKnbxDpWgECUXAVy3BCrwhGpump
+2026-10-30 00:45:40,finder one,THINKGUY,SKIP,leader_already_sold,1.033e-05,6962,,FfR4XdDPVrRmq7SFhkaH4srv54uFnNW2wfi83eNPpump
+2026-10-30 00:45:41,finder one,STONK,SKIP,lp_unlocked 0%,0.1241,2521887,1,6GmAFSYs4gk3FDao5FzzySQpPZaWsa4rUJHacpMpUNgx
+2026-10-30 00:45:41,finder one,DM,SKIP,leader_already_sold,1.13e-05,7137,,2Q7H4kYsyQWpqEPTeBqFyxUABxRmEQYYwDavAzWppump
+2026-10-30 00:45:42,finder one,EXFIL,SKIP,lp_unlocked 87.9%,0.002216,142333,1,6FhVPctYg363pQbs4iSvqyHe2cJzfsvFD96gePy6pump
+2026-10-30 00:45:42,finder one,HOUSECOIN,SKIP,insiders 56,5.422e-05,21104,1,DUKEjskPBoszW4xEowcSWptekuUZpwLFv6nTt5Cmpump
