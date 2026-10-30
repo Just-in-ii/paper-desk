@@ -334,3 +334,7 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-10-30 12:45:33,finder one,MOGZ,SKIP,lp_unlocked 88.3%,9.947e-05,26046,1,Pmfm2RprxQRKZH1XWVsBUc2KgCTyzeDTSFbT1vJmogz
 2026-10-30 12:45:33,finder one,Kim,SKIP,leader_already_sold,3.877e-05,15271,,qhbbjGBKJxW3AZGqngWM5tHcrENR3pVoRB9MCf1pump
 2026-10-30 13:00:58,finder one,TraderTraitor,SKIP,leader_already_sold,4.149e-05,16076,,3XLTWYyHxpAdbP1fjfTz9TBZp9Dhq4A6KWNarHMkGHQb
+2026-10-30 13:15:37,finder one,슈바오,SKIP,top10_hold 30.6%,7.106e-05,21298,1,Bz5N9wrcxDw2YTf8tQkG8PJzdbUW89ZNWLWbdqA2pump
+2026-10-30 13:15:38,finder one,███,SKIP,lp_unlocked 80.6%,0.0004701,71164,1,EwX2T1p2PmgTsSq2Bi6XtQYxPC5krR4P2fxPfN4Qpump
+2026-10-30 13:15:39,finder one,Nothing,SKIP,insiders 468,8.809e-05,31502,1,51SfaAyrYaR8FpibXT4TXtxEpnZSNoDwYVRojtKupump
+2026-10-30 13:15:40,finder one,ZENO,SKIP,insiders 10,5.638e-05,19513,1,FMGe8RStdPc1YR59BBuV5Ui12DEe3Q2zVoihrJBbpump
