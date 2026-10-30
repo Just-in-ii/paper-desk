@@ -266,3 +266,7 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-10-30 01:01:01,finder one,paws,SKIP,leader_already_sold,0.0002095,40732,,Fp4JkqEcKYKBKhb9iMu9NSDeo71HWgq2q9QtXaaKpump
 2026-10-30 01:01:01,finder one,DPRK,SKIP,leader_already_sold,2.802e-05,12550,,3atWTj3yLg1n8emVJLWqCtZYbCKxYtJFQM7ZuBz4pump
 2026-10-30 01:01:01,finder one,HOUSECOIN,SKIP,leader_already_sold,5.417e-05,21172,,DUKEjskPBoszW4xEowcSWptekuUZpwLFv6nTt5Cmpump
+2026-10-30 01:15:36,finder one,Nothing,SKIP,insiders 466,0.0001538,41346,1,51SfaAyrYaR8FpibXT4TXtxEpnZSNoDwYVRojtKupump
+2026-10-30 01:15:37,finder one,BLACKTOBER,SKIP,insiders 223,9.383e-05,29722,1,3Xq3nspu91fEzGbzi9kSJ4FYAnBeeiLHPoxQx6cPSQj1
+2026-10-30 01:15:37,finder one,LAZARUS,SKIP,leader_already_sold,1.257e-05,10247,,DapbUzitrzpHDecXnZb6fUW2rRm2JuCx1kCexSHRpump
+2026-10-30 01:15:37,finder one,DPRK,SKIP,insiders 10,3.616e-05,14453,1,3atWTj3yLg1n8emVJLWqCtZYbCKxYtJFQM7ZuBz4pump
