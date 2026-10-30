@@ -407,3 +407,8 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-10-30 18:45:37,finder one,SWAN,SKIP,insiders 59,2.792e-05,12932,1,EFaQg27P3c3PHob2mFw4mHCUcWBHHDdatAEsXq2xpump
 2026-10-30 18:45:38,finder one,TYGR,SKIP,lp_unlocked 86.7%,9.739e-05,33779,1,yxqegfnoem8mMuRSqu8ouD8qsw32GpuMMXgTZGwpump
 2026-10-30 18:45:38,finder one,OREN,SKIP,insiders 33,7.899e-05,23875,1,57vAaMsnAJXkvULtAz7fsi6gRn3bHRJFJsJV1okNpump
+2026-10-30 19:01:02,finder one,SPACECAT,SKIP,leader_already_sold,4.282e-05,16539,,BLN4c4FERWn8pf3PysRDapSKzB5JoHx9HbaxjYkEpump
+2026-10-30 19:01:02,finder one,TraderTraitor,SKIP,leader_already_sold,1.588e-05,9234,,3XLTWYyHxpAdbP1fjfTz9TBZp9Dhq4A6KWNarHMkGHQb
+2026-10-30 19:01:02,finder one,MOGZ,SKIP,lp_unlocked 87.8%,0.0001677,33424,1,Pmfm2RprxQRKZH1XWVsBUc2KgCTyzeDTSFbT1vJmogz
+2026-10-30 19:01:03,finder one,EPYH,SKIP,top10_hold 30.6%,5.47e-05,17634,1,ABkr21iDncsKabf4CVfXuvkUjCWQkJszGyASL9M7pump
+2026-10-30 19:01:04,finder one,Jesus,SKIP,insiders 6,2.102e-05,10470,1,4qizrkdhWZBRMSm1BCs1m13Ju3YJxAu4mjbuSKjypump
