@@ -286,3 +286,10 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-10-30 02:30:47,finder one,PMUP,SKIP,leader_already_sold,0.0003678,59312,,35fWL6pdJqpconRZPrawUAQegw1QF3p2tgN7mzhTpump
 2026-10-30 02:30:47,finder one,RETARD,SKIP,leader_already_sold,0.0002065,48171,,2q68mqEbjwmnMjs1o3KZDNZVyMv6RZKkHcm64iinpump
 2026-10-30 02:30:47,finder one,ACT:D,SKIP,insiders 4,6.867e-06,0,1,3MRyD7DK84NmyB9KCnZy3CJcU1Q9TVf5m3fK16kqpump
+2026-10-30 03:30:47,finder one,SIC,SKIP,leader_already_sold,0.0001184,29811,,2Y4VPwbVatx3zFZkQb9S2avVqe26gMsGpWhGA5swpump
+2026-10-30 03:30:47,finder one,Vulu,SKIP,leader_already_sold,2.681e-06,0,,CePQDPsq2mbujtf6VnyVuEw67DMjgjChn18FzXmEpump
+2026-10-30 03:30:47,finder one,NIO,SKIP,leader_already_sold,0.001063,99767,,7SL2VnfYsChvog5oQY9Nmtqu1wceaMiQzWoqoLQpump
+2026-10-30 03:30:47,finder one,SIC,SKIP,leader_already_sold,0.0001184,29811,,2Y4VPwbVatx3zFZkQb9S2avVqe26gMsGpWhGA5swpump
+2026-10-30 03:30:47,finder one,SC,SKIP,leader_already_sold,5.072e-05,17480,,4hqDzrKcbQhQ74sokT7wTMyY1rAeiVrsdZkDDmRZrbTu
+2026-10-30 03:30:48,finder one,BLACKTOBER,SKIP,insiders 223,7.28e-05,26224,1,3Xq3nspu91fEzGbzi9kSJ4FYAnBeeiLHPoxQx6cPSQj1
+2026-10-30 03:30:49,finder one,DPRK,SKIP,insiders 20,1.043e-05,7179,13,3atWTj3yLg1n8emVJLWqCtZYbCKxYtJFQM7ZuBz4pump
