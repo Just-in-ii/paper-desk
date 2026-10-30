@@ -341,3 +341,4 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-10-30 13:30:51,finder one,Kim,SKIP,leader_already_sold,2.498e-05,0,,Bp32zY54GHujmYPQkTaUwdoxvLPd2dFPHtXeB9rWpump
 2026-10-30 13:30:51,finder one,DEADGUY,SKIP,insiders 16,2.284e-05,10845,1,FGGwUpqPHTxwLDdtoY37KBJ6tQxfY5N1JLTXEs2ppump
 2026-10-30 13:30:52,finder one,MOGZ,SKIP,insiders 8,7.936e-05,23200,1,Pmfm2RprxQRKZH1XWVsBUc2KgCTyzeDTSFbT1vJmogz
+2026-10-30 13:45:34,finder one,Nothing,SKIP,insiders 468,8.242e-05,30274,1,51SfaAyrYaR8FpibXT4TXtxEpnZSNoDwYVRojtKupump
