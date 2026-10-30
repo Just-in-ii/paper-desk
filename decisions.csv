@@ -422,3 +422,4 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-10-30 19:45:33,finder one,CARDS,SKIP,leader_already_sold,0.2487,3689605,,CARDSccUMFKoPRZxt5vt3ksUbxEFEcnZ3H2pd3dKxYjp
 2026-10-30 19:45:33,finder one,Mognald,SKIP,leader_already_sold,2.215e-05,10712,,32BNrXJjfbHNggcGm3hs49UR9cPahFdTpyawpTe4pump
 2026-10-30 19:45:33,finder one,MOGZ,SKIP,lp_unlocked 87.8%,0.0001339,29928,1,Pmfm2RprxQRKZH1XWVsBUc2KgCTyzeDTSFbT1vJmogz
+2026-10-30 20:00:56,finder one,SPACECAT,SKIP,insiders 67,3.964e-05,15948,1,BLN4c4FERWn8pf3PysRDapSKzB5JoHx9HbaxjYkEpump
