@@ -319,3 +319,4 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-10-30 09:45:33,finder one,MOONX,SKIP,leader_already_sold,7.678e-05,22051,,28vWTtEwxoWp5MpHutAMSK5DeVf8xXk8jEEtbrtppump
 2026-10-30 09:45:33,finder one,MOGZ,SKIP,lp_unlocked 80.9%,9.454e-05,25480,1,Pmfm2RprxQRKZH1XWVsBUc2KgCTyzeDTSFbT1vJmogz
 2026-10-30 10:15:34,finder one,NIO,SKIP,leader_already_sold,0.001288,111464,,7SL2VnfYsChvog5oQY9Nmtqu1wceaMiQzWoqoLQpump
+2026-10-30 10:30:46,finder one,박진혁,SKIP,leader_already_sold,8.866e-06,0,,DNNQ2p3QpCWwmN4KCUyTahQezR4oj6q9QvyDgFCepump
