@@ -1,5 +1,5 @@
 ```
-PAPER DESK REPORT  Fri 30 Oct 2026, 04:45 UTC
+PAPER DESK REPORT  Fri 30 Oct 2026, 05:00 UTC
 Day 5, running since 25 Oct 2026. AI judge: off.
 
 POT
@@ -18,8 +18,8 @@ OPEN (0)
   nothing open
 
 DECISIONS
-  299 decisions on 130 coins: copied 8, skipped 291
-   116  leader_already_sold
+  300 decisions on 131 coins: copied 8, skipped 292
+   117  leader_already_sold
     77  lp_unlocked
     73  insiders
     14  top10_hold
@@ -28,12 +28,12 @@ DECISIONS
 
 LEADERS
   nickname     coins copied  realised
-  finder one     130      8    +$6.59
+  finder one     131      8    +$6.59
 
 FILTER CHECK (last 7 days)
   How each coin moved since the leader bought it, whatever we did after.
-  copied          8 coins, median -22.4%, 2 went to ~zero
-  filtered out   85 coins, median -13.9%, 6 went to ~zero
+  copied          8 coins, median -24.2%, 2 went to ~zero
+  filtered out   85 coins, median -14.2%, 6 went to ~zero
   The filter is NOT beating the coins it rejects yet.
 
 Not real money. Fills include slippage and fees to stay honest, but real trades would land later than the leader's and could be worse.

@@ -298,3 +298,4 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-10-30 03:45:31,finder one,SWAN,SKIP,leader_already_sold,4.001e-05,15891,,EFaQg27P3c3PHob2mFw4mHCUcWBHHDdatAEsXq2xpump
 2026-10-30 04:00:54,finder one,SWAN,SKIP,insiders 48,4.075e-05,16054,1,EFaQg27P3c3PHob2mFw4mHCUcWBHHDdatAEsXq2xpump
 2026-10-30 04:00:54,finder one,HYPE,SKIP,leader_already_sold,92.75,4120942,,98sMhvDwXj1RQi5c5Mndm3vPe9cBqPrbLaufMXFNMh5g
+2026-10-30 05:00:55,finder one,ZENO,SKIP,leader_already_sold,8.78e-05,24711,,FMGe8RStdPc1YR59BBuV5Ui12DEe3Q2zVoihrJBbpump
