@@ -273,3 +273,6 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-10-30 01:18:48,finder one,SAFU,SKIP,insiders 4,2.946e-05,12888,1,AHgqStQviBDBiPra3cLxb8gQs2auRAmXT4s9v7LKpump
 2026-10-30 01:18:48,finder one,LAZARUS,SKIP,thin_liquidity $6972,5.778e-06,6972,1,DapbUzitrzpHDecXnZb6fUW2rRm2JuCx1kCexSHRpump
 2026-10-30 01:30:47,finder one,PHP,SKIP,insiders 83,2.958e-05,17101,1,Cbkg5w7V7W2J2sUmecnyN825CbvwvXwasfhduVtNpump
+2026-10-30 01:45:34,finder one,DPRK,SKIP,leader_already_sold,0.0001118,27113,,3atWTj3yLg1n8emVJLWqCtZYbCKxYtJFQM7ZuBz4pump
+2026-10-30 01:45:34,finder one,HOUSECOIN,SKIP,insiders 56,5.218e-05,20677,1,DUKEjskPBoszW4xEowcSWptekuUZpwLFv6nTt5Cmpump
+2026-10-30 01:45:35,finder one,PMUP,SKIP,lp_unlocked 88.7%,0.0003037,52785,1,35fWL6pdJqpconRZPrawUAQegw1QF3p2tgN7mzhTpump
