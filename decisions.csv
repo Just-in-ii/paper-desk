@@ -343,3 +343,5 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-10-30 13:30:52,finder one,MOGZ,SKIP,insiders 8,7.936e-05,23200,1,Pmfm2RprxQRKZH1XWVsBUc2KgCTyzeDTSFbT1vJmogz
 2026-10-30 13:45:34,finder one,Nothing,SKIP,insiders 468,8.242e-05,30274,1,51SfaAyrYaR8FpibXT4TXtxEpnZSNoDwYVRojtKupump
 2026-10-30 14:00:58,finder one,FRONTIER,SKIP,leader_already_sold,0.8696,127661,,58QyXQ1UDgHh64EiTsCeevVM9cLPqBDNf3qZE6EdfUhZ
+2026-10-30 14:15:33,finder one,CLAUDIA,SKIP,leader_already_sold,0.001935,190376,,2j5SaS7xy776qCBpyPQbZjyQSAtKiFgrwjfErthnW2ZM
+2026-10-30 14:15:34,finder one,ANSEM,SKIP,danger: Single holder ownership,0.04615,1275697,43,9cRCn9rGT8V2imeM2BaKs13yhMEais3ruM3rPvTGpump
