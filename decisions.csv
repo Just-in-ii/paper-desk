@@ -425,3 +425,7 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-10-30 20:00:56,finder one,SPACECAT,SKIP,insiders 67,3.964e-05,15948,1,BLN4c4FERWn8pf3PysRDapSKzB5JoHx9HbaxjYkEpump
 2026-10-30 20:30:47,finder one,paws,SKIP,leader_already_sold,0.0001402,33507,,Fp4JkqEcKYKBKhb9iMu9NSDeo71HWgq2q9QtXaaKpump
 2026-10-30 20:30:47,finder one,Pilly,SKIP,leader_already_sold,0.0001031,26530,,8xbLGPJswaWHSNHB8v4wesGEqUsUzZYRnhfqv2Rkpump
+2026-10-30 20:45:32,finder one,paws,SKIP,leader_already_sold,0.0001511,34897,,Fp4JkqEcKYKBKhb9iMu9NSDeo71HWgq2q9QtXaaKpump
+2026-10-30 20:45:33,finder one,PILLY,SKIP,leader_already_sold,0.0001121,30814,,2WVthqDUqTfmKniBvXz2guGwCAJSNTHKGnebUeBvpump
+2026-10-30 20:45:33,finder one,Saturween,SKIP,leader_already_sold,0.0008542,90356,,5THtNEGTF1y67eRWvcgz3MomDZePCVx1xdskHHeCpump
+2026-10-30 20:45:33,finder one,PILLY,SKIP,leader_already_sold,0.0001121,30814,,2WVthqDUqTfmKniBvXz2guGwCAJSNTHKGnebUeBvpump
