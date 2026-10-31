@@ -500,3 +500,10 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-10-31 15:15:36,finder one,TUSK,SKIP,no_rugcheck_report,4.659e-05,17795,,8uBobWMhu6hRUn4jaA4kjcgWCjTxgHwHJtPgBePXpump
 2026-10-31 15:15:39,finder one,Kim,SKIP,no_rugcheck_report,3.86e-05,16541,,qhbbjGBKJxW3AZGqngWM5tHcrENR3pVoRB9MCf1pump
 2026-10-31 15:15:40,finder one,whitepaper,SKIP,no_rugcheck_report,9.51e-05,23633,,4tEvXHpd6JrCWJGByBS3qFBAtJbeoiEpgvWLw9hkpump
+2026-10-31 15:30:55,finder one,HI,SKIP,leader_already_sold,0.0004356,64359,,3w2TvVmTrtq4kSkoFVrTFQgz6MX7ThzDVrx9r5c3pump
+2026-10-31 15:30:55,finder one,LAZARUS,SKIP,leader_already_sold,0.0001125,26995,,2GvnZ864v6Nx99KbZnQrADK1z88ykbz5A9rBtB5Bvh3x
+2026-10-31 15:30:58,finder one,USDF,SKIP,no_rugcheck_report,0.0003329,50017,,DRMnFyekQiCTMrajtgsTycqp4ie6r1tZnh6qpAGjpump
+2026-10-31 15:30:58,finder one,XMR,SKIP,leader_already_sold,601.74,352661,,WXMRyRZhsa19ety5erZhHg4N3xj3EVN92u94422teJp
+2026-10-31 15:30:58,finder one,LAZARUS,SKIP,leader_already_sold,0.0001125,26995,,2GvnZ864v6Nx99KbZnQrADK1z88ykbz5A9rBtB5Bvh3x
+2026-10-31 15:30:58,finder one,Saturween,SKIP,leader_already_sold,0.0004024,62762,,5THtNEGTF1y67eRWvcgz3MomDZePCVx1xdskHHeCpump
+2026-10-31 15:30:58,finder one,XMR,SKIP,leader_already_sold,601.74,352661,,WXMRyRZhsa19ety5erZhHg4N3xj3EVN92u94422teJp
