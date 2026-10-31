@@ -459,3 +459,6 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-10-31 07:15:33,finder one,McRib,SKIP,leader_already_sold,6.947e-05,28278,,8idEA8QovsZJka6d9Z35fejE5MbL37BJxvw5k5r6pump
 2026-10-31 11:30:53,finder one,WASTED,SKIP,no_rugcheck_report,3.863e-05,0,,GexThZHgaswpAQ7Fi8QrHFubjPimUNSYhJiAA7XZpump
 2026-10-31 11:30:54,finder one,allo,SKIP,no_rugcheck_report,4.229e-05,0,,13Fr7NAVWSCAjjd1fDsZC1MfJpPvpRoLwrhaWXWoaLLo
+2026-10-31 11:45:34,finder one,红台,SKIP,leader_already_sold,1.153e-05,0,,2e9JoiJ4WM3QYRjN115oaC7itwofBaWQNjpd8XFQpump
+2026-10-31 11:45:34,finder one,红台,SKIP,leader_already_sold,1.153e-05,0,,2e9JoiJ4WM3QYRjN115oaC7itwofBaWQNjpd8XFQpump
+2026-10-31 11:45:34,finder one,TUSK,SKIP,no_rugcheck_report,6.297e-05,20908,,8uBobWMhu6hRUn4jaA4kjcgWCjTxgHwHJtPgBePXpump
