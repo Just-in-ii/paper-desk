@@ -550,3 +550,5 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-10-31 18:15:32,finder one,LAZARUS,SKIP,leader_already_sold,2.102e-05,10809,,2GvnZ864v6Nx99KbZnQrADK1z88ykbz5A9rBtB5Bvh3x
 2026-10-31 18:15:33,finder one,CARDS,SKIP,danger: Top 10 holders high ownership,0.2449,3675978,54,CARDSccUMFKoPRZxt5vt3ksUbxEFEcnZ3H2pd3dKxYjp
 2026-10-31 18:15:33,finder one,ClapCat,SKIP,leader_already_sold,8.265e-05,27129,,5BjfgmtfqvNpAWx1CnZynoWLWNMnrwHLhTFzQ81vkEc8
+2026-10-31 18:30:44,finder one,LUMI,SKIP,leader_already_sold,0.0002073,45722,,HvitmAeh6TkToQonoiNwqWcrZsYdYiaSZHP7yMmspump
+2026-10-31 18:30:45,finder one,Jimothy,SKIP,lp_unlocked 87.0%,0.001372,306091,1,Ge87EtsjwRQbHaqQmKRno69RFTwh9bfSsm99XNxTpump
