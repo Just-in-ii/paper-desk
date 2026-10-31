@@ -546,3 +546,4 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-10-31 17:45:35,finder one,███,SKIP,leader_already_sold,0.0004186,67422,,EwX2T1p2PmgTsSq2Bi6XtQYxPC5krR4P2fxPfN4Qpump
 2026-10-31 17:45:36,finder one,Jimothy,SKIP,lp_unlocked 87.0%,0.001471,316526,1,Ge87EtsjwRQbHaqQmKRno69RFTwh9bfSsm99XNxTpump
 2026-10-31 17:45:36,finder one,DOBRIKCOIN,SKIP,leader_already_sold,2.831e-05,12401,,FqegbEvUEXRbpDPesnMLuNFfc7raa7V3EzVKcJfNpump
+2026-10-31 18:00:55,finder one,NTRNDM,SKIP,lp_unlocked 72.2%,0.0005468,76786,1,NTRNDMqQSiwEC2jJs3wJiZS6bpGYQJtMNQJgiX3WyV6
