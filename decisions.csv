@@ -596,3 +596,4 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-10-31 23:15:34,finder one,Собака,SKIP,leader_already_sold,7.2e-05,21799,,CsUuToUBCnJcsvExCuu3ACMHr7JuMcujQiEwQqmvpump
 2026-10-31 23:15:34,finder one,Собака,SKIP,leader_already_sold,7.2e-05,21799,,CsUuToUBCnJcsvExCuu3ACMHr7JuMcujQiEwQqmvpump
 2026-10-31 23:15:35,finder one,paws,SKIP,lp_unlocked 52.1%,0.0006276,77694,1,Fp4JkqEcKYKBKhb9iMu9NSDeo71HWgq2q9QtXaaKpump
+2026-10-31 23:30:45,finder one,paws,SKIP,lp_unlocked 53.2%,0.0005971,75888,1,Fp4JkqEcKYKBKhb9iMu9NSDeo71HWgq2q9QtXaaKpump
