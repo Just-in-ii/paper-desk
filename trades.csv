@@ -24,3 +24,4 @@ time,action,symbol,leader,price,qty,cash_flow_usd,pnl_usd,reason,mint,costs_usd
 2026-10-31 16:30:49,BUY,FUN,finder one,2.06721e-05,477696.9926,-10.3000,,passed safety filter,FDSG65a94jA3mdC47VPikD5WARCJN5ffSgot3TfHpump,0.7126
 2026-10-31 17:01:00,SELL,FUN,finder one,1.56655e-05,477696.9926,7.0898,-3.2102,finder one sold 100%,FDSG65a94jA3mdC47VPikD5WARCJN5ffSgot3TfHpump,0.6250
 2026-10-31 19:15:34,BUY,Saturween,finder one,0.000365856,26991.49392,-10.3000,,passed safety filter,5THtNEGTF1y67eRWvcgz3MomDZePCVx1xdskHHeCpump,0.7126
+2026-10-31 19:30:46,SELL,Saturween,finder one,0.000368988,26991.49392,9.5350,-0.7650,finder one sold 100%,5THtNEGTF1y67eRWvcgz3MomDZePCVx1xdskHHeCpump,0.7325
