@@ -448,3 +448,4 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-10-31 01:15:32,finder one,yabbi,SKIP,thin_liquidity $5565,7.579e-06,5566,23,HQmAbPvLw5TMaVzzUYP9aGeATJ6GDPHTZptRDZNUNwXf
 2026-10-31 01:15:33,finder one,Mil,SKIP,insiders 4,4.766e-05,16486,29,4g5GtAevLdxwvKjp4EHNB3mBVYicEGpyJ9NvTuxNpump
 2026-10-31 01:15:33,finder one,allo,SKIP,lp_unlocked 74.7%,4.229e-05,0,1,13Fr7NAVWSCAjjd1fDsZC1MfJpPvpRoLwrhaWXWoaLLo
+2026-10-31 04:00:54,finder one,Kim,SKIP,leader_already_sold,5.896e-05,20701,,qhbbjGBKJxW3AZGqngWM5tHcrENR3pVoRB9MCf1pump
