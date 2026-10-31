@@ -589,3 +589,4 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-10-31 22:25:23,finder one,ANSEM,SKIP,leader_already_sold,0.000196,37432,,CvRJ8MrnB1AwjrgX25uyeLJiXNSugTo2ZHh8UXDTpump
 2026-10-31 22:25:23,finder one,paws,SKIP,leader_already_sold,0.0006097,76586,,Fp4JkqEcKYKBKhb9iMu9NSDeo71HWgq2q9QtXaaKpump
 2026-10-31 22:25:23,finder one,CREDIT,SKIP,insiders 831,6.774e-05,21617,1,Ewyifvp8X9NxeaKawXamGXBFDisuMfcFfcdvSZ8opump
+2026-10-31 22:30:44,finder one,paws,SKIP,lp_unlocked 49.5%,0.0005974,75808,1,Fp4JkqEcKYKBKhb9iMu9NSDeo71HWgq2q9QtXaaKpump
