@@ -28,3 +28,4 @@ time,action,symbol,leader,price,qty,cash_flow_usd,pnl_usd,reason,mint,costs_usd
 2026-10-31 20:45:33,BUY,PINGU,finder one,4.80186e-05,205649.4775,-10.3000,,passed safety filter,2mKPFrgUrmbPX7zBRnWg4RzY5dnAENH42Us5AcZtpump,0.7126
 2026-10-31 21:30:48,SELL,PINGU,finder one,3.30285e-05,205649.4775,6.4074,-3.8926,finder one sold 100%,2mKPFrgUrmbPX7zBRnWg4RzY5dnAENH42Us5AcZtpump,0.5950
 2026-10-31 21:45:33,BUY,PEAK,finder one,0.000363693,27152.02107,-10.3000,,passed safety filter,APLPiTjBWzwfZ5U1TBeqLF9XJ7dV7XKGe7j4BZhkDray,0.7126
+2026-10-31 22:00:56,SELL,PEAK,finder one,0.000338239,27152.02107,8.7691,-1.5309,finder one sold 100%,APLPiTjBWzwfZ5U1TBeqLF9XJ7dV7XKGe7j4BZhkDray,0.6988
