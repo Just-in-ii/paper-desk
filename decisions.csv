@@ -450,3 +450,4 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-10-31 01:15:33,finder one,allo,SKIP,lp_unlocked 74.7%,4.229e-05,0,1,13Fr7NAVWSCAjjd1fDsZC1MfJpPvpRoLwrhaWXWoaLLo
 2026-10-31 04:00:54,finder one,Kim,SKIP,leader_already_sold,5.896e-05,20701,,qhbbjGBKJxW3AZGqngWM5tHcrENR3pVoRB9MCf1pump
 2026-10-31 04:15:33,finder one,Kim,SKIP,leader_already_sold,6.316e-05,21507,,qhbbjGBKJxW3AZGqngWM5tHcrENR3pVoRB9MCf1pump
+2026-10-31 06:45:33,finder one,TUSK,SKIP,no_rugcheck_report,3.678e-05,15528,,8uBobWMhu6hRUn4jaA4kjcgWCjTxgHwHJtPgBePXpump
