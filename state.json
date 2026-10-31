@@ -1,10 +1,10 @@
 {
- "buys_today": 0,
- "cash": 103.60691506784222,
+ "buys_today": 1,
+ "cash": 93.30691506784223,
  "day": "2026-10-31",
  "last_sig": {
   "0ef4d20956b1190b": "0a6e079fac2654a0",
-  "24212f2b3e15ffdb": "cbb5e42b645e3a08",
+  "24212f2b3e15ffdb": "a6c38fc6827f3cd7",
   "3bebba29a5753a93": "d3cb621eae228347"
  },
  "left_at": {
@@ -19,7 +19,21 @@
   "FuK9BkA4jXTBzj8HQRQT4538gy1BJzPYy9qwiHs2pump": 1793295934,
   "mega4qqdQcsrCmj43fzHmxfZNmThNYeN3cz2kfR7fqs": 1793209534
  },
- "positions": {},
+ "positions": {
+  "4rsSV6L6mQ6jN587eKi5tNgkbgdzc8c9fxEVY8wapump": {
+   "cost": 10.3,
+   "entry": 2.987e-05,
+   "last_price": 2.9e-05,
+   "leader": "finder one",
+   "leader_held": 555655.410671,
+   "misses": 0,
+   "opened": 1793462460,
+   "qty": 330599.2634750586,
+   "symbol": "VAMPCAT",
+   "tax_pct": 0.0,
+   "tp_done": false
+  }
+ },
  "start_cash": 100.0,
  "started": 1792968363
 }

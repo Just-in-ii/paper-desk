@@ -510,3 +510,10 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-10-31 15:45:34,finder one,LAZARUS,SKIP,insiders 4,5.657e-05,18776,1,2GvnZ864v6Nx99KbZnQrADK1z88ykbz5A9rBtB5Bvh3x
 2026-10-31 15:45:34,finder one,TUSK,SKIP,insiders 34,3.787e-05,15910,1,8uBobWMhu6hRUn4jaA4kjcgWCjTxgHwHJtPgBePXpump
 2026-10-31 15:45:35,finder one,USDF,SKIP,insiders 671,0.0003015,48501,1,7MuvW6G2pDTGSjzpjqeDYigUsXqqd6TmEzLgvRRopump
+2026-10-31 16:00:58,finder one,ANSEM,SKIP,leader_already_sold,0.0001858,35325,,2RyCCRenDtquADusNUfwFpvTaDkam82imh46SL2mpump
+2026-10-31 16:00:59,finder one,Kim,SKIP,insiders 243,3.395e-05,15431,1,qhbbjGBKJxW3AZGqngWM5tHcrENR3pVoRB9MCf1pump
+2026-10-31 16:00:59,finder one,BORDR,SKIP,lp_unlocked 64.3%,0.0001508,34005,1,6Mix12LiHrQFojaQEnfPUC65Qkwd6X4Y5Qg93oFbordr
+2026-10-31 16:00:59,finder one,LUMI,SKIP,lp_unlocked 64.4%,0.0002278,47897,1,HvitmAeh6TkToQonoiNwqWcrZsYdYiaSZHP7yMmspump
+2026-10-31 16:01:00,finder one,VAMPCAT,COPY,passed safety filter,2.9e-05,13302,1,4rsSV6L6mQ6jN587eKi5tNgkbgdzc8c9fxEVY8wapump
+2026-10-31 16:01:00,finder one,SPAN,SKIP,insiders 12,3.801e-05,0,1,EG7VdiyunkAypzemjTuYEjkfZUWfwTnrLBTFPxSURxJY
+2026-10-31 16:01:00,finder one,SUPERELON,SKIP,thin_liquidity $6005,8.504e-06,6005,20,DiXxTwKBaL9Mf7heTpx32E1XhYjz1c1zZsZB59cZpump
