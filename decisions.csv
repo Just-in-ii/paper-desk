@@ -540,3 +540,5 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-10-31 17:01:02,finder one,TUSK,SKIP,insiders 34,2.912e-05,13746,1,8uBobWMhu6hRUn4jaA4kjcgWCjTxgHwHJtPgBePXpump
 2026-10-31 17:01:03,finder one,WASTED,SKIP,insiders 850,3.863e-05,0,1,GexThZHgaswpAQ7Fi8QrHFubjPimUNSYhJiAA7XZpump
 2026-10-31 17:01:04,finder one,LAZARUS,SKIP,insiders 4,1.964e-05,10387,1,2GvnZ864v6Nx99KbZnQrADK1z88ykbz5A9rBtB5Bvh3x
+2026-10-31 17:15:34,finder one,Kim,SKIP,insiders 243,2.284e-05,12349,1,qhbbjGBKJxW3AZGqngWM5tHcrENR3pVoRB9MCf1pump
+2026-10-31 17:15:34,finder one,XMR,SKIP,leader_already_sold,598.074,351590,,WXMRyRZhsa19ety5erZhHg4N3xj3EVN92u94422teJp
