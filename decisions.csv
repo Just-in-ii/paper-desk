@@ -489,3 +489,6 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-10-31 14:45:39,finder one,Kim,SKIP,leader_already_sold,4.857e-05,18758,,qhbbjGBKJxW3AZGqngWM5tHcrENR3pVoRB9MCf1pump
 2026-10-31 14:45:39,finder one,XMR,SKIP,leader_already_sold,600.54,352309,,WXMRyRZhsa19ety5erZhHg4N3xj3EVN92u94422teJp
 2026-10-31 14:45:39,finder one,LUMI,SKIP,leader_already_sold,0.0003014,55077,,HvitmAeh6TkToQonoiNwqWcrZsYdYiaSZHP7yMmspump
+2026-10-31 14:50:22,finder one,USDF,SKIP,no_rugcheck_report,0.0003555,52753,,7MuvW6G2pDTGSjzpjqeDYigUsXqqd6TmEzLgvRRopump
+2026-10-31 14:50:23,finder one,LUMI,SKIP,no_rugcheck_report,0.0002854,53790,,HvitmAeh6TkToQonoiNwqWcrZsYdYiaSZHP7yMmspump
+2026-10-31 14:50:23,finder one,Saturween,SKIP,no_rugcheck_report,0.0003539,58666,,5THtNEGTF1y67eRWvcgz3MomDZePCVx1xdskHHeCpump
