@@ -554,3 +554,5 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-10-31 18:30:45,finder one,Jimothy,SKIP,lp_unlocked 87.0%,0.001372,306091,1,Ge87EtsjwRQbHaqQmKRno69RFTwh9bfSsm99XNxTpump
 2026-10-31 18:45:31,finder one,RAM,SKIP,insiders 4,6.566e-05,20636,1,6QUHcqYuiPRHxhnYZoygewXtNQr9kUrhc9Tmwgtbpump
 2026-10-31 18:52:47,finder one,TUSK,SKIP,insiders 34,2.431e-05,12424,1,8uBobWMhu6hRUn4jaA4kjcgWCjTxgHwHJtPgBePXpump
+2026-10-31 19:00:56,finder one,Saturween,SKIP,leader_already_sold,0.0004227,64598,,5THtNEGTF1y67eRWvcgz3MomDZePCVx1xdskHHeCpump
+2026-10-31 19:00:56,finder one,LUMI,SKIP,leader_already_sold,0.0001552,39355,,HvitmAeh6TkToQonoiNwqWcrZsYdYiaSZHP7yMmspump
