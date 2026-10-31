@@ -533,3 +533,10 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-10-31 16:45:38,finder one,SAPLING,SKIP,lp_unlocked 73.9%,0.002883,323468,1,BZFYNPeQAEW3HWQ4DNsTVahC1n4ZjTgn6jB2nnBbB96W
 2026-10-31 16:45:39,finder one,Kim,SKIP,insiders 243,2.985e-05,14368,1,qhbbjGBKJxW3AZGqngWM5tHcrENR3pVoRB9MCf1pump
 2026-10-31 16:45:39,finder one,DOUGHBRIKS,SKIP,leader_already_sold,0.0004663,57681,,D7Q2ApyCUfAm9Vay3wC2g1tDBtrKdomYCLdiSPaNpump
+2026-10-31 17:01:01,finder one,BORDR,SKIP,lp_unlocked 64.2%,9.167e-05,26504,1,6Mix12LiHrQFojaQEnfPUC65Qkwd6X4Y5Qg93oFbordr
+2026-10-31 17:01:01,finder one,₩,SKIP,leader_already_sold,7.18e-06,0,,CsqmvnE2Qft5nrGcpDxfhjVGrYDW9Su1jKSSwY8Epump
+2026-10-31 17:01:01,finder one,DOUGHBRIKS,SKIP,leader_already_sold,0.0002417,40603,,D7Q2ApyCUfAm9Vay3wC2g1tDBtrKdomYCLdiSPaNpump
+2026-10-31 17:01:01,finder one,ANSEM,SKIP,leader_already_sold,7.14e-05,20878,,CvRJ8MrnB1AwjrgX25uyeLJiXNSugTo2ZHh8UXDTpump
+2026-10-31 17:01:02,finder one,TUSK,SKIP,insiders 34,2.912e-05,13746,1,8uBobWMhu6hRUn4jaA4kjcgWCjTxgHwHJtPgBePXpump
+2026-10-31 17:01:03,finder one,WASTED,SKIP,insiders 850,3.863e-05,0,1,GexThZHgaswpAQ7Fi8QrHFubjPimUNSYhJiAA7XZpump
+2026-10-31 17:01:04,finder one,LAZARUS,SKIP,insiders 4,1.964e-05,10387,1,2GvnZ864v6Nx99KbZnQrADK1z88ykbz5A9rBtB5Bvh3x
