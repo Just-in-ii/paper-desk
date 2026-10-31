@@ -1,10 +1,10 @@
 ```
-PAPER DESK REPORT  Sat 31 Oct 2026, 21:00 UTC
+PAPER DESK REPORT  Sat 31 Oct 2026, 21:15 UTC
 Day 6, running since 25 Oct 2026. AI judge: off.
 
 POT
-  $100.00 -> $103.75  (+3.7%, +$3.75)
-  cash $96.52 + open positions $7.22 (if sold now, after costs)
+  $100.00 -> $103.23  (+3.2%, +$3.23)
+  cash $96.52 + open positions $6.71 (if sold now, after costs)
 
 TRADES
   bought 14, closed 13 (3 won, 10 lost)
@@ -16,25 +16,25 @@ TRADES
 
 OPEN (1)
   coin       leader     vs entry    value  hours
-  PINGU      finder one   -20.5%    $7.22      0
+  PINGU      finder one   -25.9%    $6.71      1
 
 DECISIONS
-  572 decisions on 200 coins: copied 14, skipped 558
-   253  leader_already_sold
-   130  insiders
-   102  lp_unlocked
+  576 decisions on 201 coins: copied 14, skipped 562
+   254  leader_already_sold
+   131  insiders
+   104  lp_unlocked
     30  no_rugcheck_report
     19  top10_hold
     17  danger
 
 LEADERS
   nickname     coins copied  realised
-  finder one     200     13    +$6.82
+  finder one     201     13    +$6.82
 
 FILTER CHECK (last 7 days)
   How each coin moved since the leader bought it, whatever we did after.
-  copied         13 coins, median -7.7%, 2 went to ~zero
-  filtered out  126 coins, median -35.7%, 13 went to ~zero
+  copied         13 coins, median +4.3%, 2 went to ~zero
+  filtered out  127 coins, median -36.6%, 13 went to ~zero
   The filter is picking better than it rejects so far.
 
 Not real money. Fills include slippage and fees to stay honest, but real trades would land later than the leader's and could be worse.
