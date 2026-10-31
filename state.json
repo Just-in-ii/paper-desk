@@ -1,10 +1,10 @@
 {
- "buys_today": 1,
- "cash": 110.79759125841805,
+ "buys_today": 2,
+ "cash": 100.49759125841805,
  "day": "2026-10-31",
  "last_sig": {
   "0ef4d20956b1190b": "0a6e079fac2654a0",
-  "24212f2b3e15ffdb": "01e129c20e401aed",
+  "24212f2b3e15ffdb": "f2656cf8ca4ff454",
   "3bebba29a5753a93": "d3cb621eae228347"
  },
  "left_at": {
@@ -20,7 +20,21 @@
   "FuK9BkA4jXTBzj8HQRQT4538gy1BJzPYy9qwiHs2pump": 1793295934,
   "mega4qqdQcsrCmj43fzHmxfZNmThNYeN3cz2kfR7fqs": 1793209534
  },
- "positions": {},
+ "positions": {
+  "FDSG65a94jA3mdC47VPikD5WARCJN5ffSgot3TfHpump": {
+   "cost": 10.3,
+   "entry": 2.0672099999999998e-05,
+   "last_price": 2.007e-05,
+   "leader": "finder one",
+   "leader_held": 713160.267744,
+   "misses": 0,
+   "opened": 1793464249,
+   "qty": 477696.992564858,
+   "symbol": "FUN",
+   "tax_pct": 0.0,
+   "tp_done": false
+  }
+ },
  "start_cash": 100.0,
  "started": 1792968363
 }

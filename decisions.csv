@@ -521,3 +521,8 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-10-31 16:15:35,finder one,ANSEM,SKIP,leader_already_sold,0.0001315,29454,,2RyCCRenDtquADusNUfwFpvTaDkam82imh46SL2mpump
 2026-10-31 16:15:35,finder one,SPAN,SKIP,insiders 12,3.801e-05,0,1,EG7VdiyunkAypzemjTuYEjkfZUWfwTnrLBTFPxSURxJY
 2026-10-31 16:15:36,finder one,iCoin,SKIP,lp_unlocked 72.0%,0.0003089,55068,1,HgxEGTZ1Epb64RrYqcuHkqb1gGWWnF5WcPTCDWzApump
+2026-10-31 16:30:49,finder one,LAZARUS,SKIP,insiders 4,2.401e-05,11679,1,2GvnZ864v6Nx99KbZnQrADK1z88ykbz5A9rBtB5Bvh3x
+2026-10-31 16:30:49,finder one,LUMI,SKIP,lp_unlocked 69.9%,0.0001878,43350,1,HvitmAeh6TkToQonoiNwqWcrZsYdYiaSZHP7yMmspump
+2026-10-31 16:30:49,finder one,FUN,COPY,passed safety filter,2.007e-05,10634,1,FDSG65a94jA3mdC47VPikD5WARCJN5ffSgot3TfHpump
+2026-10-31 16:30:50,finder one,HI,SKIP,lp_unlocked 66.9%,0.0003286,55959,1,3w2TvVmTrtq4kSkoFVrTFQgz6MX7ThzDVrx9r5c3pump
+2026-10-31 16:30:50,finder one,WASTED,SKIP,insiders 850,3.863e-05,0,1,GexThZHgaswpAQ7Fi8QrHFubjPimUNSYhJiAA7XZpump

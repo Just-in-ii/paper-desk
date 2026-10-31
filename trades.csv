@@ -21,3 +21,4 @@ time,action,symbol,leader,price,qty,cash_flow_usd,pnl_usd,reason,mint,costs_usd
 2026-10-30 18:45:37,SELL,TRK,finder one,3.35426e-05,277252.1296,8.8835,-1.4165,finder one sold 100%,E8c9gvuE7gW4R8AVcaTCbbTG1zJGdUR9KGtS94eXBAGS,0.7039
 2026-10-31 16:01:00,BUY,VAMPCAT,finder one,2.987e-05,330599.2635,-10.3000,,passed safety filter,4rsSV6L6mQ6jN587eKi5tNgkbgdzc8c9fxEVY8wapump,0.7126
 2026-10-31 16:15:34,SELL,VAMPCAT,finder one,5.44946e-05,330599.2635,17.4907,7.1907,finder one sold 100%,4rsSV6L6mQ6jN587eKi5tNgkbgdzc8c9fxEVY8wapump,1.0824
+2026-10-31 16:30:49,BUY,FUN,finder one,2.06721e-05,477696.9926,-10.3000,,passed safety filter,FDSG65a94jA3mdC47VPikD5WARCJN5ffSgot3TfHpump,0.7126
