@@ -465,3 +465,6 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-10-31 12:45:35,finder one,NICKI,SKIP,no_rugcheck_report,2.418e-05,12640,,J8GeV63GywfcfGoGCqKY4D5jRPc4gnxtE6HSgLJfpump
 2026-10-31 12:45:35,finder one,SUPERELON,SKIP,leader_already_sold,5.163e-05,17294,,DiXxTwKBaL9Mf7heTpx32E1XhYjz1c1zZsZB59cZpump
 2026-10-31 12:45:35,finder one,TUSK,SKIP,no_rugcheck_report,5.846e-05,20148,,8uBobWMhu6hRUn4jaA4kjcgWCjTxgHwHJtPgBePXpump
+2026-10-31 13:00:58,finder one,PARANOID,SKIP,no_rugcheck_report,0.0003902,56334,,22rWiyDiY9GgxSrFiWC2vX1GxNxjkvrRPmZJDzv9pq6X
+2026-10-31 13:00:58,finder one,HI,SKIP,leader_already_sold,0.000526,71051,,3w2TvVmTrtq4kSkoFVrTFQgz6MX7ThzDVrx9r5c3pump
+2026-10-31 13:00:59,finder one,LUMI,SKIP,no_rugcheck_report,1.092e-05,6926,,4CLJSkwJ7JsNvrtZrVwqcXecYrAwUTSkTC1p7gzqpump
