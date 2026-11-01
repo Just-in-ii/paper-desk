@@ -624,3 +624,8 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-11-01 01:45:34,finder one,KIM,SKIP,leader_already_sold,0.000442,64819,,8pjfN5Ayb4rucGpYE3tZWN6v3EysizjPx1v62zx1pump
 2026-11-01 02:00:55,finder one,NUT,SKIP,leader_already_sold,3.923e-05,0,,5U7cD5cXVMVFFhYVRhcm1Ruerg6RzVnUQkGcraZepump
 2026-11-01 02:00:55,finder one,PODCAT,SKIP,leader_already_sold,0.0001775,38648,,2fnGKgfwYjqv99ppnKCq5nCLLhRSJAPAhSMVkqjipump
+2026-11-01 02:30:55,finder one,ANSEM,SKIP,leader_already_sold,0.0002833,46065,,CvRJ8MrnB1AwjrgX25uyeLJiXNSugTo2ZHh8UXDTpump
+2026-11-01 02:30:56,finder one,Kim,SKIP,insiders 243,7.477e-05,24525,1,qhbbjGBKJxW3AZGqngWM5tHcrENR3pVoRB9MCf1pump
+2026-11-01 02:30:56,finder one,BALLS,SKIP,insiders 8,3.232e-05,0,1,HhBuvegE7Ew2stS5svkMcxL8povkaL8brwt9JUtfpump
+2026-11-01 02:30:57,finder one,IF,COPY,passed safety filter,4.252e-05,15352,1,EJtBCwYqNX7kQEPU38T7bxcfwjVFaXuPBYZY7Gwtpump
+2026-11-01 02:30:57,finder one,PUTIN,SKIP,insiders 44,2.722e-05,12815,1,9ivsveqwXzsCXYba3SDDzaocx27DbfYpLuZPb9Bdpump
