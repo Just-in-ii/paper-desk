@@ -638,3 +638,8 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-11-01 03:30:51,finder one,BALLS,SKIP,leader_already_sold,4.313e-05,15798,,HhBuvegE7Ew2stS5svkMcxL8povkaL8brwt9JUtfpump
 2026-11-01 04:00:53,finder one,NIGUIN,SKIP,leader_already_sold,1.052e-05,0,,5F9xEPdXPPYj7ioLMZeNNMuRaADrP8r8NfcsoBwEpump
 2026-11-01 04:00:53,finder one,tipr,SKIP,leader_already_sold,4.751e-05,16529,,3kRQDKPGqMWwBdGjiVPpPqVzFsnYG5PDqvrVz1D2pump
+2026-11-01 04:15:35,finder one,FOCO,SKIP,insiders 10,0.000623,75598,1,7ttfwuBSnbNTgf32gUAT7v9bjdDWsn6pYpp7nmGmpump
+2026-11-01 04:15:36,finder one,BALLS,SKIP,insiders 19,8.226e-05,23066,1,HhBuvegE7Ew2stS5svkMcxL8povkaL8brwt9JUtfpump
+2026-11-01 04:15:36,finder one,tipr,SKIP,leader_already_sold,0.0001057,25502,,3kRQDKPGqMWwBdGjiVPpPqVzFsnYG5PDqvrVz1D2pump
+2026-11-01 04:15:36,finder one,NICKI,SKIP,insiders 32,9.907e-05,27601,1,J8GeV63GywfcfGoGCqKY4D5jRPc4gnxtE6HSgLJfpump
+2026-11-01 04:15:37,finder one,Marvin,SKIP,insiders 138,3.047e-05,15531,1,FmuciqKXRRnKqhi7BNin5mYH6fm3oTrfVB5A5Fyrpump
