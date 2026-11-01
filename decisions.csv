@@ -659,3 +659,8 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-11-01 21:15:35,finder one,uni,SKIP,leader_already_sold,0.1199,897220,,jM9r9PJFyPaMEbhGZPbDeZJiysn2pfyz5TzdDs5pump
 2026-11-01 21:15:35,finder one,KIM,SKIP,lp_unlocked 75.3%,0.0001409,37360,1,8pjfN5Ayb4rucGpYE3tZWN6v3EysizjPx1v62zx1pump
 2026-11-01 21:15:35,finder one,CRIME,SKIP,leader_already_sold,0.0006115,71021,,BN4Z5NtntHhu6p3atEqkeAVi8Bn9Ri2QTv8FD7iupump
+2026-11-01 21:30:48,finder one,NIO,SKIP,lp_unlocked 59.4%,0.0007402,87455,1,7SL2VnfYsChvog5oQY9Nmtqu1wceaMiQzWoqoLQpump
+2026-11-01 21:30:49,finder one,白いヤク,SKIP,insiders 13,1.602e-05,9185,1,6jFcYpa95qnzX3Kui4TTyPCEzQorHRCHXhoCAg5tpump
+2026-11-01 21:30:49,finder one,CRIME,SKIP,leader_already_sold,0.000549,67258,,BN4Z5NtntHhu6p3atEqkeAVi8Bn9Ri2QTv8FD7iupump
+2026-11-01 21:30:49,finder one,RAM,SKIP,insiders 8,0.0001235,30292,1,6QUHcqYuiPRHxhnYZoygewXtNQr9kUrhc9Tmwgtbpump
+2026-11-01 21:30:50,finder one,Собака,SKIP,insiders 21,1.179e-05,7977,1,CsUuToUBCnJcsvExCuu3ACMHr7JuMcujQiEwQqmvpump
