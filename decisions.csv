@@ -679,3 +679,4 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-11-01 22:15:35,finder one,NICKI,SKIP,insiders 32,3.817e-05,16479,1,J8GeV63GywfcfGoGCqKY4D5jRPc4gnxtE6HSgLJfpump
 2026-11-01 22:15:35,finder one,ANSEM,SKIP,danger: Top 10 holders high ownership,7.881e-05,22457,55,2RyCCRenDtquADusNUfwFpvTaDkam82imh46SL2mpump
 2026-11-01 22:30:45,finder one,REGRETAMINE,SKIP,leader_already_sold,5.33e-05,19397,,Dbyy9LSMVHjxw2ZnPPRrCheSLVeuHq2GMkpxUs3t5xeT
+2026-11-01 22:45:31,finder one,白いヤク,SKIP,insiders 13,1.377e-05,8378,1,6jFcYpa95qnzX3Kui4TTyPCEzQorHRCHXhoCAg5tpump
