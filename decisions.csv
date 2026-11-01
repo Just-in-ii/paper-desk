@@ -664,3 +664,11 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-11-01 21:30:49,finder one,CRIME,SKIP,leader_already_sold,0.000549,67258,,BN4Z5NtntHhu6p3atEqkeAVi8Bn9Ri2QTv8FD7iupump
 2026-11-01 21:30:49,finder one,RAM,SKIP,insiders 8,0.0001235,30292,1,6QUHcqYuiPRHxhnYZoygewXtNQr9kUrhc9Tmwgtbpump
 2026-11-01 21:30:50,finder one,Собака,SKIP,insiders 21,1.179e-05,7977,1,CsUuToUBCnJcsvExCuu3ACMHr7JuMcujQiEwQqmvpump
+2026-11-01 21:45:37,finder one,CHOO,SKIP,leader_already_sold,0.001881,132019,,EJAxERvKU4kEVXn3NarjvRtgaMaJyP9ZuMeKA7JJpump
+2026-11-01 21:45:37,finder one,H081,SKIP,lp_unlocked 70.3%,3.52e-05,16117,16,EgqxxR7zowzaLEm24oep5qqBieLVAWYX78LhgeqAJAo
+2026-11-01 21:45:38,finder one,Marvin,SKIP,insiders 140,2.185e-05,12903,1,FmuciqKXRRnKqhi7BNin5mYH6fm3oTrfVB5A5Fyrpump
+2026-11-01 21:45:38,finder one,Maxxmas,SKIP,leader_already_sold,3.979e-05,14977,,MAXXib7SQAQn4ymrwhhR9qMRUcYv8BNhbQxizJn5CCk
+2026-11-01 21:45:39,finder one,ANSEM,SKIP,danger: Top 10 holders high ownership,9.955e-05,25483,55,2RyCCRenDtquADusNUfwFpvTaDkam82imh46SL2mpump
+2026-11-01 21:45:40,finder one,SPAN,SKIP,insiders 12,1.234e-05,9274,1,EG7VdiyunkAypzemjTuYEjkfZUWfwTnrLBTFPxSURxJY
+2026-11-01 21:45:40,finder one,ANSEM,SKIP,leader_already_sold,0.0004143,58619,,CvRJ8MrnB1AwjrgX25uyeLJiXNSugTo2ZHh8UXDTpump
+2026-11-01 21:45:40,finder one,ber,SKIP,insiders 8,9.913e-05,27701,1,CqpUBhhSxHsXbq6AGPKnbxDpWgECUXAVy3BCrwhGpump
