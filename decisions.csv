@@ -605,3 +605,4 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-11-01 00:01:10,finder one,CREDIT,SKIP,leader_already_sold,6.598e-05,21418,,Ewyifvp8X9NxeaKawXamGXBFDisuMfcFfcdvSZ8opump
 2026-11-01 00:01:11,finder one,PoUT,SKIP,insiders 4,6.437e-05,20173,1,FQ47SAH4xuRJArffifAbqZSX1kq3ewE3GxnLuGYypump
 2026-11-01 00:01:11,finder one,Kongo,SKIP,insiders 8,8.353e-06,5991,20,2Q3jYQWWzkfZotYMyxzAFwfpFT5RhhBvGS3mk8P7PryF
+2026-11-01 00:15:37,finder one,NIGGARACKET,COPY,passed safety filter,0.0001017,25527,1,GL5DCtUzG9fFPzyJx3eS6uQh7X9X5aPiL4smKB1kpump

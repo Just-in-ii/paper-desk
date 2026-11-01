@@ -1,10 +1,10 @@
 {
- "buys_today": 0,
- "cash": 101.39891875469621,
+ "buys_today": 1,
+ "cash": 99.9824290702302,
  "day": "2026-11-01",
  "last_sig": {
   "0ef4d20956b1190b": "0a6e079fac2654a0",
-  "24212f2b3e15ffdb": "130e365f69c8ad5c",
+  "24212f2b3e15ffdb": "46239907eabdf2a6",
   "3bebba29a5753a93": "d3cb621eae228347"
  },
  "left_at": {
@@ -21,6 +21,7 @@
   "FDSG65a94jA3mdC47VPikD5WARCJN5ffSgot3TfHpump": 1793466060,
   "Fek7BGWxw9MabKejxFdhEftygFkJXcQjezk99fkTmKaX": 1793213136,
   "FuK9BkA4jXTBzj8HQRQT4538gy1BJzPYy9qwiHs2pump": 1793295934,
+  "GL5DCtUzG9fFPzyJx3eS6uQh7X9X5aPiL4smKB1kpump": 1793492137,
   "mega4qqdQcsrCmj43fzHmxfZNmThNYeN3cz2kfR7fqs": 1793209534
  },
  "positions": {},
