@@ -672,3 +672,4 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-11-01 21:45:40,finder one,SPAN,SKIP,insiders 12,1.234e-05,9274,1,EG7VdiyunkAypzemjTuYEjkfZUWfwTnrLBTFPxSURxJY
 2026-11-01 21:45:40,finder one,ANSEM,SKIP,leader_already_sold,0.0004143,58619,,CvRJ8MrnB1AwjrgX25uyeLJiXNSugTo2ZHh8UXDTpump
 2026-11-01 21:45:40,finder one,ber,SKIP,insiders 8,9.913e-05,27701,1,CqpUBhhSxHsXbq6AGPKnbxDpWgECUXAVy3BCrwhGpump
+2026-11-01 22:00:55,finder one,Maxxmas,SKIP,leader_already_sold,7.693e-05,21485,,MAXXib7SQAQn4ymrwhhR9qMRUcYv8BNhbQxizJn5CCk
