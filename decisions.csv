@@ -635,3 +635,4 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-11-01 03:15:35,finder one,NUT,SKIP,leader_already_sold,3.923e-05,0,,5U7cD5cXVMVFFhYVRhcm1Ruerg6RzVnUQkGcraZepump
 2026-11-01 03:15:35,finder one,McRib,SKIP,leader_already_sold,5.341e-05,24640,,8idEA8QovsZJka6d9Z35fejE5MbL37BJxvw5k5r6pump
 2026-11-01 03:15:35,finder one,BALLS,SKIP,leader_already_sold,4.547e-05,16233,,HhBuvegE7Ew2stS5svkMcxL8povkaL8brwt9JUtfpump
+2026-11-01 03:30:51,finder one,BALLS,SKIP,leader_already_sold,4.313e-05,15798,,HhBuvegE7Ew2stS5svkMcxL8povkaL8brwt9JUtfpump
