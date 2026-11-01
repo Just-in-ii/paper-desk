@@ -608,3 +608,10 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-11-01 00:15:37,finder one,NIGGARACKET,COPY,passed safety filter,0.0001017,25527,1,GL5DCtUzG9fFPzyJx3eS6uQh7X9X5aPiL4smKB1kpump
 2026-11-01 00:30:46,finder one,Kim,SKIP,leader_already_sold,7.538e-05,24556,,qhbbjGBKJxW3AZGqngWM5tHcrENR3pVoRB9MCf1pump
 2026-11-01 00:30:46,finder one,TRUMPKIN,SKIP,insiders 61,2.597e-05,12384,1,BLAytV5xTVEkYJYS1RoFR5Ypgm3JZ44CvVdZHTExpump
+2026-11-01 00:45:35,finder one,FOCO,SKIP,leader_already_sold,0.0005527,70814,,7ttfwuBSnbNTgf32gUAT7v9bjdDWsn6pYpp7nmGmpump
+2026-11-01 00:45:35,finder one,CREDIT,SKIP,leader_already_sold,8.485e-05,24663,,Ewyifvp8X9NxeaKawXamGXBFDisuMfcFfcdvSZ8opump
+2026-11-01 00:45:35,finder one,Собака,SKIP,insiders 23,2.696e-05,12709,1,CsUuToUBCnJcsvExCuu3ACMHr7JuMcujQiEwQqmvpump
+2026-11-01 00:45:36,finder one,BLUE,SKIP,insiders 4,2.894e-05,0,1,49VrHCzm7LWU3WChMrVBQ6V7w1RfeS7gTK56fJ1ypump
+2026-11-01 00:45:36,finder one,swordcat,SKIP,lp_unlocked 78.0%,0.001721,176689,1,5tCju6YNxHq5zrA6tGndr6F7TK42mpUFmeE31cSFpump
+2026-11-01 00:45:37,finder one,INVERSE,SKIP,insiders 108,0.0001887,42421,1,2gLhk8p2KvUFeUXur2hiF4hxjdRM1vBcbgo9Q7DMZfiw
+2026-11-01 00:45:37,finder one,BLUE,SKIP,insiders 4,2.894e-05,0,1,49VrHCzm7LWU3WChMrVBQ6V7w1RfeS7gTK56fJ1ypump
