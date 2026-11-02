@@ -730,3 +730,7 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-11-02 06:30:47,finder one,REGRETAMINE,SKIP,leader_already_sold,6.551e-05,21969,,Dbyy9LSMVHjxw2ZnPPRrCheSLVeuHq2GMkpxUs3t5xeT
 2026-11-02 06:30:47,finder one,inu,SKIP,leader_already_sold,3.786e-06,0,,2am8qwguTj378vNtGD2LRH2N1TaAp91cHx3mQYR6pump
 2026-11-02 06:45:34,finder one,OKCAT,SKIP,insiders 13,5.822e-05,19733,1,HBUVp1swazz2WyVgtHFWV8jfErXFpm8Nn5GSiG7VqHzW
+2026-11-02 07:00:59,finder one,STEALTH,SKIP,insiders 91,0.0001554,34399,1,GoDSW31bTxfkoup9yA1qcGGx9RMXdTEWgApv3xzBmoA
+2026-11-02 07:00:59,finder one,Nathalia,SKIP,leader_already_sold,2.761e-05,12191,,6nuBXMpJxTAsu7AsWQe6k7G1Sd5zttwayAPQWnbxDvWf
+2026-11-02 07:00:59,finder one,ARNOLD,SKIP,leader_already_sold,3.995e-05,16140,,nG3jfPQHU2ZQhPERkTZD8YPSAsrrWiePPDcm9jxpump
+2026-11-02 07:00:59,finder one,OKCAT,SKIP,leader_already_sold,0.0001077,27612,,HBUVp1swazz2WyVgtHFWV8jfErXFpm8Nn5GSiG7VqHzW
