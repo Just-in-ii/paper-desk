@@ -693,3 +693,4 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-11-02 01:00:56,finder one,MOVEMBER,SKIP,insiders 4,0.0001412,29808,1,DTVcrMAEMwpSSBvu6W7P3BLZsRhFZb6bSzARFDqobfCT
 2026-11-02 01:15:33,finder one,PI,SKIP,insiders 73,0.0001345,31407,1,93VGqXL76voGxc43apJTDJoKkqnxTht1BKWoEmUypump
 2026-11-02 01:15:33,finder one,METT,SKIP,leader_already_sold,3.791e-05,0,,PP4UWdpQFXp1H3EYXQFRTpmLasdXsiuNN5o5eCDMETT
+2026-11-02 01:30:47,finder one,METT,SKIP,top10_hold 30.8%,3.791e-05,0,1,PP4UWdpQFXp1H3EYXQFRTpmLasdXsiuNN5o5eCDMETT
