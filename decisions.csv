@@ -738,3 +738,10 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-11-02 07:15:34,finder one,Kim,SKIP,lp_unlocked 80.2%,0.0002076,44093,1,qhbbjGBKJxW3AZGqngWM5tHcrENR3pVoRB9MCf1pump
 2026-11-02 07:30:46,finder one,STEALTH,SKIP,insiders 88,0.0001356,32100,1,GoDSW31bTxfkoup9yA1qcGGx9RMXdTEWgApv3xzBmoA
 2026-11-02 07:30:46,finder one,faucet,SKIP,leader_already_sold,2.583e-05,11898,,99V36NFUcueC2tHjd1JV5bfhFux73NKWRiSBnxJ8pump
+2026-11-02 07:45:41,finder one,PEER,SKIP,thin_liquidity $0,9.678e-06,0,1,BbtvdRYnvHLeAsVg6ErBEYXYRg2329RXkAtFfcCTpump
+2026-11-02 07:45:42,finder one,inevitable,SKIP,thin_liquidity $0,1.702e-05,0,1,FxFaz4oaoE8tnLKozVoPVXR4vCSEeJnp6PxKAWUmpump
+2026-11-02 07:45:42,finder one,OKCAT,SKIP,insiders 13,7.428e-05,22699,1,HBUVp1swazz2WyVgtHFWV8jfErXFpm8Nn5GSiG7VqHzW
+2026-11-02 07:45:42,finder one,Learjet,SKIP,leader_already_sold,7.526e-05,22449,,8Wi25nQhEay9KwAsoguEs3y1uxaJmCRQxRYnSY9dpump
+2026-11-02 07:45:42,finder one,faucet,SKIP,insiders 4,1.682e-05,9284,1,99V36NFUcueC2tHjd1JV5bfhFux73NKWRiSBnxJ8pump
+2026-11-02 07:45:43,finder one,inevitable,SKIP,thin_liquidity $0,1.702e-05,0,1,FxFaz4oaoE8tnLKozVoPVXR4vCSEeJnp6PxKAWUmpump
+2026-11-02 07:45:43,finder one,PEER,SKIP,thin_liquidity $0,9.678e-06,0,1,BbtvdRYnvHLeAsVg6ErBEYXYRg2329RXkAtFfcCTpump
