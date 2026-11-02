@@ -752,3 +752,5 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-11-02 08:30:48,finder one,WAR,SKIP,thin_liquidity $0,5.85e-06,0,1,HrfMwkooHbSetnQKPFVaE4KV3ud6KYFa7yec2w6upump
 2026-11-02 08:30:48,finder one,Tumulun,SKIP,leader_already_sold,2.173e-05,10482,,E84psoV4rJQYBoyTkzTrh1hzjZJv81VGFRX9gMLHpump
 2026-11-02 08:30:56,finder one,OKCAT,SKIP,insiders 13,5.703e-05,19694,1,HBUVp1swazz2WyVgtHFWV8jfErXFpm8Nn5GSiG7VqHzW
+2026-11-02 08:45:35,finder one,METT,SKIP,top10_hold 31.6%,7.739e-05,23393,1,PP4UWdpQFXp1H3EYXQFRTpmLasdXsiuNN5o5eCDMETT
+2026-11-02 08:45:35,finder one,Warcoin,SKIP,leader_already_sold,4.124e-05,15112,,H86pLyqzZMim3pxrC29YWsMKoxL6xGFM1nQyVtyRpump
