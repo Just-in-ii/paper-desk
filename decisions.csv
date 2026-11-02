@@ -793,3 +793,8 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-11-02 12:45:36,finder one,OKCAT,SKIP,leader_already_sold,4.091e-05,16441,,HBUVp1swazz2WyVgtHFWV8jfErXFpm8Nn5GSiG7VqHzW
 2026-11-02 13:01:02,finder one,Kim,SKIP,lp_unlocked 78.5%,0.0001384,35708,1,qhbbjGBKJxW3AZGqngWM5tHcrENR3pVoRB9MCf1pump
 2026-11-02 13:01:02,finder one,Pikmin,SKIP,insiders 24,2.089e-05,11512,1,2MXhpKgHBREgYYj3bSdorqbuJjkPAve1LTNHtk8Lpump
+2026-11-02 13:16:54,finder one,Warcoin,SKIP,insiders 20,3.159e-05,13478,1,H86pLyqzZMim3pxrC29YWsMKoxL6xGFM1nQyVtyRpump
+2026-11-02 13:16:54,finder one,NIGGARACKET,SKIP,insiders 8,5.351e-05,18478,1,GL5DCtUzG9fFPzyJx3eS6uQh7X9X5aPiL4smKB1kpump
+2026-11-02 13:16:54,finder one,METT,SKIP,insiders 4,7.685e-05,23197,1,PP4UWdpQFXp1H3EYXQFRTpmLasdXsiuNN5o5eCDMETT
+2026-11-02 13:16:55,finder one,STEALTH,SKIP,insiders 100,0.0002376,43592,1,GoDSW31bTxfkoup9yA1qcGGx9RMXdTEWgApv3xzBmoA
+2026-11-02 13:16:55,finder one,GLITCH,SKIP,insiders 19,0.003442,162175,1,8Xg89xT8Ve34sKiYqYuMs46mycREsCA2F362UscRpump
