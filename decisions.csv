@@ -883,3 +883,5 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-11-02 23:01:01,finder one,paws,SKIP,lp_unlocked 62.9%,0.0002149,45837,1,Fp4JkqEcKYKBKhb9iMu9NSDeo71HWgq2q9QtXaaKpump
 2026-11-02 23:01:01,finder one,paws,SKIP,lp_unlocked 62.9%,0.0002149,45837,1,Fp4JkqEcKYKBKhb9iMu9NSDeo71HWgq2q9QtXaaKpump
 2026-11-02 23:01:02,finder one,PAUL,SKIP,insiders 12,0.0001217,27425,1,GnY6RSduqXgJ3nas2CKTDkNbrm2FXYExFxP7BXYEpump
+2026-11-02 23:15:37,finder one,FUN,SKIP,leader_already_sold,3.651e-05,0,,9F6PNjasvbwLXzo5LyFU2VK9NJ9GiD8NX5s5ipf48LPx
+2026-11-02 23:15:37,finder one,Slingoor,SKIP,leader_already_sold,0.000728,72127,,9rZR9nCQbaiBvotWVpifN8z1vckVFshnsATuAJrXpump
