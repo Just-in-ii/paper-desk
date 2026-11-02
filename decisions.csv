@@ -705,3 +705,4 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-11-02 02:15:35,finder one,Kim,SKIP,leader_already_sold,0.0001784,40702,,qhbbjGBKJxW3AZGqngWM5tHcrENR3pVoRB9MCf1pump
 2026-11-02 02:15:35,finder one,LAZARUS,SKIP,insiders 32,3.646e-05,14854,1,2GvnZ864v6Nx99KbZnQrADK1z88ykbz5A9rBtB5Bvh3x
 2026-11-02 02:15:36,finder one,HIDEO,SKIP,insiders 4,8.749e-05,23176,1,AdGZLFNZuLhGhCaatJ6qpvZSUvjnFaBcjDfXSoQEpump
+2026-11-02 02:22:19,finder one,WASTED,SKIP,insiders 850,0.0005812,70249,1,GexThZHgaswpAQ7Fi8QrHFubjPimUNSYhJiAA7XZpump
