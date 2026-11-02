@@ -757,3 +757,9 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-11-02 09:15:45,finder one,OKCAT,SKIP,insiders 13,4.731e-05,17829,1,HBUVp1swazz2WyVgtHFWV8jfErXFpm8Nn5GSiG7VqHzW
 2026-11-02 09:15:45,finder one,Warcoin,SKIP,leader_already_sold,0.0001035,25526,,H86pLyqzZMim3pxrC29YWsMKoxL6xGFM1nQyVtyRpump
 2026-11-02 09:30:49,finder one,Warcoin,SKIP,leader_already_sold,0.0001161,26904,,H86pLyqzZMim3pxrC29YWsMKoxL6xGFM1nQyVtyRpump
+2026-11-02 09:45:44,finder one,OKCAT,SKIP,insiders 13,4.86e-05,18070,1,HBUVp1swazz2WyVgtHFWV8jfErXFpm8Nn5GSiG7VqHzW
+2026-11-02 09:45:44,finder one,HIDEO,SKIP,leader_already_sold,4.704e-05,16681,,AdGZLFNZuLhGhCaatJ6qpvZSUvjnFaBcjDfXSoQEpump
+2026-11-02 09:45:44,finder one,TOADMODE,SKIP,leader_already_sold,1.155e-05,7153,,7FVMuhnaRS8G3WgGBJgGemUA5Ve7UudqiwPYV2aapump
+2026-11-02 09:45:44,finder one,TOADMODE,SKIP,leader_already_sold,1.155e-05,7153,,7FVMuhnaRS8G3WgGBJgGemUA5Ve7UudqiwPYV2aapump
+2026-11-02 09:45:44,finder one,Warcoin,SKIP,insiders 16,6.617e-05,20119,1,H86pLyqzZMim3pxrC29YWsMKoxL6xGFM1nQyVtyRpump
+2026-11-02 09:45:44,finder one,BUNK,SKIP,leader_already_sold,2.583e-05,0,,F17yBcN7vhxNdWmSmoLf3FZc7Y4UdyvW2i7NdMFeSQqw
