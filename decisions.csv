@@ -717,3 +717,5 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-11-02 04:00:56,finder one,METT,SKIP,top10_hold 31.6%,3.791e-05,0,1,PP4UWdpQFXp1H3EYXQFRTpmLasdXsiuNN5o5eCDMETT
 2026-11-02 04:15:34,finder one,Qenis,COPY,passed safety filter,0.0003982,78690,1,EkcTa8n14fXcHdfvZqCg72cTCutJnnKb19vcHwKTpump
 2026-11-02 04:15:34,finder one,ACC,SKIP,leader_already_sold,1.328e-05,0,,afYcnoGhuKomcLRERYnXHuxNw4bkSWArS8Xy9Smpump
+2026-11-02 04:30:46,finder one,HIDEO,SKIP,insiders 4,5.731e-05,18565,1,AdGZLFNZuLhGhCaatJ6qpvZSUvjnFaBcjDfXSoQEpump
+2026-11-02 04:30:47,finder one,STEALTH,SKIP,lp_unlocked 86.8%,0.0003771,53790,1,GoDSW31bTxfkoup9yA1qcGGx9RMXdTEWgApv3xzBmoA
