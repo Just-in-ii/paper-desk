@@ -847,3 +847,6 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-11-02 21:01:06,finder one,Slingoor,SKIP,danger: Top 10 holders high ownership,0.0009067,80013,55,9rZR9nCQbaiBvotWVpifN8z1vckVFshnsATuAJrXpump
 2026-11-02 21:01:07,finder one,NOTHING,SKIP,insiders 29,9.2e-06,6204,16,GvaRQbKqsjkcgTmZbaYfuSaJRin5A27JV298MdQbpump
 2026-11-02 21:01:07,finder one,FRONTIER,SKIP,leader_already_sold,0.8865,114572,,58QyXQ1UDgHh64EiTsCeevVM9cLPqBDNf3qZE6EdfUhZ
+2026-11-02 21:15:34,finder one,swordcat,SKIP,lp_unlocked 69.1%,0.001169,142877,1,5tCju6YNxHq5zrA6tGndr6F7TK42mpUFmeE31cSFpump
+2026-11-02 21:15:34,finder one,Learjet,SKIP,leader_already_sold,5.364e-05,18813,,8Wi25nQhEay9KwAsoguEs3y1uxaJmCRQxRYnSY9dpump
+2026-11-02 21:15:35,finder one,LILVADER,SKIP,insiders 5,1.642e-05,9394,1,DBFcomeF97mTgRoKvHj2YtdFdvFcrLP4pFTBEPpKpump
