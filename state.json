@@ -1,10 +1,10 @@
 {
  "buys_today": 1,
- "cash": 80.8340346360576,
+ "cash": 90.09549161616106,
  "day": "2026-11-02",
  "last_sig": {
   "0ef4d20956b1190b": "0a6e079fac2654a0",
-  "24212f2b3e15ffdb": "3a1d81a13d71b4de",
+  "24212f2b3e15ffdb": "93b4a925da6bc1cc",
   "3bebba29a5753a93": "d3cb621eae228347"
  },
  "left_at": {
@@ -19,27 +19,14 @@
   "BdVvmUDbqtqg3GsuCmXMDcV94cmsMHCmDk8AfraNpump": 1793378732,
   "E8c9gvuE7gW4R8AVcaTCbbTG1zJGdUR9KGtS94eXBAGS": 1793385937,
   "EJtBCwYqNX7kQEPU38T7bxcfwjVFaXuPBYZY7Gwtpump": 1793501136,
+  "EdhTCqUxXRWQcUd5Fonyz9rapHAB6mABAuVkmPrtpump": 1793587534,
   "FDSG65a94jA3mdC47VPikD5WARCJN5ffSgot3TfHpump": 1793466060,
   "Fek7BGWxw9MabKejxFdhEftygFkJXcQjezk99fkTmKaX": 1793213136,
   "FuK9BkA4jXTBzj8HQRQT4538gy1BJzPYy9qwiHs2pump": 1793295934,
   "GL5DCtUzG9fFPzyJx3eS6uQh7X9X5aPiL4smKB1kpump": 1793492137,
   "mega4qqdQcsrCmj43fzHmxfZNmThNYeN3cz2kfR7fqs": 1793209534
  },
- "positions": {
-  "EdhTCqUxXRWQcUd5Fonyz9rapHAB6mABAuVkmPrtpump": {
-   "cost": 10.3,
-   "entry": 0.000478023,
-   "last_price": 0.0004641,
-   "leader": "finder one",
-   "leader_held": 189900.655163,
-   "misses": 0,
-   "opened": 1793586648,
-   "qty": 20658.00181162831,
-   "symbol": "UNITY",
-   "tax_pct": 0.0,
-   "tp_done": false
-  }
- },
+ "positions": {},
  "start_cash": 100.0,
  "started": 1792968363
 }

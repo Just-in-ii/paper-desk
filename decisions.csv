@@ -708,3 +708,4 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-11-02 02:22:19,finder one,WASTED,SKIP,insiders 850,0.0005812,70249,1,GexThZHgaswpAQ7Fi8QrHFubjPimUNSYhJiAA7XZpump
 2026-11-02 02:30:47,finder one,PARKJINHYOK,SKIP,leader_already_sold,5.124e-06,0,,HosMiBwTKBgHrtC9YhxNFB3JtsMJRCjqsEJqG5ozpump
 2026-11-02 02:30:48,finder one,UNITY,COPY,passed safety filter,0.0004641,88743,1,EdhTCqUxXRWQcUd5Fonyz9rapHAB6mABAuVkmPrtpump
+2026-11-02 02:45:33,finder one,METT,SKIP,leader_already_sold,3.791e-05,0,,PP4UWdpQFXp1H3EYXQFRTpmLasdXsiuNN5o5eCDMETT
