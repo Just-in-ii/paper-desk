@@ -39,3 +39,4 @@ time,action,symbol,leader,price,qty,cash_flow_usd,pnl_usd,reason,mint,costs_usd
 2026-11-02 04:30:47,SELL,Qenis,finder one,0.000355311,24076.79217,8.1478,-2.1522,finder one sold 100%,EkcTa8n14fXcHdfvZqCg72cTCutJnnKb19vcHwKTpump,0.6715
 2026-11-02 12:30:49,BUY,Catori,finder one,5.768e-05,171203.19,-10.3000,,passed safety filter,FDwCosavNvMiFB812ajJp3gG7eZ9c4bpgcnY6fDQpump,0.7126
 2026-11-02 12:45:36,SELL,Catori,finder one,6.6445e-05,171203.19,10.9334,0.6334,finder one sold 100%,FDwCosavNvMiFB812ajJp3gG7eZ9c4bpgcnY6fDQpump,0.7940
+2026-11-02 20:15:35,BUY,TRK,finder one,4.08189e-05,241922.2468,-10.3000,,passed safety filter,E8c9gvuE7gW4R8AVcaTCbbTG1zJGdUR9KGtS94eXBAGS,0.7126
