@@ -820,3 +820,10 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-11-02 19:30:52,finder one,ber,SKIP,insiders 8,0.0001611,35440,1,CqpUBhhSxHsXbq6AGPKnbxDpWgECUXAVy3BCrwhGpump
 2026-11-02 19:30:52,finder one,ANSEM,SKIP,insiders 38,0.0001018,28795,1,CvRJ8MrnB1AwjrgX25uyeLJiXNSugTo2ZHh8UXDTpump
 2026-11-02 19:30:53,finder one,Learjet,SKIP,insiders 17,5.483e-05,19017,1,8Wi25nQhEay9KwAsoguEs3y1uxaJmCRQxRYnSY9dpump
+2026-11-02 19:45:39,finder one,Slingoor,SKIP,danger: Top 10 holders high ownership,0.00121,92234,55,9rZR9nCQbaiBvotWVpifN8z1vckVFshnsATuAJrXpump
+2026-11-02 19:45:40,finder one,Anakin,SKIP,lp_unlocked 28.3%,0.001486,114707,1,ExxzYBTt3jwU5MUxuw2F4toYbTLdFwThSjyaCn6Xpump
+2026-11-02 19:45:40,finder one,RAM,SKIP,insiders 10,8.886e-05,25482,1,6QUHcqYuiPRHxhnYZoygewXtNQr9kUrhc9Tmwgtbpump
+2026-11-02 19:45:41,finder one,CAPYTISTAS,SKIP,insiders 17,0.0001087,27380,1,xRtT8q7g7NsAnbTgvCtim8jtxKVVc5epoLoAYmqpump
+2026-11-02 19:45:41,finder one,CAPYTISTAS,SKIP,insiders 17,0.0001087,27380,1,xRtT8q7g7NsAnbTgvCtim8jtxKVVc5epoLoAYmqpump
+2026-11-02 19:45:42,finder one,Kimchi,SKIP,danger: Top 10 holders high ownership,0.002881,183654,56,CSocnzcRpgSCr1naKcNTieWZUxb6rABe45j844m7pump
+2026-11-02 19:45:43,finder one,ANSEM,SKIP,danger: Single holder ownership,0.0378,1135428,43,9cRCn9rGT8V2imeM2BaKs13yhMEais3ruM3rPvTGpump
