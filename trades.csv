@@ -42,3 +42,4 @@ time,action,symbol,leader,price,qty,cash_flow_usd,pnl_usd,reason,mint,costs_usd
 2026-11-02 20:15:35,BUY,TRK,finder one,4.08189e-05,241922.2468,-10.3000,,passed safety filter,E8c9gvuE7gW4R8AVcaTCbbTG1zJGdUR9KGtS94eXBAGS,0.7126
 2026-11-02 20:30:50,BUY,ENVAR,finder one,0.00010815,91308.36801,-10.3000,,passed safety filter,FuK9BkA4jXTBzj8HQRQT4538gy1BJzPYy9qwiHs2pump,0.7126
 2026-11-02 20:30:51,SELL,TRK,finder one,3.87515e-05,241922.2468,8.9577,-1.3423,finder one sold 100%,E8c9gvuE7gW4R8AVcaTCbbTG1zJGdUR9KGtS94eXBAGS,0.7071
+2026-11-02 20:45:34,SELL,ENVAR,finder one,9.33916e-05,91308.36801,8.1208,-2.1792,finder one sold 100%,FuK9BkA4jXTBzj8HQRQT4538gy1BJzPYy9qwiHs2pump,0.6703

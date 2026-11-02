@@ -840,3 +840,6 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-11-02 20:30:50,finder one,EPYH,SKIP,leader_already_sold,3.699e-05,14374,,ABkr21iDncsKabf4CVfXuvkUjCWQkJszGyASL9M7pump
 2026-11-02 20:30:50,finder one,ENVAR,COPY,passed safety filter,0.000105,26271,1,FuK9BkA4jXTBzj8HQRQT4538gy1BJzPYy9qwiHs2pump
 2026-11-02 20:30:50,finder one,PARANOID,SKIP,lp_unlocked 83.0%,0.000184,38524,7,22rWiyDiY9GgxSrFiWC2vX1GxNxjkvrRPmZJDzv9pq6X
+2026-11-02 20:45:35,finder one,CAPYTISTAS,SKIP,insiders 32,6.617e-05,21400,1,xRtT8q7g7NsAnbTgvCtim8jtxKVVc5epoLoAYmqpump
+2026-11-02 20:45:35,finder one,ANSEM,SKIP,leader_already_sold,9.547e-05,27827,,CvRJ8MrnB1AwjrgX25uyeLJiXNSugTo2ZHh8UXDTpump
+2026-11-02 20:45:35,finder one,PAUL,SKIP,insiders 8,7.576e-05,21006,1,GnY6RSduqXgJ3nas2CKTDkNbrm2FXYExFxP7BXYEpump

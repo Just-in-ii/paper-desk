@@ -1,10 +1,10 @@
 {
  "buys_today": 5,
- "cash": 76.93437168752078,
+ "cash": 85.05521333685041,
  "day": "2026-11-02",
  "last_sig": {
   "0ef4d20956b1190b": "0a6e079fac2654a0",
-  "24212f2b3e15ffdb": "421a3ecb912e52e4",
+  "24212f2b3e15ffdb": "a5d7b6e7bbdbff77",
   "3bebba29a5753a93": "d3cb621eae228347"
  },
  "left_at": {
@@ -24,25 +24,11 @@
   "FDSG65a94jA3mdC47VPikD5WARCJN5ffSgot3TfHpump": 1793466060,
   "FDwCosavNvMiFB812ajJp3gG7eZ9c4bpgcnY6fDQpump": 1793623536,
   "Fek7BGWxw9MabKejxFdhEftygFkJXcQjezk99fkTmKaX": 1793213136,
-  "FuK9BkA4jXTBzj8HQRQT4538gy1BJzPYy9qwiHs2pump": 1793295934,
+  "FuK9BkA4jXTBzj8HQRQT4538gy1BJzPYy9qwiHs2pump": 1793652334,
   "GL5DCtUzG9fFPzyJx3eS6uQh7X9X5aPiL4smKB1kpump": 1793492137,
   "mega4qqdQcsrCmj43fzHmxfZNmThNYeN3cz2kfR7fqs": 1793209534
  },
- "positions": {
-  "FuK9BkA4jXTBzj8HQRQT4538gy1BJzPYy9qwiHs2pump": {
-   "cost": 10.3,
-   "entry": 0.00010815000000000001,
-   "last_price": 0.000105,
-   "leader": "finder one",
-   "leader_held": 252613.662248,
-   "misses": 0,
-   "opened": 1793651450,
-   "qty": 91308.36800739712,
-   "symbol": "ENVAR",
-   "tax_pct": 0.0,
-   "tp_done": false
-  }
- },
+ "positions": {},
  "start_cash": 100.0,
  "started": 1792968363
 }
