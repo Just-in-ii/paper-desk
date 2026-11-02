@@ -850,3 +850,10 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-11-02 21:15:34,finder one,swordcat,SKIP,lp_unlocked 69.1%,0.001169,142877,1,5tCju6YNxHq5zrA6tGndr6F7TK42mpUFmeE31cSFpump
 2026-11-02 21:15:34,finder one,Learjet,SKIP,leader_already_sold,5.364e-05,18813,,8Wi25nQhEay9KwAsoguEs3y1uxaJmCRQxRYnSY9dpump
 2026-11-02 21:15:35,finder one,LILVADER,SKIP,insiders 5,1.642e-05,9394,1,DBFcomeF97mTgRoKvHj2YtdFdvFcrLP4pFTBEPpKpump
+2026-11-02 21:30:52,finder one,MOGZ,SKIP,lp_unlocked 78.0%,0.0003349,46497,1,Pmfm2RprxQRKZH1XWVsBUc2KgCTyzeDTSFbT1vJmogz
+2026-11-02 21:30:52,finder one,RAM,SKIP,leader_already_sold,4.11e-05,16941,,6QUHcqYuiPRHxhnYZoygewXtNQr9kUrhc9Tmwgtbpump
+2026-11-02 21:30:52,finder one,CAPY,SKIP,leader_already_sold,0.0001666,38106,,5DnWmSL9t3YqK5MeYq8ozJpna46VcdePWzHvyN8avg2g
+2026-11-02 21:30:52,finder one,Panthar,SKIP,leader_already_sold,4.367e-05,15934,,3MSE8Ho8FwPrrof6Z2kadbD9sjtZYWWSrAAJrBnhmWkB
+2026-11-02 21:30:52,finder one,FRONTIER,SKIP,leader_already_sold,0.882,117140,,58QyXQ1UDgHh64EiTsCeevVM9cLPqBDNf3qZE6EdfUhZ
+2026-11-02 21:30:52,finder one,MAMESUKE,SKIP,lp_unlocked 24.9%,0.000863,78396,1,SCGBBnSwnekytGFHgyeHHxPMiN7xDxsWFGg9JgFSTNK
+2026-11-02 21:30:53,finder one,Learjet,SKIP,insiders 17,4.654e-05,17413,1,8Wi25nQhEay9KwAsoguEs3y1uxaJmCRQxRYnSY9dpump
