@@ -812,3 +812,5 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-11-02 14:15:33,finder one,Kim,SKIP,danger: Large Amount of LP Unlocked,0.0001274,34274,51,qhbbjGBKJxW3AZGqngWM5tHcrENR3pVoRB9MCf1pump
 2026-11-02 14:15:34,finder one,Warcoin,SKIP,insiders 20,2.011e-05,10437,1,H86pLyqzZMim3pxrC29YWsMKoxL6xGFM1nQyVtyRpump
 2026-11-02 14:15:34,finder one,CYBER,SKIP,leader_already_sold,3.532e-05,14857,,GmbLe2MGLUz1noveTH9ssZapcJnEeXpcDVzXUv4b6DdY
+2026-11-02 14:30:48,finder one,CYBER,SKIP,leader_already_sold,1.45e-05,8882,,GmbLe2MGLUz1noveTH9ssZapcJnEeXpcDVzXUv4b6DdY
+2026-11-02 14:30:48,finder one,DOG,SKIP,danger: Top 10 holders high ownership,0.0006532,26733,60,dog1viwbb2vWDpER5FrJ4YFG6gq6XuyFohUe9TXN65u
