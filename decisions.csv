@@ -745,3 +745,5 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-11-02 07:45:42,finder one,faucet,SKIP,insiders 4,1.682e-05,9284,1,99V36NFUcueC2tHjd1JV5bfhFux73NKWRiSBnxJ8pump
 2026-11-02 07:45:43,finder one,inevitable,SKIP,thin_liquidity $0,1.702e-05,0,1,FxFaz4oaoE8tnLKozVoPVXR4vCSEeJnp6PxKAWUmpump
 2026-11-02 07:45:43,finder one,PEER,SKIP,thin_liquidity $0,9.678e-06,0,1,BbtvdRYnvHLeAsVg6ErBEYXYRg2329RXkAtFfcCTpump
+2026-11-02 08:01:00,finder one,Tumulun,SKIP,leader_already_sold,5.199e-05,17097,,E84psoV4rJQYBoyTkzTrh1hzjZJv81VGFRX9gMLHpump
+2026-11-02 08:01:00,finder one,Learjet,SKIP,leader_already_sold,7.516e-05,22462,,8Wi25nQhEay9KwAsoguEs3y1uxaJmCRQxRYnSY9dpump
