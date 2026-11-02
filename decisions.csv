@@ -887,3 +887,7 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-11-02 23:15:37,finder one,Slingoor,SKIP,leader_already_sold,0.000728,72127,,9rZR9nCQbaiBvotWVpifN8z1vckVFshnsATuAJrXpump
 2026-11-02 23:30:45,finder one,WWIII,SKIP,leader_already_sold,0.001078,462410,,GD52VfoPZdad4hiNPg4UnjtDGsS4WiM3mqS8j1czpump
 2026-11-02 23:30:45,finder one,STEALTH,SKIP,insiders 104,0.0001051,28567,1,GoDSW31bTxfkoup9yA1qcGGx9RMXdTEWgApv3xzBmoA
+2026-11-02 23:45:38,finder one,PAUL,SKIP,leader_already_sold,9.771e-05,24404,,GnY6RSduqXgJ3nas2CKTDkNbrm2FXYExFxP7BXYEpump
+2026-11-02 23:45:39,finder one,MAMESUKE,SKIP,lp_unlocked 28.0%,0.0007674,75171,1,SCGBBnSwnekytGFHgyeHHxPMiN7xDxsWFGg9JgFSTNK
+2026-11-02 23:45:40,finder one,Learjet,SKIP,insiders 17,2.674e-05,12859,1,8Wi25nQhEay9KwAsoguEs3y1uxaJmCRQxRYnSY9dpump
+2026-11-02 23:45:40,finder one,METT,SKIP,top10_hold 32.9%,3.026e-05,14324,1,PP4UWdpQFXp1H3EYXQFRTpmLasdXsiuNN5o5eCDMETT
