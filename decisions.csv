@@ -858,3 +858,10 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-11-02 21:30:52,finder one,MAMESUKE,SKIP,lp_unlocked 24.9%,0.000863,78396,1,SCGBBnSwnekytGFHgyeHHxPMiN7xDxsWFGg9JgFSTNK
 2026-11-02 21:30:53,finder one,Learjet,SKIP,insiders 17,4.654e-05,17413,1,8Wi25nQhEay9KwAsoguEs3y1uxaJmCRQxRYnSY9dpump
 2026-11-02 21:45:35,finder one,Kim,SKIP,lp_unlocked 71.7%,7.813e-05,26325,1,qhbbjGBKJxW3AZGqngWM5tHcrENR3pVoRB9MCf1pump
+2026-11-02 22:00:57,finder one,LARPCHECK,SKIP,lp_unlocked 80.2%,0.000245,49400,1,t9bnCGiZVUYsRKvx4d5dPcoDCSyuBM9C33ZNGNULARP
+2026-11-02 22:00:57,finder one,Slingoor,SKIP,danger: Top 10 holders high ownership,0.0007284,71980,55,9rZR9nCQbaiBvotWVpifN8z1vckVFshnsATuAJrXpump
+2026-11-02 22:00:57,finder one,CAPYTISTAS,SKIP,insiders 32,2.2e-05,11837,1,xRtT8q7g7NsAnbTgvCtim8jtxKVVc5epoLoAYmqpump
+2026-11-02 22:00:58,finder one,RAM,SKIP,leader_already_sold,4.506e-05,17866,,6QUHcqYuiPRHxhnYZoygewXtNQr9kUrhc9Tmwgtbpump
+2026-11-02 22:00:58,finder one,MAMESUKE,SKIP,lp_unlocked 23.6%,0.0006713,69768,1,SCGBBnSwnekytGFHgyeHHxPMiN7xDxsWFGg9JgFSTNK
+2026-11-02 22:00:58,finder one,MOGZ,SKIP,lp_unlocked 77.7%,0.0003179,45470,1,Pmfm2RprxQRKZH1XWVsBUc2KgCTyzeDTSFbT1vJmogz
+2026-11-02 22:00:59,finder one,fone,SKIP,insiders 96,0.001672,294422,1,CTPoyCwkjMvoJwU4xvZZqoD8tiYk6yDchySiN5gGpump
