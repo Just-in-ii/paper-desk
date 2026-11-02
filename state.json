@@ -1,10 +1,10 @@
 {
- "buys_today": 2,
- "cash": 87.94330635393126,
+ "buys_today": 3,
+ "cash": 77.64330635393127,
  "day": "2026-11-02",
  "last_sig": {
   "0ef4d20956b1190b": "0a6e079fac2654a0",
-  "24212f2b3e15ffdb": "d499106a28b5f3fe",
+  "24212f2b3e15ffdb": "d979b90af1d97059",
   "3bebba29a5753a93": "d3cb621eae228347"
  },
  "left_at": {
@@ -27,7 +27,21 @@
   "GL5DCtUzG9fFPzyJx3eS6uQh7X9X5aPiL4smKB1kpump": 1793492137,
   "mega4qqdQcsrCmj43fzHmxfZNmThNYeN3cz2kfR7fqs": 1793209534
  },
- "positions": {},
+ "positions": {
+  "FDwCosavNvMiFB812ajJp3gG7eZ9c4bpgcnY6fDQpump": {
+   "cost": 10.3,
+   "entry": 5.7680000000000003e-05,
+   "last_price": 5.793e-05,
+   "leader": "finder one",
+   "leader_held": 419782.7597,
+   "misses": 0,
+   "opened": 1793622649,
+   "qty": 171203.1900138696,
+   "symbol": "Catori",
+   "tax_pct": 0.0,
+   "tp_done": false
+  }
+ },
  "start_cash": 100.0,
  "started": 1792968363
 }

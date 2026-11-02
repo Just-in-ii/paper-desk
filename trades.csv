@@ -37,3 +37,4 @@ time,action,symbol,leader,price,qty,cash_flow_usd,pnl_usd,reason,mint,costs_usd
 2026-11-02 02:45:34,SELL,UNITY,finder one,0.000468704,20658.00181,9.2615,-1.0385,finder one sold 100%,EdhTCqUxXRWQcUd5Fonyz9rapHAB6mABAuVkmPrtpump,0.7205
 2026-11-02 04:15:34,BUY,Qenis,finder one,0.000410146,24076.79217,-10.3000,,passed safety filter,EkcTa8n14fXcHdfvZqCg72cTCutJnnKb19vcHwKTpump,0.7126
 2026-11-02 04:30:47,SELL,Qenis,finder one,0.000355311,24076.79217,8.1478,-2.1522,finder one sold 100%,EkcTa8n14fXcHdfvZqCg72cTCutJnnKb19vcHwKTpump,0.6715
+2026-11-02 12:30:49,BUY,Catori,finder one,5.768e-05,171203.19,-10.3000,,passed safety filter,FDwCosavNvMiFB812ajJp3gG7eZ9c4bpgcnY6fDQpump,0.7126

@@ -786,3 +786,6 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-11-02 12:15:42,finder one,Warcoin,SKIP,leader_already_sold,4.555e-05,16554,,H86pLyqzZMim3pxrC29YWsMKoxL6xGFM1nQyVtyRpump
 2026-11-02 12:15:42,finder one,YES,SKIP,leader_already_sold,2.808e-05,12460,,ERdF6e1xxV45SqtagG7Jtb8viKuTbfQ6EBPgGBJrpump
 2026-11-02 12:15:43,finder one,OKCAT,SKIP,insiders 13,3.984e-05,16228,1,HBUVp1swazz2WyVgtHFWV8jfErXFpm8Nn5GSiG7VqHzW
+2026-11-02 12:30:49,finder one,Catori,COPY,passed safety filter,5.6e-05,19105,1,FDwCosavNvMiFB812ajJp3gG7eZ9c4bpgcnY6fDQpump
+2026-11-02 12:30:50,finder one,METT,SKIP,insiders 4,7.562e-05,23074,1,PP4UWdpQFXp1H3EYXQFRTpmLasdXsiuNN5o5eCDMETT
+2026-11-02 12:30:50,finder one,Warcoin,SKIP,leader_already_sold,3.494e-05,14291,,H86pLyqzZMim3pxrC29YWsMKoxL6xGFM1nQyVtyRpump
