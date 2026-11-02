@@ -1,10 +1,10 @@
 {
- "buys_today": 1,
- "cash": 90.09549161616106,
+ "buys_today": 2,
+ "cash": 79.79549161616106,
  "day": "2026-11-02",
  "last_sig": {
   "0ef4d20956b1190b": "0a6e079fac2654a0",
-  "24212f2b3e15ffdb": "c0b7061295825641",
+  "24212f2b3e15ffdb": "98991ed58601c861",
   "3bebba29a5753a93": "d3cb621eae228347"
  },
  "left_at": {
@@ -26,7 +26,21 @@
   "GL5DCtUzG9fFPzyJx3eS6uQh7X9X5aPiL4smKB1kpump": 1793492137,
   "mega4qqdQcsrCmj43fzHmxfZNmThNYeN3cz2kfR7fqs": 1793209534
  },
- "positions": {},
+ "positions": {
+  "EkcTa8n14fXcHdfvZqCg72cTCutJnnKb19vcHwKTpump": {
+   "cost": 10.3,
+   "entry": 0.00041014599999999996,
+   "last_price": 0.0003982,
+   "leader": "finder one",
+   "leader_held": 33412.240637,
+   "misses": 0,
+   "opened": 1793592934,
+   "qty": 24076.792166691863,
+   "symbol": "Qenis",
+   "tax_pct": 0.0,
+   "tp_done": false
+  }
+ },
  "start_cash": 100.0,
  "started": 1792968363
 }
