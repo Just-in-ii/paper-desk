@@ -706,3 +706,5 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-11-02 02:15:35,finder one,LAZARUS,SKIP,insiders 32,3.646e-05,14854,1,2GvnZ864v6Nx99KbZnQrADK1z88ykbz5A9rBtB5Bvh3x
 2026-11-02 02:15:36,finder one,HIDEO,SKIP,insiders 4,8.749e-05,23176,1,AdGZLFNZuLhGhCaatJ6qpvZSUvjnFaBcjDfXSoQEpump
 2026-11-02 02:22:19,finder one,WASTED,SKIP,insiders 850,0.0005812,70249,1,GexThZHgaswpAQ7Fi8QrHFubjPimUNSYhJiAA7XZpump
+2026-11-02 02:30:47,finder one,PARKJINHYOK,SKIP,leader_already_sold,5.124e-06,0,,HosMiBwTKBgHrtC9YhxNFB3JtsMJRCjqsEJqG5ozpump
+2026-11-02 02:30:48,finder one,UNITY,COPY,passed safety filter,0.0004641,88743,1,EdhTCqUxXRWQcUd5Fonyz9rapHAB6mABAuVkmPrtpump

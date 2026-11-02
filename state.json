@@ -1,10 +1,10 @@
 {
- "buys_today": 0,
- "cash": 91.13403463605759,
+ "buys_today": 1,
+ "cash": 80.8340346360576,
  "day": "2026-11-02",
  "last_sig": {
   "0ef4d20956b1190b": "0a6e079fac2654a0",
-  "24212f2b3e15ffdb": "e034460a1c146dd0",
+  "24212f2b3e15ffdb": "3a1d81a13d71b4de",
   "3bebba29a5753a93": "d3cb621eae228347"
  },
  "left_at": {
@@ -25,7 +25,21 @@
   "GL5DCtUzG9fFPzyJx3eS6uQh7X9X5aPiL4smKB1kpump": 1793492137,
   "mega4qqdQcsrCmj43fzHmxfZNmThNYeN3cz2kfR7fqs": 1793209534
  },
- "positions": {},
+ "positions": {
+  "EdhTCqUxXRWQcUd5Fonyz9rapHAB6mABAuVkmPrtpump": {
+   "cost": 10.3,
+   "entry": 0.000478023,
+   "last_price": 0.0004641,
+   "leader": "finder one",
+   "leader_held": 189900.655163,
+   "misses": 0,
+   "opened": 1793586648,
+   "qty": 20658.00181162831,
+   "symbol": "UNITY",
+   "tax_pct": 0.0,
+   "tp_done": false
+  }
+ },
  "start_cash": 100.0,
  "started": 1792968363
 }

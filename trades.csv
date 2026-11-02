@@ -33,3 +33,4 @@ time,action,symbol,leader,price,qty,cash_flow_usd,pnl_usd,reason,mint,costs_usd
 2026-11-01 00:15:37,SELL,NIGGARACKET,finder one,9.8649e-05,94271.17641,8.8835,-1.4165,finder one sold 100%,GL5DCtUzG9fFPzyJx3eS6uQh7X9X5aPiL4smKB1kpump,0.7039
 2026-11-01 02:30:57,BUY,IF,finder one,4.37956e-05,225479.2719,-10.3000,,passed safety filter,EJtBCwYqNX7kQEPU38T7bxcfwjVFaXuPBYZY7Gwtpump,0.7126
 2026-11-01 02:45:36,SELL,IF,finder one,7.8667e-06,225479.2719,1.4516,-8.8484,finder one sold 100%,EJtBCwYqNX7kQEPU38T7bxcfwjVFaXuPBYZY7Gwtpump,0.3770
+2026-11-02 02:30:48,BUY,UNITY,finder one,0.000478023,20658.00181,-10.3000,,passed safety filter,EdhTCqUxXRWQcUd5Fonyz9rapHAB6mABAuVkmPrtpump,0.7126
