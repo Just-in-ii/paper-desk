@@ -806,3 +806,6 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-11-02 13:45:34,finder one,MOGZ,SKIP,lp_unlocked 79.4%,0.0004181,52800,1,Pmfm2RprxQRKZH1XWVsBUc2KgCTyzeDTSFbT1vJmogz
 2026-11-02 13:45:34,finder one,STEALTH,SKIP,leader_already_sold,0.0002144,41557,,GoDSW31bTxfkoup9yA1qcGGx9RMXdTEWgApv3xzBmoA
 2026-11-02 13:45:34,finder one,METT,SKIP,insiders 4,7.032e-05,22298,1,PP4UWdpQFXp1H3EYXQFRTpmLasdXsiuNN5o5eCDMETT
+2026-11-02 14:00:59,finder one,Warcoin,SKIP,leader_already_sold,2.541e-05,11947,,H86pLyqzZMim3pxrC29YWsMKoxL6xGFM1nQyVtyRpump
+2026-11-02 14:01:00,finder one,STEALTH,SKIP,insiders 100,0.0001833,38209,1,GoDSW31bTxfkoup9yA1qcGGx9RMXdTEWgApv3xzBmoA
+2026-11-02 14:01:00,finder one,KIM,SKIP,insiders 191,5.706e-05,23426,1,8pjfN5Ayb4rucGpYE3tZWN6v3EysizjPx1v62zx1pump
