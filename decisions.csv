@@ -827,3 +827,8 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-11-02 19:45:41,finder one,CAPYTISTAS,SKIP,insiders 17,0.0001087,27380,1,xRtT8q7g7NsAnbTgvCtim8jtxKVVc5epoLoAYmqpump
 2026-11-02 19:45:42,finder one,Kimchi,SKIP,danger: Top 10 holders high ownership,0.002881,183654,56,CSocnzcRpgSCr1naKcNTieWZUxb6rABe45j844m7pump
 2026-11-02 19:45:43,finder one,ANSEM,SKIP,danger: Single holder ownership,0.0378,1135428,43,9cRCn9rGT8V2imeM2BaKs13yhMEais3ruM3rPvTGpump
+2026-11-02 20:01:01,finder one,PEPPER,SKIP,leader_already_sold,1.015e-05,6657,,92jz5dgWVfN5y1fmev5xu1D3fPmD4td6pzQ3muBpump
+2026-11-02 20:01:01,finder one,HIDEO,SKIP,leader_already_sold,5.644e-05,18530,,AdGZLFNZuLhGhCaatJ6qpvZSUvjnFaBcjDfXSoQEpump
+2026-11-02 20:01:02,finder one,CAPYTISTAS,SKIP,insiders 19,0.0001484,32497,1,xRtT8q7g7NsAnbTgvCtim8jtxKVVc5epoLoAYmqpump
+2026-11-02 20:01:02,finder one,HOTBOT,SKIP,lp_unlocked 64.2%,0.0008473,106028,1,8nnaeWCw8mUypcGAgbmSuzAT85uWx4UN12adDrMhXrGF
+2026-11-02 20:01:03,finder one,MOGZ,SKIP,lp_unlocked 79.5%,0.0004063,51245,1,Pmfm2RprxQRKZH1XWVsBUc2KgCTyzeDTSFbT1vJmogz
