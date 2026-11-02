@@ -834,3 +834,9 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-11-02 20:01:03,finder one,MOGZ,SKIP,lp_unlocked 79.5%,0.0004063,51245,1,Pmfm2RprxQRKZH1XWVsBUc2KgCTyzeDTSFbT1vJmogz
 2026-11-02 20:15:34,finder one,Blackout,SKIP,insiders 5,5.452e-05,17718,1,HMTwjQPHbf82woGKMwDyPHAxgpwVj4boFQPMwk5Bpump
 2026-11-02 20:15:35,finder one,TRK,COPY,passed safety filter,3.963e-05,16561,7,E8c9gvuE7gW4R8AVcaTCbbTG1zJGdUR9KGtS94eXBAGS
+2026-11-02 20:30:49,finder one,MAMESUKE,SKIP,leader_already_sold,0.001269,94976,,SCGBBnSwnekytGFHgyeHHxPMiN7xDxsWFGg9JgFSTNK
+2026-11-02 20:30:49,finder one,HIDEO,SKIP,leader_already_sold,4.79e-05,17005,,AdGZLFNZuLhGhCaatJ6qpvZSUvjnFaBcjDfXSoQEpump
+2026-11-02 20:30:50,finder one,OKCAT,SKIP,leader_already_sold,4.225e-05,16636,,HBUVp1swazz2WyVgtHFWV8jfErXFpm8Nn5GSiG7VqHzW
+2026-11-02 20:30:50,finder one,EPYH,SKIP,leader_already_sold,3.699e-05,14374,,ABkr21iDncsKabf4CVfXuvkUjCWQkJszGyASL9M7pump
+2026-11-02 20:30:50,finder one,ENVAR,COPY,passed safety filter,0.000105,26271,1,FuK9BkA4jXTBzj8HQRQT4538gy1BJzPYy9qwiHs2pump
+2026-11-02 20:30:50,finder one,PARANOID,SKIP,lp_unlocked 83.0%,0.000184,38524,7,22rWiyDiY9GgxSrFiWC2vX1GxNxjkvrRPmZJDzv9pq6X
