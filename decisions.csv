@@ -870,3 +870,9 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-11-02 22:30:47,finder one,Panthar,SKIP,leader_already_sold,8.733e-05,23379,,3MSE8Ho8FwPrrof6Z2kadbD9sjtZYWWSrAAJrBnhmWkB
 2026-11-02 22:30:48,finder one,EXFIL,SKIP,insiders 135,0.002382,147471,1,6FhVPctYg363pQbs4iSvqyHe2cJzfsvFD96gePy6pump
 2026-11-02 22:30:48,finder one,Shadow,SKIP,danger: Top 10 holders high ownership,8.846e-05,29949,55,BWH6gtE5MSCS1GUoRpM5HrqQnV97oi8g8dDHAi41pump
+2026-11-02 22:45:47,finder one,Kim,SKIP,lp_unlocked 85.9%,6.786e-05,24428,1,qhbbjGBKJxW3AZGqngWM5tHcrENR3pVoRB9MCf1pump
+2026-11-02 22:45:47,finder one,Slingoor,SKIP,danger: Top 10 holders high ownership,0.0006425,67461,55,9rZR9nCQbaiBvotWVpifN8z1vckVFshnsATuAJrXpump
+2026-11-02 22:45:47,finder one,MAMESUKE,SKIP,leader_already_sold,0.0006733,70122,,SCGBBnSwnekytGFHgyeHHxPMiN7xDxsWFGg9JgFSTNK
+2026-11-02 22:45:48,finder one,RICO,SKIP,danger: Creator history of rugged tokens,0.0002011,35700,59,8kuQg3WivDtL85VEdw2jEmSXjYt6EEeYBATJ4DtQpump
+2026-11-02 22:45:49,finder one,MOGZ,SKIP,lp_unlocked 75.9%,0.0002923,43518,1,Pmfm2RprxQRKZH1XWVsBUc2KgCTyzeDTSFbT1vJmogz
+2026-11-02 22:45:49,finder one,paws,SKIP,lp_unlocked 63.3%,0.0002346,47861,1,Fp4JkqEcKYKBKhb9iMu9NSDeo71HWgq2q9QtXaaKpump
