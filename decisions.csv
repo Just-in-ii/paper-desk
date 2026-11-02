@@ -814,3 +814,9 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-11-02 14:15:34,finder one,CYBER,SKIP,leader_already_sold,3.532e-05,14857,,GmbLe2MGLUz1noveTH9ssZapcJnEeXpcDVzXUv4b6DdY
 2026-11-02 14:30:48,finder one,CYBER,SKIP,leader_already_sold,1.45e-05,8882,,GmbLe2MGLUz1noveTH9ssZapcJnEeXpcDVzXUv4b6DdY
 2026-11-02 14:30:48,finder one,DOG,SKIP,danger: Top 10 holders high ownership,0.0006532,26733,60,dog1viwbb2vWDpER5FrJ4YFG6gq6XuyFohUe9TXN65u
+2026-11-02 19:30:50,finder one,paws,SKIP,lp_unlocked 60.0%,0.0001944,43248,1,Fp4JkqEcKYKBKhb9iMu9NSDeo71HWgq2q9QtXaaKpump
+2026-11-02 19:30:51,finder one,HIDEO,SKIP,insiders 4,4.723e-05,16817,1,AdGZLFNZuLhGhCaatJ6qpvZSUvjnFaBcjDfXSoQEpump
+2026-11-02 19:30:51,finder one,OKCAT,SKIP,insiders 13,2.53e-05,12417,1,HBUVp1swazz2WyVgtHFWV8jfErXFpm8Nn5GSiG7VqHzW
+2026-11-02 19:30:52,finder one,ber,SKIP,insiders 8,0.0001611,35440,1,CqpUBhhSxHsXbq6AGPKnbxDpWgECUXAVy3BCrwhGpump
+2026-11-02 19:30:52,finder one,ANSEM,SKIP,insiders 38,0.0001018,28795,1,CvRJ8MrnB1AwjrgX25uyeLJiXNSugTo2ZHh8UXDTpump
+2026-11-02 19:30:53,finder one,Learjet,SKIP,insiders 17,5.483e-05,19017,1,8Wi25nQhEay9KwAsoguEs3y1uxaJmCRQxRYnSY9dpump
