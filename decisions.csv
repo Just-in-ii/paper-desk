@@ -801,3 +801,8 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-11-02 13:30:49,finder one,Kittens,SKIP,leader_already_sold,2.866e-05,0,,AqbenmTmze2wcsAUWAHacith8BVLqCaxS3XzdLEZpump
 2026-11-02 13:30:49,finder one,WWIII,SKIP,leader_already_sold,7.077e-05,21292,,GD52VfoPZdad4hiNPg4UnjtDGsS4WiM3mqS8j1czpump
 2026-11-02 13:30:50,finder one,CATPAD,SKIP,insiders 14,0.0001368,29853,1,2gTbp2gwH46rqExzabSyrdR3294SLwCp2rSqWDS6Sim1
+2026-11-02 13:45:34,finder one,HomeRow,SKIP,leader_already_sold,1.247e-05,7497,,HMBn8P36rQBhxpsHsoSEFVcY7NKF3Nhms3FE2ShRpump
+2026-11-02 13:45:34,finder one,Kittens,SKIP,leader_already_sold,3.698e-05,14202,,AqbenmTmze2wcsAUWAHacith8BVLqCaxS3XzdLEZpump
+2026-11-02 13:45:34,finder one,MOGZ,SKIP,lp_unlocked 79.4%,0.0004181,52800,1,Pmfm2RprxQRKZH1XWVsBUc2KgCTyzeDTSFbT1vJmogz
+2026-11-02 13:45:34,finder one,STEALTH,SKIP,leader_already_sold,0.0002144,41557,,GoDSW31bTxfkoup9yA1qcGGx9RMXdTEWgApv3xzBmoA
+2026-11-02 13:45:34,finder one,METT,SKIP,insiders 4,7.032e-05,22298,1,PP4UWdpQFXp1H3EYXQFRTpmLasdXsiuNN5o5eCDMETT
