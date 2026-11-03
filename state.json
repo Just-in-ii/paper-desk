@@ -1,10 +1,10 @@
 {
- "buys_today": 0,
- "cash": 85.05521333685041,
+ "buys_today": 1,
+ "cash": 74.75521333685042,
  "day": "2026-11-03",
  "last_sig": {
   "0ef4d20956b1190b": "0a6e079fac2654a0",
-  "24212f2b3e15ffdb": "b534c6f0eaeb5207",
+  "24212f2b3e15ffdb": "ea6ccc06986b42fe",
   "3bebba29a5753a93": "d3cb621eae228347"
  },
  "left_at": {
@@ -28,7 +28,21 @@
   "GL5DCtUzG9fFPzyJx3eS6uQh7X9X5aPiL4smKB1kpump": 1793492137,
   "mega4qqdQcsrCmj43fzHmxfZNmThNYeN3cz2kfR7fqs": 1793209534
  },
- "positions": {},
+ "positions": {
+  "G6xkhEG11goAnfGeEu8gxpy7RvNhhbCswScEmJWqkuip": {
+   "cost": 10.3,
+   "entry": 2.13519e-05,
+   "last_price": 2.073e-05,
+   "leader": "finder one",
+   "leader_held": 8353604.138386,
+   "misses": 0,
+   "opened": 1793670332,
+   "qty": 462488.11581170757,
+   "symbol": "KUIP",
+   "tax_pct": 0.0,
+   "tp_done": false
+  }
+ },
  "start_cash": 100.0,
  "started": 1792968363
 }

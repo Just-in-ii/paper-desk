@@ -924,3 +924,4 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-11-03 01:30:52,finder one,MOVEMBER,SKIP,insiders 17,0.0002116,38864,1,DTVcrMAEMwpSSBvu6W7P3BLZsRhFZb6bSzARFDqobfCT
 2026-11-03 01:30:52,finder one,XTX,SKIP,insiders 51,0.000753,70923,1,v2sv5awjgCV1jgMDz15u8Z7Gk5rwpNpqgrsfJxYpump
 2026-11-03 01:30:53,finder one,MOVEMBER,SKIP,insiders 17,0.0002116,38864,1,DTVcrMAEMwpSSBvu6W7P3BLZsRhFZb6bSzARFDqobfCT
+2026-11-03 01:45:32,finder one,KUIP,COPY,passed safety filter,2.073e-05,10525,1,G6xkhEG11goAnfGeEu8gxpy7RvNhhbCswScEmJWqkuip
