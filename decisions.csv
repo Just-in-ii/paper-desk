@@ -907,3 +907,9 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-11-03 00:30:53,finder one,Slingoor,SKIP,danger: Top 10 holders high ownership,0.0006254,67014,55,9rZR9nCQbaiBvotWVpifN8z1vckVFshnsATuAJrXpump
 2026-11-03 00:30:54,finder one,KOI,SKIP,thin_liquidity $0,4.95e-05,0,1,4pCsF8nrv5qdGUj3sUWqYwKAomFUNXupWJvbGYk13koi
 2026-11-03 00:30:55,finder one,EXFIL,SKIP,insiders 135,0.002287,144691,1,6FhVPctYg363pQbs4iSvqyHe2cJzfsvFD96gePy6pump
+2026-11-03 00:45:40,finder one,PAUL,SKIP,insiders 12,6.34e-05,19452,1,GnY6RSduqXgJ3nas2CKTDkNbrm2FXYExFxP7BXYEpump
+2026-11-03 00:45:41,finder one,FEAR,SKIP,insiders 4,0.00142,666512,16,CHtXwJ3qa2ozS9vQkxhR3MmNwkoUqkh3icGXgZPepump
+2026-11-03 00:45:41,finder one,Warcoin,SKIP,insiders 20,9.08e-06,6429,17,H86pLyqzZMim3pxrC29YWsMKoxL6xGFM1nQyVtyRpump
+2026-11-03 00:45:42,finder one,paws,SKIP,lp_unlocked 62.1%,0.0002633,51037,1,Fp4JkqEcKYKBKhb9iMu9NSDeo71HWgq2q9QtXaaKpump
+2026-11-03 00:45:42,finder one,MOGZ,SKIP,lp_unlocked 78.7%,0.0002941,43752,1,Pmfm2RprxQRKZH1XWVsBUc2KgCTyzeDTSFbT1vJmogz
+2026-11-03 00:45:43,finder one,RUGSEM,SKIP,insiders 4,5.093e-05,17601,1,AYi8wqqg4audZasLjUvKndkP6GzUJ34LGY7fyA3npump
