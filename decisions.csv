@@ -891,3 +891,7 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-11-02 23:45:39,finder one,MAMESUKE,SKIP,lp_unlocked 28.0%,0.0007674,75171,1,SCGBBnSwnekytGFHgyeHHxPMiN7xDxsWFGg9JgFSTNK
 2026-11-02 23:45:40,finder one,Learjet,SKIP,insiders 17,2.674e-05,12859,1,8Wi25nQhEay9KwAsoguEs3y1uxaJmCRQxRYnSY9dpump
 2026-11-02 23:45:40,finder one,METT,SKIP,top10_hold 32.9%,3.026e-05,14324,1,PP4UWdpQFXp1H3EYXQFRTpmLasdXsiuNN5o5eCDMETT
+2026-11-03 00:01:01,finder one,Panthar,SKIP,leader_already_sold,2.164e-05,10870,,3MSE8Ho8FwPrrof6Z2kadbD9sjtZYWWSrAAJrBnhmWkB
+2026-11-03 00:01:01,finder one,Slingoor,SKIP,leader_already_sold,0.0008454,77958,,9rZR9nCQbaiBvotWVpifN8z1vckVFshnsATuAJrXpump
+2026-11-03 00:01:01,finder one,OKCAT,SKIP,insiders 13,3.26e-05,14460,1,HBUVp1swazz2WyVgtHFWV8jfErXFpm8Nn5GSiG7VqHzW
+2026-11-03 00:01:02,finder one,walter,SKIP,insiders 17,6.364e-05,19937,1,CHjgAurRkfkcoJpiFCVhpU7uxbm1jKkDcNcnG64xpump
