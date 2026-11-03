@@ -1,10 +1,10 @@
 {
  "buys_today": 1,
- "cash": 74.75521333685042,
+ "cash": 82.44703803980426,
  "day": "2026-11-03",
  "last_sig": {
   "0ef4d20956b1190b": "0a6e079fac2654a0",
-  "24212f2b3e15ffdb": "f0e584321016cec5",
+  "24212f2b3e15ffdb": "8a10e70bf55feda3",
   "3bebba29a5753a93": "d3cb621eae228347"
  },
  "left_at": {
@@ -25,24 +25,11 @@
   "FDwCosavNvMiFB812ajJp3gG7eZ9c4bpgcnY6fDQpump": 1793623536,
   "Fek7BGWxw9MabKejxFdhEftygFkJXcQjezk99fkTmKaX": 1793213136,
   "FuK9BkA4jXTBzj8HQRQT4538gy1BJzPYy9qwiHs2pump": 1793652334,
+  "G6xkhEG11goAnfGeEu8gxpy7RvNhhbCswScEmJWqkuip": 1793672767,
   "GL5DCtUzG9fFPzyJx3eS6uQh7X9X5aPiL4smKB1kpump": 1793492137,
   "mega4qqdQcsrCmj43fzHmxfZNmThNYeN3cz2kfR7fqs": 1793209534
  },
- "positions": {
-  "G6xkhEG11goAnfGeEu8gxpy7RvNhhbCswScEmJWqkuip": {
-   "cost": 10.3,
-   "entry": 2.13519e-05,
-   "last_price": 2.017e-05,
-   "leader": "finder one",
-   "leader_held": 8353604.138386,
-   "misses": 0,
-   "opened": 1793670332,
-   "qty": 462488.11581170757,
-   "symbol": "KUIP",
-   "tax_pct": 0.0,
-   "tp_done": false
-  }
- },
+ "positions": {},
  "start_cash": 100.0,
  "started": 1792968363
 }
