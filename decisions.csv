@@ -915,3 +915,8 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-11-03 00:45:43,finder one,RUGSEM,SKIP,insiders 4,5.093e-05,17601,1,AYi8wqqg4audZasLjUvKndkP6GzUJ34LGY7fyA3npump
 2026-11-03 01:00:58,finder one,MOVEMBER,SKIP,insiders 17,0.0003104,47217,1,DTVcrMAEMwpSSBvu6W7P3BLZsRhFZb6bSzARFDqobfCT
 2026-11-03 01:00:58,finder one,MOVEMBER,SKIP,insiders 17,0.0003104,47217,1,DTVcrMAEMwpSSBvu6W7P3BLZsRhFZb6bSzARFDqobfCT
+2026-11-03 01:15:33,finder one,Panthar,SKIP,leader_already_sold,1.257e-05,7919,,3MSE8Ho8FwPrrof6Z2kadbD9sjtZYWWSrAAJrBnhmWkB
+2026-11-03 01:15:34,finder one,Percolator,SKIP,leader_already_sold,0.00327,320282,,8PzFWyLpCVEmbZmVJcaRTU5r69XKJx1rd7YGpWvnpump
+2026-11-03 01:15:34,finder one,Slingoor,SKIP,danger: Top 10 holders high ownership,0.0004942,59475,55,9rZR9nCQbaiBvotWVpifN8z1vckVFshnsATuAJrXpump
+2026-11-03 01:15:34,finder one,Kim,SKIP,insiders 257,6.063e-05,23106,1,qhbbjGBKJxW3AZGqngWM5tHcrENR3pVoRB9MCf1pump
+2026-11-03 01:15:34,finder one,METT,SKIP,leader_already_sold,3.75e-05,15987,,PP4UWdpQFXp1H3EYXQFRTpmLasdXsiuNN5o5eCDMETT
