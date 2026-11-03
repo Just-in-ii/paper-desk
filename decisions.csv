@@ -927,3 +927,4 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-11-03 01:45:32,finder one,KUIP,COPY,passed safety filter,2.073e-05,10525,1,G6xkhEG11goAnfGeEu8gxpy7RvNhhbCswScEmJWqkuip
 2026-11-03 02:00:59,finder one,Slingoor,SKIP,danger: Top 10 holders high ownership,0.0002918,45418,55,9rZR9nCQbaiBvotWVpifN8z1vckVFshnsATuAJrXpump
 2026-11-03 02:01:00,finder one,PI,SKIP,insiders 76,3.959e-05,16748,1,93VGqXL76voGxc43apJTDJoKkqnxTht1BKWoEmUypump
+2026-11-03 02:15:39,finder one,ANSEM,SKIP,danger: Large Amount of LP Unlocked,5.643e-05,21368,55,CvRJ8MrnB1AwjrgX25uyeLJiXNSugTo2ZHh8UXDTpump
