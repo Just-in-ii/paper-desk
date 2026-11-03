@@ -899,3 +899,11 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-11-03 00:15:38,finder one,RAM,SKIP,insiders 10,2.957e-05,14169,1,6QUHcqYuiPRHxhnYZoygewXtNQr9kUrhc9Tmwgtbpump
 2026-11-03 00:15:38,finder one,METT,SKIP,top10_hold 32.9%,2.748e-05,13656,1,PP4UWdpQFXp1H3EYXQFRTpmLasdXsiuNN5o5eCDMETT
 2026-11-03 00:15:39,finder one,PAUL,SKIP,insiders 12,7.445e-05,21114,1,GnY6RSduqXgJ3nas2CKTDkNbrm2FXYExFxP7BXYEpump
+2026-11-03 00:30:51,finder one,CAPYTISTAS,SKIP,insiders 32,1.8e-05,10543,1,xRtT8q7g7NsAnbTgvCtim8jtxKVVc5epoLoAYmqpump
+2026-11-03 00:30:52,finder one,CAPY,SKIP,lp_unlocked 89.4%,0.000154,37502,1,5DnWmSL9t3YqK5MeYq8ozJpna46VcdePWzHvyN8avg2g
+2026-11-03 00:30:52,finder one,CAPY,SKIP,insiders 6,0.0004347,130596,1,DBPTU2oKLDHXQjAEJ3rZi8bUGmt2uxUbipgg6xmXoMqr
+2026-11-03 00:30:52,finder one,PUMP,SKIP,leader_already_sold,0.003988,2296466,,pumpCmXqMfrsAkQ5r49WcJnRayYRqmXz6ae8H7H9Dfn
+2026-11-03 00:30:53,finder one,Panthar,SKIP,insiders 27,2.34e-05,11391,1,3MSE8Ho8FwPrrof6Z2kadbD9sjtZYWWSrAAJrBnhmWkB
+2026-11-03 00:30:53,finder one,Slingoor,SKIP,danger: Top 10 holders high ownership,0.0006254,67014,55,9rZR9nCQbaiBvotWVpifN8z1vckVFshnsATuAJrXpump
+2026-11-03 00:30:54,finder one,KOI,SKIP,thin_liquidity $0,4.95e-05,0,1,4pCsF8nrv5qdGUj3sUWqYwKAomFUNXupWJvbGYk13koi
+2026-11-03 00:30:55,finder one,EXFIL,SKIP,insiders 135,0.002287,144691,1,6FhVPctYg363pQbs4iSvqyHe2cJzfsvFD96gePy6pump
