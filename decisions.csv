@@ -920,3 +920,7 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-11-03 01:15:34,finder one,Slingoor,SKIP,danger: Top 10 holders high ownership,0.0004942,59475,55,9rZR9nCQbaiBvotWVpifN8z1vckVFshnsATuAJrXpump
 2026-11-03 01:15:34,finder one,Kim,SKIP,insiders 257,6.063e-05,23106,1,qhbbjGBKJxW3AZGqngWM5tHcrENR3pVoRB9MCf1pump
 2026-11-03 01:15:34,finder one,METT,SKIP,leader_already_sold,3.75e-05,15987,,PP4UWdpQFXp1H3EYXQFRTpmLasdXsiuNN5o5eCDMETT
+2026-11-03 01:30:51,finder one,Percolator,SKIP,leader_already_sold,0.003583,335484,,8PzFWyLpCVEmbZmVJcaRTU5r69XKJx1rd7YGpWvnpump
+2026-11-03 01:30:52,finder one,MOVEMBER,SKIP,insiders 17,0.0002116,38864,1,DTVcrMAEMwpSSBvu6W7P3BLZsRhFZb6bSzARFDqobfCT
+2026-11-03 01:30:52,finder one,XTX,SKIP,insiders 51,0.000753,70923,1,v2sv5awjgCV1jgMDz15u8Z7Gk5rwpNpqgrsfJxYpump
+2026-11-03 01:30:53,finder one,MOVEMBER,SKIP,insiders 17,0.0002116,38864,1,DTVcrMAEMwpSSBvu6W7P3BLZsRhFZb6bSzARFDqobfCT
