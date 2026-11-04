@@ -960,3 +960,6 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-11-04 05:15:36,finder one,CAPY,SKIP,insiders 122,7.789e-05,27774,1,5DnWmSL9t3YqK5MeYq8ozJpna46VcdePWzHvyN8avg2g
 2026-11-04 05:30:48,finder one,MOGMAS,SKIP,top10_hold 34.5%,4.674e-05,17058,1,4yxnt3xAdyBFFbzMWJy9sjGEoiBNkjwdSQZ8ZyULpump
 2026-11-04 05:30:48,finder one,RAM,SKIP,lp_unlocked 65.5%,0.0009983,98513,1,6QUHcqYuiPRHxhnYZoygewXtNQr9kUrhc9Tmwgtbpump
+2026-11-04 05:45:34,finder one,ARNOLD,COPY,passed safety filter,0.0001219,31424,1,nG3jfPQHU2ZQhPERkTZD8YPSAsrrWiePPDcm9jxpump
+2026-11-04 05:45:35,finder one,Anakin,SKIP,lp_unlocked 58.5%,0.0003542,59852,1,ExxzYBTt3jwU5MUxuw2F4toYbTLdFwThSjyaCn6Xpump
+2026-11-04 05:45:36,finder one,H081,SKIP,insiders 14,0.0002391,40679,16,EgqxxR7zowzaLEm24oep5qqBieLVAWYX78LhgeqAJAo

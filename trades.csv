@@ -47,3 +47,4 @@ time,action,symbol,leader,price,qty,cash_flow_usd,pnl_usd,reason,mint,costs_usd
 2026-11-03 02:26:07,SELL,KUIP,finder one,1.74988e-05,462488.1158,7.6918,-2.6082,finder one sold 100%,G6xkhEG11goAnfGeEu8gxpy7RvNhhbCswScEmJWqkuip,0.6515
 2026-11-04 01:01:00,BUY,MACHKA,finder one,2.73671e-05,360834.7249,-10.3000,,passed safety filter,CG1DmSiMXw9WjQXCzP5JDnma5BDY3Cks9bRTdXNLpump,0.7126
 2026-11-04 01:15:34,SELL,MACHKA,finder one,1.50738e-05,360834.7249,5.0712,-5.2288,finder one sold 100%,CG1DmSiMXw9WjQXCzP5JDnma5BDY3Cks9bRTdXNLpump,0.5362
+2026-11-04 05:45:34,BUY,ARNOLD,finder one,0.000125557,78649.53766,-10.3000,,passed safety filter,nG3jfPQHU2ZQhPERkTZD8YPSAsrrWiePPDcm9jxpump,0.7126

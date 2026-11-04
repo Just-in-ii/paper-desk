@@ -1,10 +1,10 @@
 {
- "buys_today": 1,
- "cash": 77.21819913515232,
+ "buys_today": 2,
+ "cash": 66.91819913515232,
  "day": "2026-11-04",
  "last_sig": {
   "0ef4d20956b1190b": "0a6e079fac2654a0",
-  "24212f2b3e15ffdb": "68082614ccdced39",
+  "24212f2b3e15ffdb": "02921eb964e81f2e",
   "3bebba29a5753a93": "d3cb621eae228347"
  },
  "left_at": {
@@ -30,7 +30,21 @@
   "GL5DCtUzG9fFPzyJx3eS6uQh7X9X5aPiL4smKB1kpump": 1793492137,
   "mega4qqdQcsrCmj43fzHmxfZNmThNYeN3cz2kfR7fqs": 1793209534
  },
- "positions": {},
+ "positions": {
+  "nG3jfPQHU2ZQhPERkTZD8YPSAsrrWiePPDcm9jxpump": {
+   "cost": 10.3,
+   "entry": 0.000125557,
+   "last_price": 0.0001219,
+   "leader": "finder one",
+   "leader_held": 36825.242332,
+   "misses": 0,
+   "opened": 1793771134,
+   "qty": 78649.53766018622,
+   "symbol": "ARNOLD",
+   "tax_pct": 0.0,
+   "tp_done": false
+  }
+ },
  "start_cash": 100.0,
  "started": 1792968363
 }
