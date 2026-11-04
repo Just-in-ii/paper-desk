@@ -931,3 +931,6 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-11-04 00:30:50,finder one,WTAIL,SKIP,danger: Creator history of rugged tokens,0.0001748,24176,53,HBFxk72r4xVqhT8yK8ZFXEEGvpfkoeeSTQXiewZP7SZM
 2026-11-04 00:30:50,finder one,AMD,SKIP,leader_already_sold,0.001945,143995,,DDmGnuvroxVrb7CSyjYcezFU8gnAfhKasg4ZZezmpump
 2026-11-04 00:30:51,finder one,MOVEMBER,SKIP,insiders 17,6.583e-05,21535,1,DTVcrMAEMwpSSBvu6W7P3BLZsRhFZb6bSzARFDqobfCT
+2026-11-04 00:45:37,finder one,WBTC,SKIP,leader_already_sold,76862.41,1742934,,3NZ9JMVBmGAqocybic2c7LQCJScmgsAZ6vQqTDzcqmJh
+2026-11-04 00:45:37,finder one,WIF,SKIP,leader_already_sold,6.941e-05,21187,,E7ayy5Se6gjwCNtw9NP629AucnTgqab4SSmSxDpUpump
+2026-11-04 00:45:37,finder one,MACHKA,SKIP,leader_already_sold,3.033e-05,12595,,CG1DmSiMXw9WjQXCzP5JDnma5BDY3Cks9bRTdXNLpump
