@@ -963,3 +963,4 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-11-04 05:45:34,finder one,ARNOLD,COPY,passed safety filter,0.0001219,31424,1,nG3jfPQHU2ZQhPERkTZD8YPSAsrrWiePPDcm9jxpump
 2026-11-04 05:45:35,finder one,Anakin,SKIP,lp_unlocked 58.5%,0.0003542,59852,1,ExxzYBTt3jwU5MUxuw2F4toYbTLdFwThSjyaCn6Xpump
 2026-11-04 05:45:36,finder one,H081,SKIP,insiders 14,0.0002391,40679,16,EgqxxR7zowzaLEm24oep5qqBieLVAWYX78LhgeqAJAo
+2026-11-04 06:00:56,finder one,RAM,SKIP,lp_unlocked 65.9%,0.0008929,93449,1,6QUHcqYuiPRHxhnYZoygewXtNQr9kUrhc9Tmwgtbpump
