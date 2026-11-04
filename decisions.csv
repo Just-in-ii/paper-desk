@@ -948,3 +948,8 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-11-04 03:45:34,finder one,CAPY,SKIP,insiders 121,9.764e-05,30991,1,5DnWmSL9t3YqK5MeYq8ozJpna46VcdePWzHvyN8avg2g
 2026-11-04 04:00:57,finder one,AMD,SKIP,lp_unlocked 45.0%,0.001492,126290,29,DDmGnuvroxVrb7CSyjYcezFU8gnAfhKasg4ZZezmpump
 2026-11-04 04:30:44,finder one,Sexbot,SKIP,leader_already_sold,3.603e-05,15342,,6Na6huTtPekKeeJpmtpq8mw2ZVAC2qCaRBj8KeB4pump
+2026-11-04 04:45:39,finder one,bluekkake,SKIP,leader_already_sold,1.225e-05,7529,,CSTG5BGFgz3YeAXYBGYs2hrQ8JAVN8ZAAA4bGvEopump
+2026-11-04 04:45:39,finder one,HIGH/ER,SKIP,leader_already_sold,1.041e-05,6792,,BxsNVvPuvCmHJRE6LyzqFAVoiTNhdHUVAgKNZhvApump
+2026-11-04 04:45:40,finder one,TALARICO,SKIP,thin_liquidity $8356,1.495e-05,8357,1,DvHUrb6mCu5wMHLyV7jAN391mmH7bEiiuTnL2M5Qpump
+2026-11-04 04:45:40,finder one,AMD,SKIP,leader_already_sold,0.001321,119010,,DDmGnuvroxVrb7CSyjYcezFU8gnAfhKasg4ZZezmpump
+2026-11-04 04:45:41,finder one,白いヤク,SKIP,insiders 13,1.188e-05,7696,1,6jFcYpa95qnzX3Kui4TTyPCEzQorHRCHXhoCAg5tpump
