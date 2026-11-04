@@ -988,3 +988,4 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-11-04 08:30:51,finder one,CAPY,SKIP,leader_already_sold,8.18e-05,28675,,5DnWmSL9t3YqK5MeYq8ozJpna46VcdePWzHvyN8avg2g
 2026-11-04 08:45:34,finder one,NORMIE,SKIP,danger: Large Amount of LP Unlocked,0.001961,134029,66,4MrsXQzaosYNyFd4wKDvgnC5xRtRqgXRrijFTGj9pump
 2026-11-04 09:15:35,finder one,HOPE,SKIP,insiders 8,7.977e-05,22675,1,4wmT5vPBJ3iiFRmNhciCZ67yasiXSjzz3g9VukXrpump
+2026-11-04 09:30:48,finder one,Suica,COPY,passed safety filter,3.081e-05,12769,1,t2TGpqDS81fNNXCST8hxNrRsfVPxJdw41Cct4yLpump

@@ -51,3 +51,4 @@ time,action,symbol,leader,price,qty,cash_flow_usd,pnl_usd,reason,mint,costs_usd
 2026-11-04 06:00:55,SELL,ARNOLD,finder one,0.000111259,78649.53766,8.3411,-1.9589,finder one sold 100%,nG3jfPQHU2ZQhPERkTZD8YPSAsrrWiePPDcm9jxpump,0.6800
 2026-11-04 08:15:33,BUY,WIF,finder one,8.13906e-05,121328.5072,-10.3000,,passed safety filter,E7ayy5Se6gjwCNtw9NP629AucnTgqab4SSmSxDpUpump,0.7126
 2026-11-04 08:45:34,SELL,WIF,finder one,6.90252e-05,121328.5072,7.9700,-2.3300,finder one sold 100%,E7ayy5Se6gjwCNtw9NP629AucnTgqab4SSmSxDpUpump,0.6637
+2026-11-04 09:30:48,BUY,Suica,finder one,3.17343e-05,311177.4956,-10.3000,,passed safety filter,t2TGpqDS81fNNXCST8hxNrRsfVPxJdw41Cct4yLpump,0.7126
