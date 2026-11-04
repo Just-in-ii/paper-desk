@@ -1,10 +1,10 @@
 {
- "buys_today": 0,
- "cash": 82.44703803980426,
+ "buys_today": 1,
+ "cash": 72.14703803980426,
  "day": "2026-11-04",
  "last_sig": {
   "0ef4d20956b1190b": "0a6e079fac2654a0",
-  "24212f2b3e15ffdb": "e19a34fcd7bc74bd",
+  "24212f2b3e15ffdb": "56cb777dc3ecf3b3",
   "3bebba29a5753a93": "d3cb621eae228347"
  },
  "left_at": {
@@ -29,7 +29,21 @@
   "GL5DCtUzG9fFPzyJx3eS6uQh7X9X5aPiL4smKB1kpump": 1793492137,
   "mega4qqdQcsrCmj43fzHmxfZNmThNYeN3cz2kfR7fqs": 1793209534
  },
- "positions": {},
+ "positions": {
+  "CG1DmSiMXw9WjQXCzP5JDnma5BDY3Cks9bRTdXNLpump": {
+   "cost": 10.3,
+   "entry": 2.73671e-05,
+   "last_price": 2.657e-05,
+   "leader": "finder one",
+   "leader_held": 1245413.727105,
+   "misses": 0,
+   "opened": 1793754060,
+   "qty": 360834.72490691376,
+   "symbol": "MACHKA",
+   "tax_pct": 0.0,
+   "tp_done": false
+  }
+ },
  "start_cash": 100.0,
  "started": 1792968363
 }

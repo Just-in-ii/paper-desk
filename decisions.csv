@@ -934,3 +934,7 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-11-04 00:45:37,finder one,WBTC,SKIP,leader_already_sold,76862.41,1742934,,3NZ9JMVBmGAqocybic2c7LQCJScmgsAZ6vQqTDzcqmJh
 2026-11-04 00:45:37,finder one,WIF,SKIP,leader_already_sold,6.941e-05,21187,,E7ayy5Se6gjwCNtw9NP629AucnTgqab4SSmSxDpUpump
 2026-11-04 00:45:37,finder one,MACHKA,SKIP,leader_already_sold,3.033e-05,12595,,CG1DmSiMXw9WjQXCzP5JDnma5BDY3Cks9bRTdXNLpump
+2026-11-04 01:00:59,finder one,CARDS,SKIP,leader_already_sold,0.2554,3713377,,CARDSccUMFKoPRZxt5vt3ksUbxEFEcnZ3H2pd3dKxYjp
+2026-11-04 01:01:00,finder one,MACHKA,COPY,passed safety filter,2.657e-05,11726,1,CG1DmSiMXw9WjQXCzP5JDnma5BDY3Cks9bRTdXNLpump
+2026-11-04 01:01:00,finder one,Sexbot,SKIP,insiders 34,4.863e-05,18053,1,6Na6huTtPekKeeJpmtpq8mw2ZVAC2qCaRBj8KeB4pump
+2026-11-04 01:01:00,finder one,AMD,SKIP,leader_already_sold,0.001842,140102,,DDmGnuvroxVrb7CSyjYcezFU8gnAfhKasg4ZZezmpump
