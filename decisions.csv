@@ -974,3 +974,5 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-11-04 07:01:01,finder one,NTRNDM,SKIP,leader_already_sold,0.0005978,79873,,NTRNDMqQSiwEC2jJs3wJiZS6bpGYQJtMNQJgiX3WyV6
 2026-11-04 07:15:36,finder one,Slingoor,SKIP,leader_already_sold,5.215e-05,19334,,9rZR9nCQbaiBvotWVpifN8z1vckVFshnsATuAJrXpump
 2026-11-04 07:15:37,finder one,RAM,SKIP,lp_unlocked 65.6%,0.0006686,81674,1,6QUHcqYuiPRHxhnYZoygewXtNQr9kUrhc9Tmwgtbpump
+2026-11-04 07:30:48,finder one,Slingoor,SKIP,insiders 19,4.226e-05,17301,1,9rZR9nCQbaiBvotWVpifN8z1vckVFshnsATuAJrXpump
+2026-11-04 07:30:48,finder one,RAM,SKIP,leader_already_sold,0.0007639,87235,,6QUHcqYuiPRHxhnYZoygewXtNQr9kUrhc9Tmwgtbpump
