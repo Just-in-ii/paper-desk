@@ -1,5 +1,5 @@
 ```
-PAPER DESK REPORT  Wed 04 Nov 2026, 04:00 UTC
+PAPER DESK REPORT  Wed 04 Nov 2026, 04:15 UTC
 Day 10, running since 25 Oct 2026. AI judge: off.
 
 POT
@@ -32,8 +32,8 @@ LEADERS
 
 FILTER CHECK (last 7 days)
   How each coin moved since the leader bought it, whatever we did after.
-  copied         21 coins, median -77.4%, 6 went to ~zero
-  filtered out  180 coins, median -65.2%, 43 went to ~zero
+  copied         21 coins, median -78.8%, 6 went to ~zero
+  filtered out  179 coins, median -63.1%, 42 went to ~zero
   The filter is NOT beating the coins it rejects yet.
 
 Not real money. Fills include slippage and fees to stay honest, but real trades would land later than the leader's and could be worse.
