@@ -993,3 +993,4 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-11-04 10:45:35,finder one,Slingoor,SKIP,insiders 19,3.271e-05,15036,1,9rZR9nCQbaiBvotWVpifN8z1vckVFshnsATuAJrXpump
 2026-11-04 10:45:35,finder one,SHAKIRA,SKIP,leader_already_sold,1.557e-05,0,,9NjrwJTbVbMzv3jong3pqQny6vkLePVjUvavda6Ypump
 2026-11-04 10:45:35,finder one,RAM,SKIP,lp_unlocked 61.2%,0.0004246,66175,1,6QUHcqYuiPRHxhnYZoygewXtNQr9kUrhc9Tmwgtbpump
+2026-11-04 11:01:04,finder one,TrumpWars,SKIP,leader_already_sold,9.682e-05,24955,,31HzUsjzTt7FBCGnDy68cBnELayVsnd3zYEBtsXXpump
