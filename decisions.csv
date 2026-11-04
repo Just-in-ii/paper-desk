@@ -1008,3 +1008,9 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-11-04 19:30:51,finder one,WOKE,SKIP,insiders 8,1.482e-05,8909,1,AVxETM6mCa5S5NFpNZrjJRLDUwtoATDvG2EQB6Q9pump
 2026-11-04 19:30:51,finder one,MOGZ,SKIP,lp_unlocked 80.3%,0.0003003,44894,1,Pmfm2RprxQRKZH1XWVsBUc2KgCTyzeDTSFbT1vJmogz
 2026-11-04 19:30:52,finder one,MOVEMBER,SKIP,insiders 17,3.785e-05,16296,1,DTVcrMAEMwpSSBvu6W7P3BLZsRhFZb6bSzARFDqobfCT
+2026-11-04 19:45:37,finder one,PARANOID,SKIP,leader_already_sold,0.0001234,32439,,22rWiyDiY9GgxSrFiWC2vX1GxNxjkvrRPmZJDzv9pq6X
+2026-11-04 19:45:37,finder one,WOKE3,SKIP,insiders 14,7.485e-05,21571,1,9hbzrGcuBBjqFhDgHzjF9jGPjWHZV6nRwjDeS38ypump
+2026-11-04 19:45:38,finder one,BLOOM,SKIP,thin_liquidity $5207,6.666e-06,5207,24,ExdQxJcXzNzhW6CC9phvoEVpKvJQJyg98CE228Uxpump
+2026-11-04 19:45:38,finder one,S.A.N,SKIP,insiders 6,1.645e-05,9284,1,8q7BEdPtBm6MtpvGwit2ckwKgfwGaFMkPBM7Lj2Apump
+2026-11-04 19:45:39,finder one,Impeach,SKIP,lp_unlocked 60.2%,0.0002659,44320,1,F2xQeTCTqnczXxXQaBWAfDpUnpxn4wQHRPSqvUYJpump
+2026-11-04 19:45:39,finder one,PAWS,SKIP,insiders 45,5.626e-05,23730,1,2x3kudsxqCWdWeZA1vSNr9uKkHUBQG81m5mBGRAPpump
