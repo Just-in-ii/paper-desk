@@ -972,3 +972,5 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-11-04 06:30:48,finder one,Anakin,SKIP,lp_unlocked 59.1%,0.0003543,59721,1,ExxzYBTt3jwU5MUxuw2F4toYbTLdFwThSjyaCn6Xpump
 2026-11-04 06:45:36,finder one,Kimchi,SKIP,danger: Top 10 holders high ownership,0.002707,180584,56,CSocnzcRpgSCr1naKcNTieWZUxb6rABe45j844m7pump
 2026-11-04 07:01:01,finder one,NTRNDM,SKIP,leader_already_sold,0.0005978,79873,,NTRNDMqQSiwEC2jJs3wJiZS6bpGYQJtMNQJgiX3WyV6
+2026-11-04 07:15:36,finder one,Slingoor,SKIP,leader_already_sold,5.215e-05,19334,,9rZR9nCQbaiBvotWVpifN8z1vckVFshnsATuAJrXpump
+2026-11-04 07:15:37,finder one,RAM,SKIP,lp_unlocked 65.6%,0.0006686,81674,1,6QUHcqYuiPRHxhnYZoygewXtNQr9kUrhc9Tmwgtbpump
