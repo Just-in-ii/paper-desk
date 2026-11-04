@@ -1,10 +1,10 @@
 {
- "buys_today": 2,
- "cash": 75.2592871843053,
+ "buys_today": 3,
+ "cash": 64.9592871843053,
  "day": "2026-11-04",
  "last_sig": {
   "0ef4d20956b1190b": "0a6e079fac2654a0",
-  "24212f2b3e15ffdb": "6e8a6a9cb67c8d08",
+  "24212f2b3e15ffdb": "40450d8e4a911d07",
   "3bebba29a5753a93": "d3cb621eae228347"
  },
  "left_at": {
@@ -31,7 +31,21 @@
   "mega4qqdQcsrCmj43fzHmxfZNmThNYeN3cz2kfR7fqs": 1793209534,
   "nG3jfPQHU2ZQhPERkTZD8YPSAsrrWiePPDcm9jxpump": 1793772055
  },
- "positions": {},
+ "positions": {
+  "E7ayy5Se6gjwCNtw9NP629AucnTgqab4SSmSxDpUpump": {
+   "cost": 10.3,
+   "entry": 8.13906e-05,
+   "last_price": 7.902e-05,
+   "leader": "finder one",
+   "leader_held": 532129.206204,
+   "misses": 0,
+   "opened": 1793780133,
+   "qty": 121328.50722319284,
+   "symbol": "WIF",
+   "tax_pct": 0.0,
+   "tp_done": false
+  }
+ },
  "start_cash": 100.0,
  "started": 1792968363
 }
