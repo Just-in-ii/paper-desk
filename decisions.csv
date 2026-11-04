@@ -953,3 +953,6 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-11-04 04:45:40,finder one,TALARICO,SKIP,thin_liquidity $8356,1.495e-05,8357,1,DvHUrb6mCu5wMHLyV7jAN391mmH7bEiiuTnL2M5Qpump
 2026-11-04 04:45:40,finder one,AMD,SKIP,leader_already_sold,0.001321,119010,,DDmGnuvroxVrb7CSyjYcezFU8gnAfhKasg4ZZezmpump
 2026-11-04 04:45:41,finder one,白いヤク,SKIP,insiders 13,1.188e-05,7696,1,6jFcYpa95qnzX3Kui4TTyPCEzQorHRCHXhoCAg5tpump
+2026-11-04 05:00:59,finder one,AMD,SKIP,leader_already_sold,0.001211,115188,,DDmGnuvroxVrb7CSyjYcezFU8gnAfhKasg4ZZezmpump
+2026-11-04 05:01:00,finder one,ANSEM,SKIP,insiders 43,1.958e-05,11987,1,CvRJ8MrnB1AwjrgX25uyeLJiXNSugTo2ZHh8UXDTpump
+2026-11-04 05:01:01,finder one,Anakin,SKIP,lp_unlocked 54.9%,0.0004561,67310,1,ExxzYBTt3jwU5MUxuw2F4toYbTLdFwThSjyaCn6Xpump
