@@ -984,3 +984,5 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-11-04 08:15:33,finder one,X,SKIP,leader_already_sold,7.239e-05,20920,,FQE9h4fL65oDHMsR2MHcSe6d6DF4hFrFarsQQkVJpump
 2026-11-04 08:15:33,finder one,WIF,COPY,passed safety filter,7.902e-05,23032,1,E7ayy5Se6gjwCNtw9NP629AucnTgqab4SSmSxDpUpump
 2026-11-04 08:15:34,finder one,MarsX,SKIP,insiders 9,2.729e-05,15799,1,Fak3rJEBfR4Vb8DoFpecf6yoxbkkr1gGUH5tdj2rpump
+2026-11-04 08:30:50,finder one,Slingoor,SKIP,insiders 19,3.728e-05,16140,1,9rZR9nCQbaiBvotWVpifN8z1vckVFshnsATuAJrXpump
+2026-11-04 08:30:51,finder one,CAPY,SKIP,leader_already_sold,8.18e-05,28675,,5DnWmSL9t3YqK5MeYq8ozJpna46VcdePWzHvyN8avg2g
