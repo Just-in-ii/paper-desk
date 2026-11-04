@@ -928,3 +928,6 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-11-03 02:00:59,finder one,Slingoor,SKIP,danger: Top 10 holders high ownership,0.0002918,45418,55,9rZR9nCQbaiBvotWVpifN8z1vckVFshnsATuAJrXpump
 2026-11-03 02:01:00,finder one,PI,SKIP,insiders 76,3.959e-05,16748,1,93VGqXL76voGxc43apJTDJoKkqnxTht1BKWoEmUypump
 2026-11-03 02:15:39,finder one,ANSEM,SKIP,danger: Large Amount of LP Unlocked,5.643e-05,21368,55,CvRJ8MrnB1AwjrgX25uyeLJiXNSugTo2ZHh8UXDTpump
+2026-11-04 00:30:50,finder one,WTAIL,SKIP,danger: Creator history of rugged tokens,0.0001748,24176,53,HBFxk72r4xVqhT8yK8ZFXEEGvpfkoeeSTQXiewZP7SZM
+2026-11-04 00:30:50,finder one,AMD,SKIP,leader_already_sold,0.001945,143995,,DDmGnuvroxVrb7CSyjYcezFU8gnAfhKasg4ZZezmpump
+2026-11-04 00:30:51,finder one,MOVEMBER,SKIP,insiders 17,6.583e-05,21535,1,DTVcrMAEMwpSSBvu6W7P3BLZsRhFZb6bSzARFDqobfCT
