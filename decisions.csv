@@ -946,3 +946,4 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-11-04 03:45:33,finder one,MEME/COIN,SKIP,leader_already_sold,2.886e-05,12345,,FicTXnzYTUSA3ahseJQ5RMroB2Fr2kqZ2WqPnJDnpump
 2026-11-04 03:45:33,finder one,BAGSPAY,SKIP,insiders 2229,0.0004598,98856,7,H8WTvo3ZXSYHJAcYqzCforbG8coR1FDAX2kHFfqHBAGS
 2026-11-04 03:45:34,finder one,CAPY,SKIP,insiders 121,9.764e-05,30991,1,5DnWmSL9t3YqK5MeYq8ozJpna46VcdePWzHvyN8avg2g
+2026-11-04 04:00:57,finder one,AMD,SKIP,lp_unlocked 45.0%,0.001492,126290,29,DDmGnuvroxVrb7CSyjYcezFU8gnAfhKasg4ZZezmpump
