@@ -994,3 +994,9 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-11-04 10:45:35,finder one,SHAKIRA,SKIP,leader_already_sold,1.557e-05,0,,9NjrwJTbVbMzv3jong3pqQny6vkLePVjUvavda6Ypump
 2026-11-04 10:45:35,finder one,RAM,SKIP,lp_unlocked 61.2%,0.0004246,66175,1,6QUHcqYuiPRHxhnYZoygewXtNQr9kUrhc9Tmwgtbpump
 2026-11-04 11:01:04,finder one,TrumpWars,SKIP,leader_already_sold,9.682e-05,24955,,31HzUsjzTt7FBCGnDy68cBnELayVsnd3zYEBtsXXpump
+2026-11-04 17:15:37,finder one,$TAPE,SKIP,danger: Creator history of rugged tokens,6.092e-05,19940,45,7xP2r4Vtjy5opBZjbPcCc4N7BkRhhQddqsFQDpDopump
+2026-11-04 17:15:37,finder one,$TAPE,SKIP,danger: Creator history of rugged tokens,6.092e-05,19940,45,7xP2r4Vtjy5opBZjbPcCc4N7BkRhhQddqsFQDpDopump
+2026-11-04 17:15:37,finder one,MOGZ,SKIP,leader_already_sold,0.0003039,45282,,Pmfm2RprxQRKZH1XWVsBUc2KgCTyzeDTSFbT1vJmogz
+2026-11-04 17:15:38,finder one,S.A.N,SKIP,insiders 6,4.812e-05,17101,1,8q7BEdPtBm6MtpvGwit2ckwKgfwGaFMkPBM7Lj2Apump
+2026-11-04 17:15:39,finder one,$TAPE,SKIP,danger: Creator history of rugged tokens,6.092e-05,19940,45,7xP2r4Vtjy5opBZjbPcCc4N7BkRhhQddqsFQDpDopump
+2026-11-04 17:15:39,finder one,H081,SKIP,insiders 14,0.0002862,45245,16,EgqxxR7zowzaLEm24oep5qqBieLVAWYX78LhgeqAJAo
