@@ -1020,3 +1020,6 @@ time,leader,symbol,verdict,reason,price_then,liquidity_usd,risk_score,mint
 2026-11-04 20:15:36,finder one,MOVEMBER,SKIP,insiders 17,3.417e-05,15344,1,DTVcrMAEMwpSSBvu6W7P3BLZsRhFZb6bSzARFDqobfCT
 2026-11-05 02:30:47,finder one,NTRNDM,SKIP,lp_unlocked 72.8%,0.0003944,65680,1,NTRNDMqQSiwEC2jJs3wJiZS6bpGYQJtMNQJgiX3WyV6
 2026-11-05 02:30:47,finder one,PIRATE,SKIP,lp_unlocked 87.1%,0.0003015,110932,1,2StNe98imN7M6K341a7a4xvc8eNTvLCde5EugAKfLoat
+2026-11-05 02:45:35,finder one,BTC,SKIP,leader_already_sold,0.01522,470072,,C5xph2yL6gMdxmuLGxJBkGpmuDFfyi5fqkBNhvL6pump
+2026-11-05 02:45:35,finder one,Impeach,SKIP,lp_unlocked 55.5%,0.000608,69631,1,F2xQeTCTqnczXxXQaBWAfDpUnpxn4wQHRPSqvUYJpump
+2026-11-05 02:45:36,finder one,Kimchi,SKIP,danger: Top 10 holders high ownership,0.002661,182869,56,CSocnzcRpgSCr1naKcNTieWZUxb6rABe45j844m7pump
